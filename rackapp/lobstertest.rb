@@ -1,0 +1,1 @@
+exec -Ilib lib/rack/lobster.rb
