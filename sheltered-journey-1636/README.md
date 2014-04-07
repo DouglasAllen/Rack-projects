@@ -1,2 +1,5 @@
-##[*rackheroku*](http://sheltered-journey-1636.herokuapp.com/)
-==========
+===
+
+  This app used to be on Keroku.com but is just here now.
+  
+===
