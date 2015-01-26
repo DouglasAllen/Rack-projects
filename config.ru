@@ -1,2 +1,5 @@
+
+require 'rack/lobster'
 require './my_middleware'
-run MyMiddleware.new
+use MyMiddleware::Hello
+run Rack::Lobster.new
