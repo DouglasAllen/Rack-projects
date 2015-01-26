@@ -1,0 +1,208 @@
+@font-face {
+  font-family: Vegur-Bold;
+  src: url('/fonts/vegur_bold.otf');
+}
+
+
+@font-face {
+  font-family: Vegur;
+  src: url('/fonts/vegur_regular.otf');
+}
+
+#content {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#content img {
+  max-width: 100%;
+}
+
+#post-title {
+  text-align: center;
+}
+
+.bordered {
+  border-top: solid 1px #c2c2c2;
+  border-bottom: solid 1px #c2c2c2;
+  padding: 1em 0;
+}
+
+.meta {
+  text-align: center;
+}
+
+.muted {
+  color: #999999;
+}
+
+body {
+  padding: 2em 0;
+  color: #333;
+  font-family: "Georgia", "62.5% palatino","times new roman",serif;
+  font-size: 1em;
+}
+
+ol,ul,p,blockquote {
+  margin: 1.7em 0;
+}
+
+ol li {
+  list-style: decimal outside;
+  margin-left: 1em;
+}
+
+ul li {
+  list-style: disc outside;
+  margin-left: 1em;
+}
+
+ol.unstyled, ul.unstyled {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ol.unstyled li, ul.unstyled li {
+  list-style: none;
+  margin-left: 0;
+}
+
+p,li {
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+li ul, li ol {
+  margin: 0;
+  margin-left: 1.5em;
+}
+
+li ul li, li ol li{
+  font-size: inherit;
+}
+
+h1,h2,h3,h4,h5 {
+  font-family: "Vegur-Bold", "Georgia", "62.5% palatino","times new roman",serif;;
+  letter-spacing: -1px;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 3em;
+  line-height: 1em;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1em;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1em;
+}
+
+a, a.visited, a.hover, a.active {
+  color: #900;
+  text-decoration: none;
+}
+
+ul#links li {
+  font-size: 1.2em;
+  display: inline;
+  margin-right: 0.5em;
+  text-transform: lowercase;
+}
+
+.donate {
+  margin-top: 50px;
+  text-align: center;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+#ad {
+  background-color: #e9f4f8;
+  border: solid 1px #9ab7c2;
+  padding: 0.4em;
+  font-size: 1.3em;
+  line-height: 1.5em;
+  margin: 1.7em 0;
+}
+
+.revision-warning {
+  color: red;
+}
+
+#contact {
+  text-align: center;
+}
+
+pre code {
+  border: none;
+  display: block;
+  background-color: #f8f8ff;
+  padding: .8em;
+  overflow: scroll;
+  margin: 1.7em 0;
+}
+
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 20px;
+  border-left: 5px solid #eeeeee;
+  font-size: smaller;
+}
+
+li p {
+  font-size: inherit;
+}
+
+blockquote cite {
+  margin-top: 6px;
+  display: block;
+  font-style: italic;
+}
+
+blockquote cite:before {
+  content: '—';
+}
+
+#newsletter {
+  margin-top: 1em;
+}
+
+#newsletter label {
+  width: 150px;
+  display: inline-block;
+}
+
+#newsletter .mc-field-group {
+  margin-bottom: 10px;
+}
+
+#newsletter .asterisk {
+  display: none;
+}
+
+iframe.jsbin-embed {
+  height: 450px !important;
+}
+
+code {
+  margin: 0 2px;
+  padding: 0px 5px;
+  border: 1px solid #BCBCBC;
+  background-color: #EFEFEF;
+  border-radius: 3px;
+}

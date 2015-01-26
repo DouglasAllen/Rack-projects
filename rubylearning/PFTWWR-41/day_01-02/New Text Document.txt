@@ -1,0 +1,1 @@
+curl --data "str=gnirts detsop siht"  -X POST "http://rl-string-reverse.herokuapp.com/reverse"
