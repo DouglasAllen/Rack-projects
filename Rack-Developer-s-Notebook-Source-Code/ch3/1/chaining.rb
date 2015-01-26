@@ -1,10 +1,10 @@
-require "rubygems"
+
 require "rack"
 require "thin"
 require 'decorator'
 
 rack_app = lambda do |env|
-  request = Rack::Request.new(env)
+  request  = Rack::Request.new(env)
   response = Rack::Response.new
   
   if request.path_info == '/hello'
