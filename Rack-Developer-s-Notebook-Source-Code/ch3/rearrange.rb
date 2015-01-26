@@ -12,7 +12,7 @@ class Shouter
 end
 
 
-#~ require 'rubygems'
+
 require 'rack'
 require 'rack/content_length'
 

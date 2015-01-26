@@ -53,6 +53,6 @@ class Decorator
 end
 
 map '/whatever' do
-  rack_app = lambda{|env| [200, {'Content-Type' => 'text/html'}, ["<a href='https://www.youtube.com/embed/v=6o6Hh6tQj2w'>whatever rack app</a>"]]}  
+  rack_app = lambda{|env| [200, {'Content-Type' => 'text/html'}, ['<object height="350" width="425"><param name="movie" value="http://www.youtube.com/v/OdT9z-JjtJk&autoplay=1" /><embed height="350" src="http://www.youtube.com/v/OdT9z-JjtJk&autoplay=1" type="application/x-shockwave-flash" width="425"></embed></object>']]}  
   run Decorator.new(rack_app)
 end
