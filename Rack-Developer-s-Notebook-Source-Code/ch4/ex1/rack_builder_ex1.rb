@@ -6,7 +6,6 @@ $: << File.expand_path(File.dirname(__FILE__))
 # Above line avoids doing this
 # require File.expand_path(File.dirname(__FILE__))
 
-require 'rubygems'
 require 'rack'
 require 'decorator'
 require 'thin'

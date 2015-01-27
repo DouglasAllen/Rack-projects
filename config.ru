@@ -1,39 +1,70 @@
-
+require 'rack'
 require 'rack/lobster'
-#require_relative './'
 
-map '/' do
-  run Rack::Lobster.new
+# This is the root of our app
+@root = File.expand_path(File.dirname(__FILE__))
+run lambda {|env| Rack::Directory.new(@root).call(env)}
+
+app = Rack::Builder.new do
+
+  map '/hello' do
+    run lambda {|env| [200, {'Content-Type' => 'text/html'}, ["<h1>/world</h1>"]]}
+  end
+
+  map '/world' do
+    run lambda {|env| [200, {'Content-Type' => 'text/html'}, ["<h1>/lobster</h1>"]]}
+  end
+
+  map '/' do
+    run lambda {|env| [200, {'Content-Type' => 'text/html'}, ["<h1>/hello</h1>"]]}
+  end
+
+  map '/lobster' do
+    app = Rack::Lobster.new
+    run app
+  end
+
+  map '/env' do  
+    run lambda {|env| [200,{}, ["<h1>#{env.each {|k, v| "#{k}  #{v}</br>"}}</h1> "]]}
+  end
+
+end.to_app
+
+#run app
+
+
+
+class Heartbeat
+  def self.call(env)
+    [200, { "Content-Type" => "text/plain" }, ["OK"]]
+  end
 end
 
-map '/lambda' do  
-  run lambda {|env| [200,{},[env.inspect]]}
+map '/heartbeat' do
+  run Heartbeat
 end
 
-map '/hello' do  
-  run lambda {|env| [200,{},["<h1>Hello All!</h1>"]]}
-end
-
-rack_app = lambda do |env|
+decorator = lambda do |env|
   request  = Rack::Request.new(env)
   response = Rack::Response.new
-  body = "---------------Header-------------<br/>"
+  body = "---------------Header-------------"
   
-  if request.get? == '/hi'
+  if request.path_info == ""
     body << "Saying hi"
     client = request['client']
     body << "from #{client}" if client
   else
-    body << "#{request.path_info.nil?} You need to provide the client information"
+    body << "You need to provide the client information"
   end
-  body << "<br/>----------footer-----------------"
+
+  body << "</br>----------footer-----------------"
   response.body = [body]
   response.headers['Content-Length'] = body.bytesize.to_s
   response.to_a
 end
 
 map '/hi' do  
-  run rack_app 
+  run decorator 
 end
 
 class Decorator
@@ -44,13 +75,17 @@ class Decorator
 
   def call(env)
     status, headers, body = @app.call(env)
+
     new_body = "-----------Header-------------<br/>"
+
     body.each { |str| new_body << str }
+
     new_body << "<br/>--------Footer--------------"
+
     [status, headers, [new_body]]
   end
 
-end
+  end
 
 map '/whatever' do
   rack_app = lambda{|env| [200, {'Content-Type' => 'text/html'}, ['<object height="350" width="425"><param name="movie" value="http://www.youtube.com/v/OdT9z-JjtJk&autoplay=1" /><embed height="350" src="http://www.youtube.com/v/OdT9z-JjtJk&autoplay=1" type="application/x-shockwave-flash" width="425"></embed></object>']]}  
