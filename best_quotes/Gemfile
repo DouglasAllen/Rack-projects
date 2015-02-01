@@ -1,3 +1,4 @@
 source 'http://rubygems.org'
 
-gem 'rulers', :path => "../rulers"
+gem 'rulers', :git => git@github.com:noahgibbs/rulers.git
+#gem 'rulers', :path => "../rulers"

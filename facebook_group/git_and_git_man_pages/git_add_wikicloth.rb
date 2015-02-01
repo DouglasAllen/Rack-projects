@@ -1,225 +1,208 @@
 require 'wikicloth'
 @wiki = WikiCloth::Parser.new({
-:data => "''GIT-BISECT(1)                                                    Git Manual                                                   GIT-BISECT(1)
+:data => "''GIT-ADD(1)                                                       Git Manual                                                      GIT-ADD(1)
 
 NAME
-       git-bisect - Find by binary search the change that introduced a bug
+       git-add - Add file contents to the index
 
 SYNOPSIS
-       git bisect <subcommand> <options>
+       git add [-n] [-v] [--force | -f] [--interactive | -i] [--patch | -p]
+                 [--edit | -e] [--all | [--update | -u]] [--intent-to-add | -N]
+                 [--refresh] [--ignore-errors] [--ignore-missing] [--]
+                 [<filepattern>...]
 
 DESCRIPTION
-       The command takes various subcommands, and different options depending on the subcommand:
+       This command updates the index using the current content found in the working tree, to prepare the content staged for the next
+       commit. It typically adds the current content of existing paths as a whole, but with some options it can also be used to add content
+       with only part of the changes made to the working tree files applied, or remove paths that do not exist in the working tree anymore.
 
-           git bisect help
-           git bisect start [<bad> [<good>...]] [--] [<paths>...]
-           git bisect bad [<rev>]
-           git bisect good [<rev>...]
-           git bisect skip [(<rev>|<range>)...]
-           git bisect reset [<commit>]
-           git bisect visualize
-           git bisect replay <logfile>
-           git bisect log
-           git bisect run <cmd>...
+       The 'index' holds a snapshot of the content of the working tree, and it is this snapshot that is taken as the contents of the next
+       commit. Thus after making any changes to the working directory, and before running the commit command, you must use the add command
+       to add any new or modified files to the index.
 
-       This command uses git rev-list --bisect to help drive the binary search process to find which change introduced a bug, given an old
-       "good" commit object name and a later "bad" commit object name.
+       This command can be performed multiple times before a commit. It only adds the content of the specified file(s) at the time the add
+       command is run; if you want subsequent changes included in the next commit, then you must run git add again to add the new content
+       to the index.
 
-   Getting help
-       Use "git bisect" to get a short usage description, and "git bisect help" or "git bisect -h" to get a long usage description.
+       The git status command can be used to obtain a summary of which files have changes that are staged for the next commit.
 
-   Basic bisect commands: start, bad, good
-       Using the Linux kernel tree as an example, basic use of the bisect command is as follows:
+       The git add command will not add ignored files by default. If any ignored files were explicitly specified on the command line, git
+       add will fail with a list of ignored files. Ignored files reached by directory recursion or filename globbing performed by Git
+       (quote your globs before the shell) will be silently ignored. The git add command can be used to add ignored files with the -f
+       (force) option.
 
-           $ git bisect start
-           $ git bisect bad                 # Current version is bad
-           $ git bisect good v2.6.13-rc2    # v2.6.13-rc2 was the last version
-                                            # tested that was good
+       Please see git-commit(1) for alternative ways to add content to a commit.
 
-       When you have specified at least one bad and one good version, the command bisects the revision tree and outputs something similar
-       to the following:
+OPTIONS
+       <filepattern>...
+           Files to add content from. Fileglobs (e.g.  *.c) can be given to add all matching files. Also a leading directory name (e.g.
+           dir to add dir/file1 and dir/file2) can be given to add all files in the directory, recursively.
 
-           Bisecting: 675 revisions left to test after this
+       -n, --dry-run
+           Do not actually add the file(s), just show if they exist and/or will be ignored.
 
-       The state in the middle of the set of revisions is then checked out. You would now compile that kernel and boot it. If the booted
-      kernel works correctly, you would then issue the following command:
+       -v, --verbose
+          Be verbose.
 
-           $ git bisect good                       # this one is good
+       -f, --force
+           Allow adding otherwise ignored files.
 
-       The output of this command would be something similar to the following:
+       -i, --interactive
+           Add modified contents in the working tree interactively to the index. Optional path arguments may be supplied to limit operation
+           to a subset of the working tree. See 'Interactive mode' for details.
 
-           Bisecting: 337 revisions left to test after this
+       -p, --patch
+           Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance
+           to review the difference before adding modified contents to the index.
 
-       You keep repeating this process, compiling the tree, testing it, and depending on whether it is good or bad issuing the command "git
-       bisect good" or "git bisect bad" to ask for the next bisection.
+           This effectively runs add --interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See
+           'Interactive mode' for details.
 
-       Eventually there will be no more revisions left to bisect, and you will have been left with the first bad kernel revision in
-       "refs/bisect/bad".
+       -e, --edit
+           Open the diff vs. the index in an editor and let the user edit it. After the editor was closed, adjust the hunk headers and
+           apply the patch to the index.
 
-   Bisect reset
-       After a bisect session, to clean up the bisection state and return to the original HEAD, issue the following command:
+           NOTE: Obviously, if you change anything else than the first character on lines beginning with a space or a minus, the patch will
+           no longer apply.
 
-           $ git bisect reset
+       -u, --update
+           Only match <filepattern> against already tracked files in the index rather than the working tree. That means that it will never
+           stage new files, but that it will stage modified new contents of tracked files and that it will remove files from the index if
+           the corresponding files in the working tree have been removed.
 
-       By default, this will return your tree to the commit that was checked out before git bisect start. (A new git bisect start will also
-       do that, as it cleans up the old bisection state.)
+           If no <filepattern> is given, default to '.'; in other words, update all tracked files in the current directory and its
+           subdirectories.
 
-       With an optional argument, you can return to a different commit instead:
+       -A, --all
+           Like -u, but match <filepattern> against files in the working tree in addition to the index. That means that it will find new
+           files as well as staging modified content and removing files that are no longer in the working tree.
 
-           $ git bisect reset <commit>
+       -N, --intent-to-add
+           Record only the fact that the path will be added later. An entry for the path is placed in the index with no content. This is
+           useful for, among other things, showing the unstaged content of such files with git diff and committing them with git commit -a.
 
-       For example, git bisect reset HEAD will leave you on the current bisection commit and avoid switching commits at all, while git
-       bisect reset bisect/bad will check out the first bad revision.
+       --refresh
+           Do not add the file(s), but only refresh their stat() information in the index.
 
-   Bisect visualize
-       To see the currently remaining suspects in gitk, issue the following command during the bisection process:
+       --ignore-errors
+           If some files could not be added because of errors indexing them, do not abort the operation, but continue adding the others.
+           The command shall still exit with non-zero status.
 
-           $ git bisect visualize
+       --ignore-missing
+           This option can only be used together with --dry-run. By using this option the user can check if any of the given files would be
+           ignored, no matter if they are already present in the work tree or not.
 
-       view may also be used as a synonym for visualize.
+       --
+           This option can be used to separate command-line options from the list of files, (useful when filenames might be mistaken for
+           command-line options).
 
-       If the DISPLAY environment variable is not set, git log is used instead. You can also give command line options such as -p and
-       --stat.
-
-           $ git bisect view --stat
-
-   Bisect log and bisect replay
-       After having marked revisions as good or bad, issue the following command to show what has been done so far:
-
-           $ git bisect log
-
-       If you discover that you made a mistake in specifying the status of a revision, you can save the output of this command to a file,
-       edit it to remove the incorrect entries, and then issue the following commands to return to a corrected state:
-
-           $ git bisect reset
-           $ git bisect replay that-file
-
-   Avoiding testing a commit
-       If, in the middle of a bisect session, you know that the next suggested revision is not a good one to test (e.g. the change the
-       commit introduces is known not to work in your environment and you know it does not have anything to do with the bug you are
-       chasing), you may want to find a nearby commit and try that instead.
-
-       For example:
-
-           $ git bisect good/bad                   # previous round was good or bad.
-           Bisecting: 337 revisions left to test after this
-           $ git bisect visualize                  # oops, that is uninteresting.
-           $ git reset --hard HEAD~3               # try 3 revisions before what
-                                                   # was suggested
-
-       Then compile and test the chosen revision, and afterwards mark the revision as good or bad in the usual manner.
-
-   Bisect skip
-       Instead of choosing by yourself a nearby commit, you can ask git to do it for you by issuing the command:
-
-           $ git bisect skip                 # Current version cannot be tested
-
-       But git may eventually be unable to tell the first bad commit among a bad commit and one or more skipped commits.
-
-       You can even skip a range of commits, instead of just one commit, using the "<commit1>..<commit2>" notation. For example:
-
-           $ git bisect skip v2.5..v2.6
-
-       This tells the bisect process that no commit after v2.5, up to and including v2.6, should be tested.
-
-       Note that if you also want to skip the first commit of the range you would issue the command:
-
-           $ git bisect skip v2.5 v2.5..v2.6
-
-       This tells the bisect process that the commits between v2.5 included and v2.6 included should be skipped.
-
-   Cutting down bisection by giving more parameters to bisect start
-       You can further cut down the number of trials, if you know what part of the tree is involved in the problem you are tracking down,
-       by specifying path parameters when issuing the bisect start command:
-
-           $ git bisect start -- arch/i386 include/asm-i386
-
-       If you know beforehand more than one good commit, you can narrow the bisect space down by specifying all of the good commits
-       immediately after the bad commit when issuing the bisect start command:
-
-           $ git bisect start v2.6.20-rc6 v2.6.20-rc4 v2.6.20-rc1 --
-                              # v2.6.20-rc6 is bad
-                              # v2.6.20-rc4 and v2.6.20-rc1 are good
-
-   Bisect run
-       If you have a script that can tell if the current source code is good or bad, you can bisect by issuing the command:
-
-           $ git bisect run my_script arguments
-
-       Note that the script (my_script in the above example) should exit with code 0 if the current source code is good, and exit with a
-       code between 1 and 127 (inclusive), except 125, if the current source code is bad.
-
-       Any other exit code will abort the bisect process. It should be noted that a program that terminates via "exit(-1)" leaves $? = 255,
-       (see the exit(3) manual page), as the value is chopped with "& 0377".
-
-       The special exit code 125 should be used when the current source code cannot be tested. If the script exits with this code, the
-       current revision will be skipped (see git bisect skip above).
-
-       You may often find that during a bisect session you want to have temporary modifications (e.g. s/#define DEBUG 0/#define DEBUG 1/ in
-       a header file, or "revision that does not have this commit needs this patch applied to work around another problem this bisection is
-       not interested in") applied to the revision being tested.
-
-       To cope with such a situation, after the inner git bisect finds the next revision to test, the script can apply the patch before
-       compiling, run the real test, and afterwards decide if the revision (possibly with the needed patch) passed the test and then rewind
-       the tree to the pristine state. Finally the script should exit with the status of the real test to let the "git bisect run" command
-       loop determine the eventual outcome of the bisect session.
+CONFIGURATION
+       The optional configuration variable core.excludesfile indicates a path to a file containing patterns of file names to exclude from
+       git-add, similar to $GIT_DIR/info/exclude. Patterns in the exclude file are used in addition to those in info/exclude. See
+       gitrepository-layout(5).
 
 EXAMPLES
-       ·   Automatically bisect a broken build between v1.2 and HEAD:
+         Adds content from all *.txt files under Documentation directory and its subdirectories:
 
-               $ git bisect start HEAD v1.2 --      # HEAD is bad, v1.2 is good
-               $ git bisect run make                # "make" builds the app
+               $ git add Documentation/\*.txt
 
-       ·   Automatically bisect a test failure between origin and HEAD:
+           Note that the asterisk * is quoted from the shell in this example; this lets the command include the files from subdirectories
+           of Documentation/ directory.
 
-               $ git bisect start HEAD origin --    # HEAD is bad, origin is good
-               $ git bisect run make test           # "make test" builds and tests
+          Considers adding content from all git-*.sh scripts:
 
-       ·   Automatically bisect a broken test suite:
+               $ git add git-*.sh
 
-               $ cat ~/test.sh
-               #!/bin/sh
-               make || exit 125                   # this skips broken builds
-               make test                          # "make test" runs the test suite
-               $ git bisect start v1.3 v1.1 --    # v1.3 is bad, v1.1 is good
-               $ git bisect run ~/test.sh
+           Because this example lets the shell expand the asterisk (i.e. you are listing the files explicitly), it does not consider
+           subdir/git-foo.sh.
 
-           Here we use a "test.sh" custom script. In this script, if "make" fails, we skip the current commit.
+INTERACTIVE MODE
+       When the command enters the interactive mode, it shows the output of the status subcommand, and then goes into its interactive
+       command loop.
 
-           It is safer to use a custom script outside the repository to prevent interactions between the bisect, make and test processes
-           and the script.
+       The command loop shows the list of subcommands available, and gives a prompt 'What now> '. In general, when the prompt ends with a
+       single >, you can pick only one of the choices given and type return, like this:
 
-           "make test" should "exit 0", if the test suite passes, and "exit 1" otherwise.
+               *** Commands ***
+                 1: status       2: update       3: revert       4: add untracked
+                 5: patch        6: diff         7: quit         8: help
+               What now> 1
 
-       ·   Automatically bisect a broken test case:
+       You also could say s or sta or status above as long as the choice is unique.
 
-               $ cat ~/test.sh
-               #!/bin/sh
-               make || exit 125                     # this skips broken builds
-               ~/check_test_case.sh                 # does the test case passes ?
-               $ git bisect start HEAD HEAD~10 --   # culprit is among the last 10
-               $ git bisect run ~/test.sh
+       The main command loop has 6 subcommands (plus help and quit).
 
-           Here "check_test_case.sh" should "exit 0" if the test case passes, and "exit 1" otherwise.
+       status
+           This shows the change between HEAD and index (i.e. what will be committed if you say git commit), and between index and working
+           tree files (i.e. what you could stage further before git commit using git add) for each path. A sample output looks like this:
 
-           It is safer if both "test.sh" and "check_test_case.sh" scripts are outside the repository to prevent interactions between the
-           bisect, make and test processes and the scripts.
+                             staged     unstaged path
+                    1:       binary      nothing foo.png
+                    2:     +403/-35        +1/-1 git-add--interactive.perl
 
-       ·   Automatically bisect a broken test suite:
+           It shows that foo.png has differences from HEAD (but that is binary so line count cannot be shown) and there is no difference
+           between indexed copy and the working tree version (if the working tree version were also different, binary would have been shown
+           in place of nothing). The other file, git-add--interactive.perl, has 403 lines added and 35 lines deleted if you commit what is
+           in the index, but working tree file has further modifications (one addition and one deletion).
 
-               $ git bisect start HEAD HEAD~10 --   # culprit is among the last 10
-               $ git bisect run sh -c "make || exit 125; ~/check_test_case.sh"
+       update
+           This shows the status information and issues an 'Update>>' prompt. When the prompt ends with double >>, you can make more than
+           one selection, concatenated with whitespace or comma. Also you can say ranges. E.g. '2-5 7,9' to choose 2,3,4,5,7,9 from the
+           list. If the second number in a range is omitted, all remaining patches are taken. E.g. '7-' to choose 7,8,9 from the list. You
+           can say * to choose everything.
 
-           Does the same as the previous example, but on a single line.
+           What you chose are then highlighted with *, like this:
+
+                          staged     unstaged path
+                 1:       binary      nothing foo.png
+               * 2:     +403/-35        +1/-1 git-add--interactive.perl
+
+           To remove selection, prefix the input with - like this:
+
+               Update>> -2
+
+           After making the selection, answer with an empty line to stage the contents of working tree files for selected paths in the
+           index.
+
+       revert
+           This has a very similar UI to update, and the staged information for selected paths are reverted to that of the HEAD version.
+           Reverting new paths makes them untracked.
+
+       add untracked
+           This has a very similar UI to update and revert, and lets you add untracked paths to the index.
+
+       patch
+           This lets you choose one path out of a status like selection. After choosing the path, it presents the diff between the index
+           and the working tree file and asks you if you want to stage the change of each hunk. You can say:
+
+               y - stage this hunk
+               n - do not stage this hunk
+               q - quit; do not stage this hunk nor any of the remaining ones
+               a - stage this hunk and all later hunks in the file
+               d - do not stage this hunk nor any of the later hunks in the file
+               g - select a hunk to go to
+               / - search for a hunk matching the given regex
+               j - leave this hunk undecided, see next undecided hunk
+               J - leave this hunk undecided, see next hunk
+               k - leave this hunk undecided, see previous undecided hunk
+               K - leave this hunk undecided, see previous hunk
+               s - split the current hunk into smaller hunks
+               e - manually edit the current hunk
+               ? - print help
+
+           After deciding the fate for all hunks, if there is any hunk that was chosen, the index is updated with the selected hunks.
+
+       diff
+           This lets you review what will be committed (i.e. between HEAD and index).
+
+SEE ALSO
+       git-status(1) git-rm(1) git-reset(1) git-mv(1) git-commit(1) git-update-index(1)
 
 AUTHOR
        Written by Linus Torvalds <torvalds@osdl.org[1]>
 
 DOCUMENTATION
        Documentation by Junio C Hamano and the git-list <git@vger.kernel.org[2]>.
-
-SEE ALSO
-       Fighting regressions with git bisect[3], git-blame(1).
 
 GIT
        Part of the git(1) suite
@@ -231,11 +214,10 @@ NOTES
         2. git@vger.kernel.org
            mailto:git@vger.kernel.org
 
-        3. Fighting regressions with git bisect
-           file:///usr/share/doc/git-doc/git-bisect-lk2009.html
-
-Git 1.7.2.5                                                      09/22/2011                                                   GIT-BISECT(1)
+Git 1.7.2.5                                                      09/22/2011                                                      GIT-ADD(1)
  ''\n" })
 
-puts @wiki.to_html
+File.open("git_add.html", "w") do |f|
+  f.write("#{@wiki.to_html}")  
+end
  

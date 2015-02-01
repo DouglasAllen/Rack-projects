@@ -237,5 +237,7 @@ NOTES
 Git 1.7.2.5                                                      09/22/2011                                                   GIT-BISECT(1)
  ''\n" })
 
-puts @wiki.to_html
+File.open("git_bisect.html", "w") do |f|
+  f.write("#{@wiki.to_html}")  
+end
  
