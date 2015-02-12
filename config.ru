@@ -1,6 +1,8 @@
 require 'rack'
 require 'rack/lobster'
-
+require 'rack/builder'
+require 'rack/commonlogger'
+require 'rack/showexceptions'
 
 app = Rack::Builder.new do
   use Rack::Reloader
