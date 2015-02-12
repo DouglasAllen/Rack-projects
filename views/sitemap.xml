@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+	<url>
+		<loc>http://aadistrict71.org/</loc>
+		<lastmod>2013-02-16T17:26:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>http://aadistrict71.org/index.html</loc>
+		<lastmod>2013-02-16T17:26:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>http://aadistrict71.org/meetings.html</loc>
+		<lastmod>2013-02-16T17:26:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>http://aadistrict71.org/calendar.html</loc>
+		<lastmod>2013-02-16T17:26:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>http://aadistrict71.org/contact.html</loc>
+		<lastmod>2013-02-16T17:26:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>http://aadistrict71.org/Al-Anon.html</loc>
+		<lastmod>2013-02-16T17:26:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>http://aadistrict71.org/images/Schedule1.pdf</loc>
+		<lastmod>2013-02-13T02:04:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+</urlset>
