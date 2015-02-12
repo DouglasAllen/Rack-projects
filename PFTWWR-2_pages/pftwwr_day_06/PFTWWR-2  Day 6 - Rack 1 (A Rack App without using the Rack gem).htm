@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://rubylearning.org/classes/mod/page/view.php?id=624 -->
+<html dir="ltr" lang="en" xml:lang="en" class="yui3-js-enabled"><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>PFTWWR-2: Day 6 - Rack 1 (A Rack App without using the Rack gem)</title>
+    <link rel="shortcut icon" href="http://rubylearning.org/classes/theme/image.php/leatherbound/theme/1358135153/favicon">
+    
+<meta name="keywords" content="moodle, PFTWWR-2: Day 6 - Rack 1 (A Rack App without using the Rack gem)">
+<link rel="stylesheet" type="text/css" href="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/yui_combo.php"><script type="text/javascript" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/yui_combo(1).php"></script><script charset="utf-8" id="yui_3_7_3_2_1358409925485_5" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/dock.js" async=""></script><script charset="utf-8" id="yui_3_7_3_2_1358409925485_6" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/yui_combo(2).php" async=""></script><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/all">
+<script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+var moodleConfigFn = function(me) {var p = me.path, b = me.name.replace(/^moodle-/,'').split('-', 3), n = b.pop();if (/(skin|core)/.test(n)) {n = b.pop();me.type = 'css';};me.path = b.join('-')+'/'+n+'/'+n+'.'+me.type;};
+var galleryConfigFn = function(me) {var p = me.path,v=M.yui.galleryversion,f;if(/-(skin|core)/.test(me.name)) {me.type = 'css';p = p.replace(/-(skin|core)/, '').replace(/\.js/, '.css').split('/'), f = p.pop().replace(/(\-(min|debug))/, '');if (/-skin/.test(me.name)) {p.splice(p.length,0,v,'assets','skins','sam', f);} else {p.splice(p.length,0,v,'assets', f);};} else {p = p.split('/'), f = p.pop();p.splice(p.length,0,v, f);};me.path = p.join('/');};
+var yui2in3ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin');}};
+YUI_config = {"base":"http:\/\/rubylearning.org\/classes\/lib\/yuilib\/3.7.3\/build\/","comboBase":"http:\/\/rubylearning.org\/classes\/theme\/yui_combo.php?","combine":true,"filter":"","insertBefore":"firstthemesheet","modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"http:\/\/rubylearning.org\/classes\/lib\/javascript.php\/1358135153\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","moodle-core_filepicker"]},"core_dock":{"name":"core_dock","fullpath":"http:\/\/rubylearning.org\/classes\/lib\/javascript.php\/1358135153\/blocks\/dock.js","requires":["base","node","event-custom","event-mouseenter","event-resize"]}},"groups":{"moodle":{"name":"moodle","base":"http:\/\/rubylearning.org\/classes\/theme\/yui_combo.php?moodle\/1358135153\/","comboBase":"http:\/\/rubylearning.org\/classes\/theme\/yui_combo.php?","combine":true,"filter":"","ext":false,"root":"moodle\/1358135153\/","patterns":{"moodle-":{"group":"moodle","configFn":moodleConfigFn}}},"local":{"name":"gallery","base":"http:\/\/rubylearning.org\/classes\/lib\/yui\/gallery\/","comboBase":"http:\/\/rubylearning.org\/classes\/theme\/yui_combo.php?","combine":true,"filter":"","ext":false,"root":"gallery\/","patterns":{"gallery-":{"group":"gallery","configFn":galleryConfigFn}}},"yui2":{"base":"http:\/\/rubylearning.org\/classes\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"http:\/\/rubylearning.org\/classes\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui2in3ConfigFn}}}}};
+M.yui.loader = {modules: {}};
+M.cfg = {"wwwroot":"http:\/\/rubylearning.org\/classes","sesskey":"jCmhDlJCQH","loadingicon":"http:\/\/rubylearning.org\/classes\/theme\/image.php\/leatherbound\/core\/1358135153\/i\/loading_small","themerev":"1358135153","slasharguments":1,"theme":"leatherbound","jsrev":"1358135153","svgicons":true};
+//]]>
+</script>
+<script type="text/javascript" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/javascript-static.js"></script>
+<script type="text/javascript" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/head"></script>
+
+<link rel="icon" type="image/ico" href="http://rubylearning.com/images/favicon.ico"></head>
+
+<body id="page-mod-page-view" class="format-weeks  path-mod path-mod-page safari dir-ltr lang-en yui-skin-sam yui3-skin-sam rubylearning-org--classes pagelayout-incourse course-10 context-1066 cmid-624 category-4 side-pre-only jsenabled">
+<div class="skiplinks"><a class="skip" href="http://rubylearning.org/classes/mod/page/view.php?id=624#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+<div id="page">
+    <div id="page-header">
+        <div id="page-header-wrapper" class="wrapper clearfix">
+                <h1 class="headermain inside">Programming for the Web with Ruby</h1>
+                <div class="headermenu"><div class="logininfo">You are logged in as <a href="http://rubylearning.org/classes/user/profile.php?id=22">Douglas Allen</a> (<a href="http://rubylearning.org/classes/login/logout.php?sesskey=jCmhDlJCQH">Logout</a>)</div>                </div>
+        </div>
+    </div>
+
+
+
+                    <div class="navbar">
+                <div class="wrapper clearfix">
+                    <div class="breadcrumb"><span class="accesshide">Page path</span><ul role="navigation"><li><a title="Home" href="http://rubylearning.org/classes/">Home</a></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <a title="Programming for the Web with Ruby" href="http://rubylearning.org/classes/course/view.php?id=10">PFTWWR-2</a></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <span tabindex="0"> 4 January -  10 January</span></li><li> <span class="accesshide "><span class="arrow_text">/</span>&nbsp;</span><span class="arrow sep">►</span> <a title="Page" href="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem).htm">...6 - Rack 1 (A Rack App without using the Rack gem)</a></li></ul></div>
+                    <div class="navbutton"> </div>
+                </div>
+            </div>
+        
+<!-- END OF HEADER -->
+<div id="page-content-wrapper" class="wrapper clearfix">
+    <div id="page-content">
+        <div id="region-main-box">
+            <div id="region-post-box">
+
+                <div id="region-main-wrap">
+                    <div id="region-main">
+                        <div class="region-content">
+                                                        <div role="main"><span id="maincontent"></span><h2 id="pageheading" class="main">Day 6 - Rack 1 (A Rack App without using the Rack gem)</h2><div class="box generalbox center clearfix"><div class="no-overflow"><div>
+<h1>Day 6 - Learning Rack</h1>
+<h2><span style="color: #990033;">Revisiting Ruby's proc object</span></h2>
+<p>Remember the <a href="http://rubylearning.com/satishtalim/ruby_procs.html">proc object from Ruby</a>? <em>Blocks are not objects</em>, but they can be converted into objects of class <code>Proc</code>. This can be done by calling the <code>lambda</code> method of the class <code>Object</code>. A block created with <code>lambda</code> acts like a Ruby method. The class <code>Proc</code> has a method <code>call</code> that invokes the block.</p>
+
+<p>Open a command window and type:</p>
+<pre>$ irb --simple-prompt
+&gt;&gt; my_proc = lambda {puts 'Proc Called'}
+=&gt; #&lt;Proc:0x1fc9038@(irb):2(lambda)&gt;
+&gt;&gt; # method call invokes the block
+?&gt; my_proc.call
+Proc Called
+=&gt; nil
+&gt;&gt; exit
+$
+</pre>
+<p>Close the command window.</p>
+
+<h3><span style="color: #0000CC;">my_proc1.rb</span></h3>
+<p>The above can be written in a Ruby program <b><code>my_proc1.rb</code></b>:</p>
+<pre># my_proc1.rb
+my_proc = lambda {puts 'Proc Called'}
+my_proc.call
+</pre>
+
+<p>Open a command window and execute the <code>my_proc1.rb</code> program:</p>
+<pre>$ ruby my_proc1.rb #=&gt; Proc Called
+</pre>
+<p>Close the command window.</p>
+
+<h2><span style="color: #990033;">Rack Documentation</span></h2>
+<p><a href="http://rack.rubyforge.org/doc/">http://rack.rubyforge.org/doc/</a></p>
+
+<h2><span style="color: #990033;">Rack Source Code</span></h2>
+<p><a href="https://github.com/rack/rack">https://github.com/rack/rack</a></p>
+
+<h2><span style="color: #990033;">Rack Specification</span></h2>
+<p>In the words of the author of Rack - <b>Christian Neukirchen</b>: <span style="background-color: #FFFFCC;">Rack aims to provide a minimal API for connecting web servers supporting Ruby (like WEBrick, Mongrel etc.) and Ruby web frameworks (like Rails, Sinatra etc.)</span>.</p>
+
+<p>Web frameworks such as Sinatra are built on top of Rack or have a Rack interface for allowing web application servers to connect to them.</p>
+
+<p>The premise of Rack is simple - it just allows you to easily deal with HTTP requests.</p>
+
+<p>HTTP is a simple protocol: it basically describes the activity of a client sending a HTTP request to a server and the server returning a HTTP response. Both HTTP request and HTTP response in turn have very similar structures. A HTTP request is a triplet consisting of a method and resource pair, a set of headers and an optional body while a HTTP response is in triplet consisting of a response code, a set of headers and an optional body.</p>
+
+<p>Rack maps closely to this. <span style="background-color: #FFFFCC;">A Rack application is a Ruby object (not a class) that responds to <code>call</code> and takes exactly one argument, the <em>environment</em>. The <em>environment</em> must be a true instance of <code>Hash</code>. This hash contains all the relevant information about the request: this includes the HTTP verb used by the request, the path that is requested, the headers that have been sent by the client, and so on. The app should return an <code>Array</code> of exactly three values: the <em>status</em> code (it must be greater than or equal to 100), the <em>headers</em> (must be a hash), and the <em>body</em> (the body commonly is an Array of Strings, the application instance itself, or a File-like object. The <em>body</em> (corresponding to a HTTP response) must respond to method <code>each</code> and must only yield <code>String</code> values.)</span></p>
+
+<p>That's the Rack specification in a nutshell. You can check out the full details <a href="http://rack.rubyforge.org/doc/files/SPEC.html">here</a>. <b>Strictly speaking, you don't need the rack gem in order to write Rack ready applications</b>. Just stick to the specification and that's it.</p>
+
+<h3><span style="color: #0000CC;">A Rack App without using the Rack gem</span></h3>
+<h4><span style="color: #663366;">A simple Rack app - my_rack_proc</span></h4>
+<p>Let us create our new <code>proc</code> object. Open a command window and type:</p>
+<pre>$ irb --simple-prompt
+&gt;&gt; my_rack_proc = lambda { |env| [200, {}, ["Hello. The time is #{Time.now}"]] }
+=&gt; #&lt;Proc:0x1f4c358@(irb):5(lambda)&gt;
+&gt;&gt;
+</pre>
+<p>Now we can call the proc object <code>my_rack_proc</code> with the <code>call</code> method. In the above window type:</p>
+<pre>&gt;&gt; my_rack_proc.call({})
+=&gt; [200, {}, ["Hello. The time is 2011-10-24 09:18:56 +0530"]]
+&gt;&gt;
+</pre>
+<p><code>my_rack_proc</code> is our single line Rack application.</p>
+
+<p>In the above example, we have used an empty hash for headers. Instead, let's have something in the header as follows:</p>
+<pre>&gt;&gt; my_rack_proc = lambda { |env| [200, {"Content-Type" =&gt; "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+=&gt; #&lt;Proc:0x1f4c358@(irb):5(lambda)&gt;
+&gt;&gt;
+</pre>
+<p>Now we can call the proc object <code>my_rack_proc</code> with the <code>call</code> method. In the above window type:</p>
+<pre>&gt;&gt; my_rack_proc.call({})
+=&gt; [200, {"Content-Type" =&gt; "text/plain"}, ["Hello. The time is 2011-10-24 09:18:56 +0530"]]
+&gt;&gt; exit
+$
+</pre>
+<p>Close the command window.</p>
+
+<h4><span style="color: #663366;">my_rack_proc.rb</span></h4>
+<p>What we saw above can be written in a Ruby program <b><code>my_rack_proc.rb</code></b>:</p>
+<pre># my_rack_proc.rb
+my_rack_proc = lambda { |env| [200, {"Content-Type" =&gt; "text/plain"}, ["Hello. The time is #{Time.now}"]] }
+puts my_rack_proc.call({})
+</pre>
+
+<p>Open a command window and execute the <code>my_rack_proc.rb</code> program:</p>
+<pre>$ ruby my_rack_proc.rb
+200
+{"Content-Type"=&gt;"text/plain"}
+Hello. The time is 2011-12-07 09:42:31 +0530
+</pre>
+<p>Close the command window.</p>
+
+<h4><span style="color: #663366;">A Simple Rack Exercise</span></h4>
+<p>Write a simple Rack application which when run, accepts a command-line argument. Display this command-line argument. An example:</p>
+<pre>$ ruby simple_rack.rb "Hello World"
+200
+{"Content-Type"=&gt;"text/plain"}
+Command line argument you typed was: Hello World
+$
+</pre>
+
+</div></div></div><div class="modified">Last modified: Wednesday, 31 October 2012, 10:34 PM</div></div>                                                    </div>
+                    </div>
+                </div>
+
+                                <div id="region-pre" class="block-region">
+                    <div class="region-content">
+                        <a href="http://rubylearning.org/classes/mod/page/view.php?id=624#sb-1" class="skip-block">Skip Navigation</a><div id="inst4" class="block_navigation  block" role="navigation" aria-labelledby="instance-4-header"><div class="header"><div class="title"><div class="block_action"></div><h2 id="instance-4-header">Navigation</h2></div></div><div class="content"><ul class="block_tree list"><li class="type_unknown depth_1 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand navigation_node"><a title="Home" href="http://rubylearning.org/classes/">Home</a></p><ul><li class="type_setting depth_2 item_with_icon"><p class="tree_item leaf hasicon"><a title="My home" href="http://rubylearning.org/classes/my/"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">My home</a></p></li>
+<li class="type_course depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span title="A Ruby Learning Hub" tabindex="0">Site pages</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Notes" href="http://rubylearning.org/classes/notes/index.php?filtertype=course&filterselect=0"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Notes</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Tags" href="http://rubylearning.org/classes/tag/search.php"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Tags</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Calendar" href="http://rubylearning.org/classes/calendar/view.php?view=month"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Calendar</a></p></li>
+<li class="type_unknown depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Reports</span></p><ul><li class="type_setting depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Logs" href="http://rubylearning.org/classes/report/log/index.php?id=1"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Logs</a></p></li>
+<li class="type_setting depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://rubylearning.org/classes/report/loglive/index.php?id=1&inpopup=1" id="action_link50f7b0c633f231"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Live logs</a></p></li>
+<li class="type_setting depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Activity report" href="http://rubylearning.org/classes/report/outline/index.php?id=1"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Activity report</a></p></li>
+<li class="type_setting depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Course participation" href="http://rubylearning.org/classes/report/participation/index.php?id=1"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Course participation</a></p></li>
+<li class="type_setting depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Statistics" href="http://rubylearning.org/classes/report/stats/index.php?course=1"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Statistics</a></p></li></ul></li>
+<li class="type_activity depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Forum" href="http://rubylearning.org/classes/mod/forum/view.php?id=10"><img alt="Forum" class="smallicon navicon" title="Forum" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon">Site news</a></p></li>
+<li class="type_activity depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="http://rubylearning.org/classes/mod/page/view.php?id=8"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">Privacy Policy</a></p></li></ul></li>
+<li class="type_user depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">My profile</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="View profile" href="http://rubylearning.org/classes/user/profile.php?id=22"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">View profile</a></p></li>
+<li class="type_custom depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Forum posts</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Posts" href="http://rubylearning.org/classes/mod/forum/user.php?id=22"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Posts</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a title="Discussions" href="http://rubylearning.org/classes/mod/forum/user.php?id=22&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Discussions</a></p></li></ul></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Messages" href="http://rubylearning.org/classes/message/index.php"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Messages</a></p></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="My private files" href="http://rubylearning.org/classes/user/files.php"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">My private files</a></p></li></ul></li>
+<li class="type_system depth_2 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0">Current course</span></p><ul><li class="type_course depth_3 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand"><a title="Programming for the Web with Ruby" href="http://rubylearning.org/classes/course/view.php?id=10">PFTWWR-2</a></p><ul><li class="type_unknown depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a title="Participants" href="http://rubylearning.org/classes/user/index.php?id=10">Participants</a></p><ul><li class="type_custom depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Notes" href="http://rubylearning.org/classes/notes/index.php?filtertype=course&filterselect=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Notes</a></p></li>
+<li class="type_user depth_5 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a title="Douglas Allen" href="http://rubylearning.org/classes/user/view.php?id=22&course=10">Douglas Allen</a></p><ul><li class="type_custom depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="View profile" href="http://rubylearning.org/classes/user/view.php?id=22&course=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">View profile</a></p></li>
+<li class="type_custom depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Forum posts</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Posts" href="http://rubylearning.org/classes/mod/forum/user.php?id=22&course=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Posts</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Discussions" href="http://rubylearning.org/classes/mod/forum/user.php?id=22&course=10&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Discussions</a></p></li></ul></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="Messages" href="http://rubylearning.org/classes/message/index.php"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Messages</a></p></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="My private files" href="http://rubylearning.org/classes/user/files.php"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">My private files</a></p></li>
+<li class="type_custom depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a title="Notes" href="http://rubylearning.org/classes/notes/index.php?user=22&course=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Notes</a></p></li>
+<li class="type_custom depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Activity reports</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Today&#39;s logs" href="http://rubylearning.org/classes/report/log/user.php?id=22&course=10&mode=today"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Today's logs</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="All logs" href="http://rubylearning.org/classes/report/log/user.php?id=22&course=10&mode=all"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">All logs</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Outline report" href="http://rubylearning.org/classes/report/outline/user.php?id=22&course=10&mode=outline"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Outline report</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Complete report" href="http://rubylearning.org/classes/report/outline/user.php?id=22&course=10&mode=complete"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Complete report</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Statistics" href="http://rubylearning.org/classes/report/stats/user.php?id=22&course=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Statistics</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a title="Grade" href="http://rubylearning.org/classes/course/user.php?mode=grade&id=10&user=22"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Grade</a></p></li></ul></li></ul></li></ul></li>
+<li class="type_unknown depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Reports</span></p><ul><li class="type_setting depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Logs" href="http://rubylearning.org/classes/report/log/index.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Logs</a></p></li>
+<li class="type_setting depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a href="http://rubylearning.org/classes/report/loglive/index.php?id=10&inpopup=1" id="action_link50f7b0c633f232"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Live logs</a></p></li>
+<li class="type_setting depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Activity report" href="http://rubylearning.org/classes/report/outline/index.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Activity report</a></p></li>
+<li class="type_setting depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Course participation" href="http://rubylearning.org/classes/report/participation/index.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Course participation</a></p></li>
+<li class="type_setting depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Statistics" href="http://rubylearning.org/classes/report/stats/index.php?course=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/report">Statistics</a></p></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_1"><span tabindex="0">General</span></p></li>
+<li class="type_structure depth_4 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0"> 4 January -  10 January</span></p><ul><li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="http://rubylearning.org/classes/mod/page/view.php?id=616"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">...GitHub, RVM, Pik, Gem, Heroku, Bundle (the basics)</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="http://rubylearning.org/classes/mod/page/view.php?id=617"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">...g a simple webpage using HTML5, CSS and JavaScript</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="http://rubylearning.org/classes/mod/page/view.php?id=618"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">Day 3 - Creating one's own Ruby Gem</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="http://rubylearning.org/classes/mod/page/view.php?id=619"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">Day 4 - HTTP concepts and cURL</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="http://rubylearning.org/classes/mod/page/view.php?id=621"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">... - net/http, open-uri, hpricot, nokogiri libraries</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="http://rubylearning.org/classes/mod/page/view.php?id=623"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">Why Rack is important</a></p></li>
+<li class="type_activity depth_5 item_with_icon current_branch"><p class="tree_item leaf hasicon active_tree_node"><a title="Page" href="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem).htm"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">...6 - Rack 1 (A Rack App without using the Rack gem)</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="http://rubylearning.org/classes/mod/page/view.php?id=625"><img alt="Page" class="smallicon navicon" title="Page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/icon(1)">Day 7 - Rack 2 (A Rack app using the rack gem)</a></p></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_2"><span tabindex="0"> 11 January -  17 January</span></p></li></ul></li></ul></li>
+<li class="type_system depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_3"><a title="My courses" href="http://rubylearning.org/classes/my">My courses</a></p></li></ul></li></ul></div></div><span id="sb-1" class="skip-block-to"></span><a href="http://rubylearning.org/classes/mod/page/view.php?id=624#sb-2" class="skip-block">Skip Settings</a><div id="inst5" class="block_settings  block" role="navigation" aria-labelledby="instance-5-header"><div class="header"><div class="title"><div class="block_action"></div><h2 id="instance-5-header">Settings</h2></div></div><div class="content"><div id="settingsnav" class="box block_tree_box"><ul class="block_tree list"><li class="type_unknown contains_branch" aria-expanded="true"><p class="tree_item branch root_node"><span tabindex="0">Page module administration</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Edit settings" href="http://rubylearning.org/classes/course/modedit.php?update=624&return=1&sesskey=jCmhDlJCQH"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Edit settings</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Locally assigned roles" href="http://rubylearning.org/classes/admin/roles/assign.php?contextid=1066"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Locally assigned roles</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Permissions" href="http://rubylearning.org/classes/admin/roles/permissions.php?contextid=1066"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Permissions</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Check permissions" href="http://rubylearning.org/classes/admin/roles/check.php?contextid=1066"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Check permissions</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Filters" href="http://rubylearning.org/classes/filter/manage.php?contextid=1066"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Filters</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Logs" href="http://rubylearning.org/classes/report/log/index.php?chooselog=1&id=10&modid=624"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Logs</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Backup" href="http://rubylearning.org/classes/backup/backup.php?id=10&cm=624"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Backup</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Restore" href="http://rubylearning.org/classes/backup/restorefile.php?contextid=1066"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Restore</a></p></li></ul></li>
+<li class="type_course collapsed contains_branch" aria-expanded="false"><hr><p class="tree_item branch root_node"><span tabindex="0">Course administration</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Turn editing on" href="http://rubylearning.org/classes/course/view.php?id=10&return=%2Fmod%2Fpage%2Fview.php%3Fid%3D624&sesskey=jCmhDlJCQH&edit=on"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/edit">Turn editing on</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Edit settings" href="http://rubylearning.org/classes/course/edit.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/settings">Edit settings</a></p></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Users</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Enrolled users" href="http://rubylearning.org/classes/enrol/users.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/enrolusers">Enrolled users</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Enrolment methods" href="http://rubylearning.org/classes/enrol/instances.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Enrolment methods</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Groups" href="http://rubylearning.org/classes/group/index.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/group">Groups</a></p></li>
+<li class="type_setting collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a title="Permissions" href="http://rubylearning.org/classes/admin/roles/permissions.php?contextid=1031">Permissions</a></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Check permissions" href="http://rubylearning.org/classes/admin/roles/check.php?contextid=1031"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/checkpermissions">Check permissions</a></p></li></ul></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Other users" href="http://rubylearning.org/classes/enrol/otherusers.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/assignroles">Other users</a></p></li></ul></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Filters" href="http://rubylearning.org/classes/filter/manage.php?contextid=1031"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/filter">Filters</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Grades" href="http://rubylearning.org/classes/grade/report/index.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/grades">Grades</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Backup" href="http://rubylearning.org/classes/backup/backup.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/backup">Backup</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Restore" href="http://rubylearning.org/classes/backup/restorefile.php?contextid=1031"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/restore">Restore</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Import" href="http://rubylearning.org/classes/backup/import.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/import">Import</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Reset" href="http://rubylearning.org/classes/course/reset.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/return">Reset</a></p></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a title="Question bank" href="http://rubylearning.org/classes/question/edit.php?courseid=10">Question bank</a></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Questions" href="http://rubylearning.org/classes/question/edit.php?courseid=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Questions</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Categories" href="http://rubylearning.org/classes/question/category.php?courseid=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Categories</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Import" href="http://rubylearning.org/classes/question/import.php?courseid=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Import</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Export" href="http://rubylearning.org/classes/question/export.php?courseid=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Export</a></p></li></ul></li></ul></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><hr><p class="tree_item branch root_node"><span tabindex="0">Switch role to...</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Non-editing teacher" href="http://rubylearning.org/classes/course/switchrole.php?id=10&sesskey=jCmhDlJCQH&switchrole=4&returnurl=http%3A%2F%2Frubylearning.org%2Fclasses%2Fmod%2Fpage%2Fview.php%3Fid%3D624%26sesskey%3DjCmhDlJCQH"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/switchrole">Non-editing teacher</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Student" href="http://rubylearning.org/classes/course/switchrole.php?id=10&sesskey=jCmhDlJCQH&switchrole=5&returnurl=http%3A%2F%2Frubylearning.org%2Fclasses%2Fmod%2Fpage%2Fview.php%3Fid%3D624%26sesskey%3DjCmhDlJCQH"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/switchrole">Student</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Guest" href="http://rubylearning.org/classes/course/switchrole.php?id=10&sesskey=jCmhDlJCQH&switchrole=6&returnurl=http%3A%2F%2Frubylearning.org%2Fclasses%2Fmod%2Fpage%2Fview.php%3Fid%3D624%26sesskey%3DjCmhDlJCQH"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/switchrole">Guest</a></p></li></ul></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><hr><p class="tree_item branch root_node" id="usersettings"><span tabindex="0">My profile settings</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Edit profile" href="http://rubylearning.org/classes/user/edit.php?id=22&course=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Edit profile</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Change password" href="http://rubylearning.org/classes/login/change_password.php?id=10"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Change password</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a title="Messaging" href="http://rubylearning.org/classes/message/edit.php?id=22"><img alt="" class="smallicon navicon" title="" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/navigationitem">Messaging</a></p></li></ul></li></ul></div></div></div><span id="sb-2" class="skip-block-to"></span>                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+<!-- START OF FOOTER -->
+        <div id="page-footer" class="wrapper">
+        <p class="helplink"><a href="http://docs.moodle.org/24/en/mod/page/view"><img class="iconhelp icon-pre" alt="Moodle Docs for this page" title="Moodle Docs for this page" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/docs">Moodle Docs for this page</a></p>
+        <div class="logininfo">You are logged in as <a href="http://rubylearning.org/classes/user/profile.php?id=22">Douglas Allen</a> (<a href="http://rubylearning.org/classes/login/logout.php?sesskey=jCmhDlJCQH">Logout</a>)</div><div class="homelink"><a href="http://rubylearning.org/classes/course/view.php?id=10">PFTWWR-2</a></div>
+<p> <strong>© 2008-2013 RubyLearning.org : A Ruby Learning Hub</strong></p>    </div>
+    </div>
+<script type="text/javascript" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/footer"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","viewallcourses":"View all courses","cancel":"Cancel","yes":"Yes"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source"},"block":{"addtodock":"Move this to the dock","undockitem":"Undock this item","undockall":"Undock all","hidedockpanel":"Hide the dock panel","hidepanel":"Hide panel"},"langconfig":{"thisdirectionvertical":"btt"},"admin":{"confirmation":"Confirmation"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var navtreeexpansions4 = [{"id":"expandable_branch_1","key":"94","type":30},{"id":"expandable_branch_2","key":"96","type":30},{"id":"expandable_branch_3","key":"mycourses","type":0}];
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+YUI().use('node', function(Y) {
+M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("core_dock","moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"4","instance":"4","candock":false,"courselimit":"20","expansionlimit":0});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("core_dock","moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"5","instance":"5","candock":false});
+});
+M.util.help_popups.setup(Y);
+Y.on('click', openpopup, "#action_link50f7b0c633f231", null, {"url":"http:\/\/rubylearning.org\/classes\/report\/loglive\/index.php?id=1&inpopup=1","name":"popup","options":"height=400,width=500,top=0,left=0,menubar=0,location=0,scrollbars,resizable,toolbar,status,directories=0,fullscreen=0,dependent"});
+Y.on('click', openpopup, "#action_link50f7b0c633f232", null, {"url":"http:\/\/rubylearning.org\/classes\/report\/loglive\/index.php?id=10&inpopup=1","name":"popup","options":"height=400,width=500,top=0,left=0,menubar=0,location=0,scrollbars,resizable,toolbar,status,directories=0,fullscreen=0,dependent"});
+
+});
+//]]>
+</script>
+
+<div id="dock" role="menubar" class="dock dock_left_vertical nothingdocked"><div class="buttons_container" id="yui_3_7_3_2_1358409925485_33"><div class="dockeditem_container"></div><div class="controls"><img alt="Undock all" title="Undock all" tabindex="0" src="./PFTWWR-2  Day 6 - Rack 1 (A Rack App without using the Rack gem)_files/dock_to_block"></div></div></div><div style="display: none;"></div></body></html>

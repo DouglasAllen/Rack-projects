@@ -1,6 +1,5 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
 
 ruby '2.2.0'
-
-gem 'thin'
-gem 'sinatra'
+gem 'rulers'#, :path => "../rulers"
+gem 'rack'

@@ -1,0 +1,1367 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+  
+  <style>
+    body {
+      font-family: "Helvetica Neue", arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: white;
+      padding: 30px;
+      color: #333;
+      border: 1px solid #aaa;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    body > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    body > *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    a {
+      color: #4183C4;
+      text-decoration: none;
+    }
+
+    a.absent {
+      color: #cc0000;
+    }
+
+    a.anchor {
+      display: block;
+      padding-left: 30px;
+      margin-left: -30px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 20px 0 10px;
+      padding: 0;
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+      cursor: text;
+      position: relative;
+    }
+
+    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+      text-decoration: none;
+    }
+
+    h1 tt, h1 code {
+      font-size: inherit;
+    }
+
+    h2 tt, h2 code {
+      font-size: inherit;
+    }
+
+    h3 tt, h3 code {
+      font-size: inherit;
+    }
+
+    h4 tt, h4 code {
+      font-size: inherit;
+    }
+
+    h5 tt, h5 code {
+      font-size: inherit;
+    }
+
+    h6 tt, h6 code {
+      font-size: inherit;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: black;
+    }
+
+    h2 {
+      font-size: 24px;
+      border-bottom: 1px solid #cccccc;
+      color: black;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+
+    h6 {
+      color: #777777;
+      font-size: 14px;
+    }
+
+    p, blockquote, ul, ol, dl, li, table, pre {
+      margin: 3px 0;
+    }
+
+    hr {
+      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
+      border: 0 none;
+      color: #cccccc;
+      height: 4px;
+      padding: 0;
+    }
+
+    body > h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h1:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h1:first-child + h2 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+      margin-top: 0;
+    }
+
+    li p.first {
+      display: inline-block;
+    }
+
+    ul, ol {
+      padding-left: 30px;
+    }
+
+    ul :first-child, ol :first-child {
+      margin-top: 0;
+    }
+
+    ul :last-child, ol :last-child {
+      margin-bottom: 0;
+    }
+
+    dl {
+      padding: 0;
+    }
+
+    dl dt {
+      font-size: 14px;
+      font-weight: bold;
+      font-style: italic;
+      padding: 0;
+      margin: 15px 0 5px;
+    }
+
+    dl dt:first-child {
+      padding: 0;
+    }
+
+    dl dt > :first-child {
+      margin-top: 0;
+    }
+
+    dl dt > :last-child {
+      margin-bottom: 0;
+    }
+
+    dl dd {
+      margin: 0 0 15px;
+      padding: 0 15px;
+    }
+
+    dl dd > :first-child {
+      margin-top: 0;
+    }
+
+    dl dd > :last-child {
+      margin-bottom: 0;
+    }
+
+    blockquote {
+      border-left: 4px solid #dddddd;
+      padding: 0 15px;
+      color: #777777;
+    }
+
+    blockquote > :first-child {
+      margin-top: 0;
+    }
+
+    blockquote > :last-child {
+      margin-bottom: 0;
+    }
+
+    table {
+      padding: 0;
+    }
+    table tr {
+      border-top: 1px solid #cccccc;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8;
+    }
+
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0;
+    }
+
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    span.frame {
+      display: block;
+      overflow: hidden;
+    }
+
+    span.frame > span {
+      border: 1px solid #dddddd;
+      display: block;
+      float: left;
+      overflow: hidden;
+      margin: 13px 0 0;
+      padding: 7px;
+      width: auto;
+    }
+
+    span.frame span img {
+      display: block;
+      float: left;
+    }
+
+    span.frame span span {
+      clear: both;
+      color: #333333;
+      display: block;
+      padding: 5px 0 0;
+    }
+
+    span.align-center {
+      display: block;
+      overflow: hidden;
+      clear: both;
+    }
+
+    span.align-center > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px auto 0;
+      text-align: center;
+    }
+
+    span.align-center span img {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    span.align-right {
+      display: block;
+      overflow: hidden;
+      clear: both;
+    }
+
+    span.align-right > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px 0 0;
+      text-align: right;
+    }
+
+    span.align-right span img {
+      margin: 0;
+      text-align: right;
+    }
+
+    span.float-left {
+      display: block;
+      margin-right: 13px;
+      overflow: hidden;
+      float: left;
+    }
+
+    span.float-left span {
+      margin: 13px 0 0;
+    }
+
+    span.float-right {
+      display: block;
+      margin-left: 13px;
+      overflow: hidden;
+      float: right;
+    }
+
+    span.float-right > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px auto 0;
+      text-align: right;
+    }
+
+    code, tt {
+      font-family: "Lucida Console", "Courier New", courier;
+      font-size: 12px;
+      margin: 0 2px;
+      padding: 3px 5px;
+      white-space: nowrap;
+      border: 1px solid #eaeaea;
+      background-color: #f8f8f8;
+      border-radius: 3px;
+    }
+
+    pre code {
+      margin: 0;
+      padding: 0;
+      white-space: pre;
+      border: none;
+      background: transparent;
+    }
+
+    .highlight pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      line-height: 19px;
+      overflow: auto;
+      padding: 6px 10px;
+      border-radius: 3px;
+    }
+
+    pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      line-height: 19px;
+      overflow: auto;
+      padding: 6px 10px;
+      border-radius: 3px;
+    }
+
+    pre code, pre tt {
+      background-color: transparent;
+      border: none;
+    }
+
+    span.line-numbers {
+      margin-right: 10px;
+    }
+
+    img.logo {
+      display: block;
+      margin: 10px auto;
+    }
+
+    h1.logo {
+      text-align: center;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="containter">
+    
+    <h1 id="active-support-instrumentation">Active Support Instrumentation</h1>
+
+<p>Active Support is a part of core Rails that provides Ruby language extensions, utilities and other things. One of the things it includes is an instrumentation API that can be used inside an application to measure certain actions that occur within Ruby code, such as that inside a Rails application or the framework itself. It is not limited to Rails, however. It can be used independently in other Ruby scripts if it is so desired.</p>
+
+<p>In this guide, you will learn how to use the instrumentation API inside of Active Support to measure events inside of Rails and other Ruby code.</p>
+
+<p>After reading this guide, you will know:</p>
+
+<ul>
+  <li>What instrumentation can provide.</li>
+  <li>The hooks inside the Rails framework for instrumentation.</li>
+  <li>Adding a subscriber to a hook.</li>
+  <li>Building a custom instrumentation implementation.</li>
+</ul>
+
+<hr />
+
+<h2 id="introduction-to-instrumentation">Introduction to instrumentation</h2>
+
+<p>The instrumentation API provided by Active Support allows developers to provide hooks which other developers may hook into. There are several of these within the Rails framework, as described below in (TODO: link to section detailing each hook point). With this API, developers can choose to be notified when certain events occur inside their application or another piece of Ruby code.</p>
+
+<p>For example, there is a hook provided within Active Record that is called every time Active Record uses an SQL query on a database. This hook could be <strong>subscribed</strong> to, and used to track the number of queries during a certain action. There’s another hook around the processing of an action of a controller. This could be used, for instance, to track how long a specific action has taken.</p>
+
+<p>You are even able to create your own events inside your application which you can later subscribe to.</p>
+
+<h2 id="rails-framework-hooks">Rails framework hooks</h2>
+
+<p>Within the Ruby on Rails framework, there are a number of hooks provided for common events. These are detailed below.</p>
+
+<h2 id="action-controller">Action Controller</h2>
+
+<h3 id="writefragmentactioncontroller">write_fragment.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>The complete key</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">posts/1-dashboard-view</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="readfragmentactioncontroller">read_fragment.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>The complete key</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">posts/1-dashboard-view</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="expirefragmentactioncontroller">expire_fragment.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>The complete key</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">posts/1-dashboard-view</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="existfragmentactioncontroller">exist_fragment?.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>The complete key</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">posts/1-dashboard-view</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="writepageactioncontroller">write_page.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:path</code></td>
+      <td>The complete path</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">path</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/users/1</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="expirepageactioncontroller">expire_page.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:path</code></td>
+      <td>The complete path</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">path</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/users/1</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="startprocessingactioncontroller">start_processing.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:controller</code></td>
+      <td>The controller name</td>
+    </tr>
+    <tr>
+      <td><code>:action</code></td>
+      <td>The action</td>
+    </tr>
+    <tr>
+      <td><code>:params</code></td>
+      <td>Hash of request parameters without any filtered parameter</td>
+    </tr>
+    <tr>
+      <td><code>:format</code></td>
+      <td>html/js/json/xml etc</td>
+    </tr>
+    <tr>
+      <td><code>:method</code></td>
+      <td>HTTP request verb</td>
+    </tr>
+    <tr>
+      <td><code>:path</code></td>
+      <td>Request path</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">controller</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">PostsController</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">action</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">new</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">params</span>: { <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">action</span><span style="color:#710">&quot;</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">new</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">controller</span><span style="color:#710">&quot;</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">posts</span><span style="color:#710">&quot;</span></span> },
+  <span style="color:#606">format</span>: <span style="color:#A60">:html</span>,
+  <span style="color:#606">method</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">GET</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">path</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/posts/new</span><span style="color:#710">&quot;</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="processactionactioncontroller">process_action.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:controller</code></td>
+      <td>The controller name</td>
+    </tr>
+    <tr>
+      <td><code>:action</code></td>
+      <td>The action</td>
+    </tr>
+    <tr>
+      <td><code>:params</code></td>
+      <td>Hash of request parameters without any filtered parameter</td>
+    </tr>
+    <tr>
+      <td><code>:format</code></td>
+      <td>html/js/json/xml etc</td>
+    </tr>
+    <tr>
+      <td><code>:method</code></td>
+      <td>HTTP request verb</td>
+    </tr>
+    <tr>
+      <td><code>:path</code></td>
+      <td>Request path</td>
+    </tr>
+    <tr>
+      <td><code>:status</code></td>
+      <td>HTTP status code</td>
+    </tr>
+    <tr>
+      <td><code>:view_runtime</code></td>
+      <td>Amount spent in view in ms</td>
+    </tr>
+    <tr>
+      <td><code>:db_runtime</code></td>
+      <td>Amount spent executing database queries in ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">controller</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">PostsController</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">action</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">index</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">params</span>: {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">action</span><span style="color:#710">&quot;</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">index</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">controller</span><span style="color:#710">&quot;</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">posts</span><span style="color:#710">&quot;</span></span>},
+  <span style="color:#606">format</span>: <span style="color:#A60">:html</span>,
+  <span style="color:#606">method</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">GET</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">path</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/posts</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">status</span>: <span style="color:#00D">200</span>,
+  <span style="color:#606">view_runtime</span>: <span style="color:#60E">46.848</span>,
+  <span style="color:#606">db_runtime</span>: <span style="color:#60E">0.157</span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="sendfileactioncontroller">send_file.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:path</code></td>
+      <td>Complete path to the file</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>INFO. Additional keys may be added by the caller.</p>
+
+<h3 id="senddataactioncontroller">send_data.action_controller</h3>
+
+<p><code>ActionController</code> does not had any specific information to the payload. All options are passed through to the payload.</p>
+
+<h3 id="redirecttoactioncontroller">redirect_to.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:status</code></td>
+      <td>HTTP response code</td>
+    </tr>
+    <tr>
+      <td><code>:location</code></td>
+      <td>URL to redirect to</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">status</span>: <span style="color:#00D">302</span>,
+  <span style="color:#606">location</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://localhost:3000/posts/new</span><span style="color:#710">&quot;</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="haltedcallbackactioncontroller">halted_callback.action_controller</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:filter</code></td>
+      <td>Filter that halted the action</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">filter</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">:halting_filter</span><span style="color:#710">&quot;</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h2 id="action-view">Action View</h2>
+
+<h3 id="rendertemplateactionview">render_template.action_view</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:identifier</code></td>
+      <td>Full path to template</td>
+    </tr>
+    <tr>
+      <td><code>:layout</code></td>
+      <td>Applicable layout</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">identifier</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/Users/adam/projects/notifications/app/views/posts/index.html.erb</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">layout</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">layouts/application</span><span style="color:#710">&quot;</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="renderpartialactionview">render_partial.action_view</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:identifier</code></td>
+      <td>Full path to template</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">identifier</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/Users/adam/projects/notifications/app/views/posts/_form.html.erb</span><span style="color:#710">&quot;</span></span>,
+}
+</pre></div>
+</div>
+</div>
+
+<h2 id="active-record">Active Record</h2>
+
+<h3 id="sqlactiverecord">sql.active_record</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:sql</code></td>
+      <td>SQL statement</td>
+    </tr>
+    <tr>
+      <td><code>:name</code></td>
+      <td>Name of the operation</td>
+    </tr>
+    <tr>
+      <td><code>:connection_id</code></td>
+      <td><code>self.object_id</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>INFO. The adapters will add their own data as well.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">sql</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">SELECT </span><span style="color:#b0b">\&quot;</span><span style="color:#D20">posts</span><span style="color:#b0b">\&quot;</span><span style="color:#D20">.* FROM </span><span style="color:#b0b">\&quot;</span><span style="color:#D20">posts</span><span style="color:#b0b">\&quot;</span><span style="color:#D20"> </span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Post Load</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">connection_id</span>: <span style="color:#00D">70307250813140</span>,
+  <span style="color:#606">binds</span>: []
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="identityactiverecord">identity.active_record</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:line</code></td>
+      <td>Primary Key of object in the identity map</td>
+    </tr>
+    <tr>
+      <td><code>:name</code></td>
+      <td>Record’s class</td>
+    </tr>
+    <tr>
+      <td><code>:connection_id</code></td>
+      <td><code>self.object_id</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="action-mailer">Action Mailer</h2>
+
+<h3 id="receiveactionmailer">receive.action_mailer</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:mailer</code></td>
+      <td>Name of the mailer class</td>
+    </tr>
+    <tr>
+      <td><code>:message_id</code></td>
+      <td>ID of the message, generated by the Mail gem</td>
+    </tr>
+    <tr>
+      <td><code>:subject</code></td>
+      <td>Subject of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:to</code></td>
+      <td>To address(es) of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:from</code></td>
+      <td>From address of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:bcc</code></td>
+      <td>BCC addresses of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:cc</code></td>
+      <td>CC addresses of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:date</code></td>
+      <td>Date of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:mail</code></td>
+      <td>The encoded form of the mail</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">mailer</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Notification</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">message_id</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">4f5b5491f1774_181b23fc3d4434d38138e5@mba.local.mail</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">subject</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Rails Guides</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">to</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">users@rails.com</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ddh@rails.com</span><span style="color:#710">&quot;</span></span>],
+  <span style="color:#606">from</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">me@rails.com</span><span style="color:#710">&quot;</span></span>],
+  <span style="color:#606">date</span>: <span style="color:#036;font-weight:bold">Sat</span>, <span style="color:#00D">10</span> <span style="color:#036;font-weight:bold">Mar</span> <span style="color:#00D">2012</span> <span style="color:#00D">14</span>:<span style="color:#00D">18</span>:<span style="color:#00D">09</span> +<span style="color:#00D">0100</span>,
+  <span style="color:#606">mail</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">...</span><span style="color:#710">&quot;</span></span> <span style="color:#777"># omitted for brevity</span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="deliveractionmailer">deliver.action_mailer</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:mailer</code></td>
+      <td>Name of the mailer class</td>
+    </tr>
+    <tr>
+      <td><code>:message_id</code></td>
+      <td>ID of the message, generated by the Mail gem</td>
+    </tr>
+    <tr>
+      <td><code>:subject</code></td>
+      <td>Subject of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:to</code></td>
+      <td>To address(es) of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:from</code></td>
+      <td>From address of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:bcc</code></td>
+      <td>BCC addresses of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:cc</code></td>
+      <td>CC addresses of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:date</code></td>
+      <td>Date of the mail</td>
+    </tr>
+    <tr>
+      <td><code>:mail</code></td>
+      <td>The encoded form of the mail</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">mailer</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Notification</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">message_id</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">4f5b5491f1774_181b23fc3d4434d38138e5@mba.local.mail</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">subject</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Rails Guides</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606">to</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">users@rails.com</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">ddh@rails.com</span><span style="color:#710">&quot;</span></span>],
+  <span style="color:#606">from</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">me@rails.com</span><span style="color:#710">&quot;</span></span>],
+  <span style="color:#606">date</span>: <span style="color:#036;font-weight:bold">Sat</span>, <span style="color:#00D">10</span> <span style="color:#036;font-weight:bold">Mar</span> <span style="color:#00D">2012</span> <span style="color:#00D">14</span>:<span style="color:#00D">18</span>:<span style="color:#00D">09</span> +<span style="color:#00D">0100</span>,
+  <span style="color:#606">mail</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">...</span><span style="color:#710">&quot;</span></span> <span style="color:#777"># omitted for brevity</span>
+}
+</pre></div>
+</div>
+</div>
+
+<h2 id="activeresource">ActiveResource</h2>
+
+<h3 id="requestactiveresource">request.active_resource</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:method</code></td>
+      <td>HTTP method</td>
+    </tr>
+    <tr>
+      <td><code>:request_uri</code></td>
+      <td>Complete URI</td>
+    </tr>
+    <tr>
+      <td><code>:result</code></td>
+      <td>HTTP response object</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="active-support">Active Support</h2>
+
+<h3 id="cachereadactivesupport">cache_read.active_support</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>Key used in the store</td>
+    </tr>
+    <tr>
+      <td><code>:hit</code></td>
+      <td>If this read is a hit</td>
+    </tr>
+    <tr>
+      <td><code>:super_operation</code></td>
+      <td>:fetch is added when a read is used with <code>#fetch</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cachegenerateactivesupport">cache_generate.active_support</h3>
+
+<p>This event is only used when <code>#fetch</code> is called with a block.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>Key used in the store</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>INFO. Options passed to fetch will be merged with the payload when writing to the store</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name-of-complicated-computation</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="cachefetchhitactivesupport">cache_fetch_hit.active_support</h3>
+
+<p>This event is only used when <code>#fetch</code> is called with a block.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>Key used in the store</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>INFO. Options passed to fetch will be merged with the payload.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name-of-complicated-computation</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="cachewriteactivesupport">cache_write.active_support</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>Key used in the store</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>INFO. Cache stores may add their own keys</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name-of-complicated-computation</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="cachedeleteactivesupport">cache_delete.active_support</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>Key used in the store</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name-of-complicated-computation</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h3 id="cacheexistactivesupport">cache_exist?.active_support</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:key</code></td>
+      <td>Key used in the store</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606">key</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name-of-complicated-computation</span><span style="color:#710">'</span></span>
+}
+</pre></div>
+</div>
+</div>
+
+<h2 id="railties">Railties</h2>
+
+<h3 id="loadconfiginitializerrailties">load_config_initializer.railties</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:initializer</code></td>
+      <td>Path to loaded initializer from <code>config/initializers</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="rails">Rails</h2>
+
+<h3 id="deprecationrails">deprecation.rails</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:message</code></td>
+      <td>The deprecation warning</td>
+    </tr>
+    <tr>
+      <td><code>:callstack</code></td>
+      <td>Where the deprecation came from</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="subscribing-to-an-event">Subscribing to an event</h2>
+
+<p>Subscribing to an event is easy. Use <code>ActiveSupport::Notifications.subscribe</code> with a block to
+listen to any notification.</p>
+
+<p>The block receives the following arguments:</p>
+
+<ul>
+  <li>The name of the event</li>
+  <li>Time when it started</li>
+  <li>Time when it finished</li>
+  <li>An unique ID for this event</li>
+  <li>The payload (described in previous sections)</li>
+</ul>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#036;font-weight:bold">ActiveSupport</span>::<span style="color:#036;font-weight:bold">Notifications</span>.subscribe <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">process_action.action_controller</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">do</span> |name, started, finished, unique_id, data|
+  <span style="color:#777"># your own custom stuff</span>
+  <span style="color:#036;font-weight:bold">Rails</span>.logger.info <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> Received!</span><span style="color:#710">&quot;</span></span>
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>Defining all those block arguments each time can be tedious. You can easily create an <code>ActiveSupport::Notifications::Event</code>
+from block arguments like this:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#036;font-weight:bold">ActiveSupport</span>::<span style="color:#036;font-weight:bold">Notifications</span>.subscribe <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">process_action.action_controller</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">do</span> |*args|
+  event = <span style="color:#036;font-weight:bold">ActiveSupport</span>::<span style="color:#036;font-weight:bold">Notifications</span>::<span style="color:#036;font-weight:bold">Event</span>.new *args
+
+  event.name      <span style="color:#777"># =&gt; &quot;process_action.action_controller&quot;</span>
+  event.duration  <span style="color:#777"># =&gt; 10 (in milliseconds)</span>
+  event.payload   <span style="color:#777"># =&gt; {:extra=&gt;information}</span>
+
+  <span style="color:#036;font-weight:bold">Rails</span>.logger.info <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>event<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> Received!</span><span style="color:#710">&quot;</span></span>
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>Most times you only care about the data itself. Here is a shortcut to just get the data.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#036;font-weight:bold">ActiveSupport</span>::<span style="color:#036;font-weight:bold">Notifications</span>.subscribe <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">process_action.action_controller</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">do</span> |*args|
+  data = args.extract_options!
+  data <span style="color:#777"># { extra: :information }</span>
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>You may also subscribe to events matching a regular expression. This enables you to subscribe to
+multiple events at once. Here’s you could subscribe to everything from <code>ActionController</code>.</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#036;font-weight:bold">ActiveSupport</span>::<span style="color:#036;font-weight:bold">Notifications</span>.subscribe <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">action_controller</span><span style="color:#404">/</span></span> <span style="color:#080;font-weight:bold">do</span> |*args|
+  <span style="color:#777"># inspect all ActionController events</span>
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<h2 id="creating-custom-events">Creating custom events</h2>
+
+<p>Adding your own events is easy as well. <code>ActiveSupport::Notifications</code> will take care of
+all the heavy lifting for you. Simply call <code>instrument</code> with a <code>name</code>, <code>payload</code> and a block.
+The notification will be sent after the block returns. <code>ActiveSupport</code> will generate the start and end times
+as well as the unique ID. All data passed into the <code>instrument</code> call will make it into the payload.</p>
+
+<p>Here’s an example:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#036;font-weight:bold">ActiveSupport</span>::<span style="color:#036;font-weight:bold">Notifications</span>.instrument <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">my.custom.event</span><span style="color:#710">&quot;</span></span>, <span style="color:#606">this</span>: <span style="color:#A60">:data</span> <span style="color:#080;font-weight:bold">do</span>
+  <span style="color:#777"># do your custom stuff here</span>
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>Now you can listen to this event with:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#036;font-weight:bold">ActiveSupport</span>::<span style="color:#036;font-weight:bold">Notifications</span>.subscribe <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">my.custom.event</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">do</span> |name, started, finished, unique_id, data|
+  puts data.inspect <span style="color:#777"># {:this=&gt;:data}</span>
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>You should follow Rails conventions when defining your own events. The format is: <code>event.library</code>.
+If you application is sending Tweets, you should create an event named <code>tweet.twitter</code>.</p>
+
+  </div>
+</body>
+</html>

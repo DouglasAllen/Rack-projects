@@ -1,0 +1,761 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+  
+  <style>
+    body {
+      font-family: "Helvetica Neue", arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: white;
+      padding: 30px;
+      color: #333;
+      border: 1px solid #aaa;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+
+    body > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    body > *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    a {
+      color: #4183C4;
+      text-decoration: none;
+    }
+
+    a.absent {
+      color: #cc0000;
+    }
+
+    a.anchor {
+      display: block;
+      padding-left: 30px;
+      margin-left: -30px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 20px 0 10px;
+      padding: 0;
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+      cursor: text;
+      position: relative;
+    }
+
+    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+      text-decoration: none;
+    }
+
+    h1 tt, h1 code {
+      font-size: inherit;
+    }
+
+    h2 tt, h2 code {
+      font-size: inherit;
+    }
+
+    h3 tt, h3 code {
+      font-size: inherit;
+    }
+
+    h4 tt, h4 code {
+      font-size: inherit;
+    }
+
+    h5 tt, h5 code {
+      font-size: inherit;
+    }
+
+    h6 tt, h6 code {
+      font-size: inherit;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: black;
+    }
+
+    h2 {
+      font-size: 24px;
+      border-bottom: 1px solid #cccccc;
+      color: black;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+
+    h6 {
+      color: #777777;
+      font-size: 14px;
+    }
+
+    p, blockquote, ul, ol, dl, li, table, pre {
+      margin: 3px 0;
+    }
+
+    hr {
+      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
+      border: 0 none;
+      color: #cccccc;
+      height: 4px;
+      padding: 0;
+    }
+
+    body > h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h1:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h1:first-child + h2 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+      margin-top: 0;
+    }
+
+    li p.first {
+      display: inline-block;
+    }
+
+    ul, ol {
+      padding-left: 30px;
+    }
+
+    ul :first-child, ol :first-child {
+      margin-top: 0;
+    }
+
+    ul :last-child, ol :last-child {
+      margin-bottom: 0;
+    }
+
+    dl {
+      padding: 0;
+    }
+
+    dl dt {
+      font-size: 14px;
+      font-weight: bold;
+      font-style: italic;
+      padding: 0;
+      margin: 15px 0 5px;
+    }
+
+    dl dt:first-child {
+      padding: 0;
+    }
+
+    dl dt > :first-child {
+      margin-top: 0;
+    }
+
+    dl dt > :last-child {
+      margin-bottom: 0;
+    }
+
+    dl dd {
+      margin: 0 0 15px;
+      padding: 0 15px;
+    }
+
+    dl dd > :first-child {
+      margin-top: 0;
+    }
+
+    dl dd > :last-child {
+      margin-bottom: 0;
+    }
+
+    blockquote {
+      border-left: 4px solid #dddddd;
+      padding: 0 15px;
+      color: #777777;
+    }
+
+    blockquote > :first-child {
+      margin-top: 0;
+    }
+
+    blockquote > :last-child {
+      margin-bottom: 0;
+    }
+
+    table {
+      padding: 0;
+    }
+    table tr {
+      border-top: 1px solid #cccccc;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8;
+    }
+
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0;
+    }
+
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    span.frame {
+      display: block;
+      overflow: hidden;
+    }
+
+    span.frame > span {
+      border: 1px solid #dddddd;
+      display: block;
+      float: left;
+      overflow: hidden;
+      margin: 13px 0 0;
+      padding: 7px;
+      width: auto;
+    }
+
+    span.frame span img {
+      display: block;
+      float: left;
+    }
+
+    span.frame span span {
+      clear: both;
+      color: #333333;
+      display: block;
+      padding: 5px 0 0;
+    }
+
+    span.align-center {
+      display: block;
+      overflow: hidden;
+      clear: both;
+    }
+
+    span.align-center > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px auto 0;
+      text-align: center;
+    }
+
+    span.align-center span img {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    span.align-right {
+      display: block;
+      overflow: hidden;
+      clear: both;
+    }
+
+    span.align-right > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px 0 0;
+      text-align: right;
+    }
+
+    span.align-right span img {
+      margin: 0;
+      text-align: right;
+    }
+
+    span.float-left {
+      display: block;
+      margin-right: 13px;
+      overflow: hidden;
+      float: left;
+    }
+
+    span.float-left span {
+      margin: 13px 0 0;
+    }
+
+    span.float-right {
+      display: block;
+      margin-left: 13px;
+      overflow: hidden;
+      float: right;
+    }
+
+    span.float-right > span {
+      display: block;
+      overflow: hidden;
+      margin: 13px auto 0;
+      text-align: right;
+    }
+
+    code, tt {
+      font-family: "Lucida Console", "Courier New", courier;
+      font-size: 12px;
+      margin: 0 2px;
+      padding: 3px 5px;
+      white-space: nowrap;
+      border: 1px solid #eaeaea;
+      background-color: #f8f8f8;
+      border-radius: 3px;
+    }
+
+    pre code {
+      margin: 0;
+      padding: 0;
+      white-space: pre;
+      border: none;
+      background: transparent;
+    }
+
+    .highlight pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      line-height: 19px;
+      overflow: auto;
+      padding: 6px 10px;
+      border-radius: 3px;
+    }
+
+    pre {
+      background-color: #f8f8f8;
+      border: 1px solid #cccccc;
+      font-size: 13px;
+      line-height: 19px;
+      overflow: auto;
+      padding: 6px 10px;
+      border-radius: 3px;
+    }
+
+    pre code, pre tt {
+      background-color: transparent;
+      border: none;
+    }
+
+    span.line-numbers {
+      margin-right: 10px;
+    }
+
+    img.logo {
+      display: block;
+      margin: 10px auto;
+    }
+
+    h1.logo {
+      text-align: center;
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="containter">
+    
+    <h1 id="ruby-on-rails-40-release-notes">Ruby on Rails 4.0 Release Notes</h1>
+
+<p>Highlights in Rails 4.0:</p>
+
+<ul>
+  <li>Ruby 2.0 preferred; 1.9.3+ required</li>
+  <li>Strong Parameters</li>
+  <li>Turbolinks</li>
+  <li>Russian Doll Caching</li>
+</ul>
+
+<p>These release notes cover only the major changes. To learn about various bug
+fixes and changes, please refer to the change logs or check out the <a href="https://github.com/rails/rails/commits/4-0-stable">list of
+commits</a> in the main Rails
+repository on GitHub.</p>
+
+<hr />
+
+<h2 id="upgrading-to-rails-40">Upgrading to Rails 4.0</h2>
+
+<p>If you’re upgrading an existing application, it’s a great idea to have good test coverage before going in. You should also first upgrade to Rails 3.2 in case you haven’t and make sure your application still runs as expected before attempting an update to Rails 4.0. A list of things to watch out for when upgrading is available in the <a href="upgrading_ruby_on_rails.html#upgrading-from-rails-3-2-to-rails-4-0">Upgrading Ruby on Rails</a> guide.</p>
+
+<h2 id="creating-a-rails-40-application">Creating a Rails 4.0 application</h2>
+
+<pre><code> You should have the 'rails' RubyGem installed
+$ rails new myapp
+$ cd myapp
+</code></pre>
+
+<h3 id="vendoring-gems">Vendoring Gems</h3>
+
+<p>Rails now uses a <code>Gemfile</code> in the application root to determine the gems you require for your application to start. This <code>Gemfile</code> is processed by the <a href="https://github.com/carlhuda/bundler">Bundler</a> gem, which then installs all your dependencies. It can even install all the dependencies locally to your application so that it doesn’t depend on the system gems.</p>
+
+<p>More information: <a href="http://gembundler.com">Bundler homepage</a></p>
+
+<h3 id="living-on-the-edge">Living on the Edge</h3>
+
+<p><code>Bundler</code> and <code>Gemfile</code> makes freezing your Rails application easy as pie with the new dedicated <code>bundle</code> command. If you want to bundle straight from the Git repository, you can pass the <code>--edge</code> flag:</p>
+
+<pre><code>$ rails new myapp --edge
+</code></pre>
+
+<p>If you have a local checkout of the Rails repository and want to generate an application using that, you can pass the <code>--dev</code> flag:</p>
+
+<pre><code>$ ruby /path/to/rails/railties/bin/rails new myapp --dev
+</code></pre>
+
+<h2 id="major-features">Major Features</h2>
+
+<p><a href="http://guides.rubyonrails.org/images/rails4_features.png"><img src="images/rails4_features.png" alt="Rails 4.0" /></a></p>
+
+<h3 id="upgrade">Upgrade</h3>
+
+<ul>
+  <li><strong>Ruby 1.9.3</strong> (<a href="https://github.com/rails/rails/commit/a0380e808d3dbd2462df17f5d3b7fcd8bd812496">commit</a>) - Ruby 2.0 preferred; 1.9.3+ required</li>
+  <li><strong><a href="http://www.youtube.com/watch?v=z6YgD6tVPQs">New deprecation policy</a></strong> - Deprecated features are warnings in Rails 4.0 and will be removed in Rails 4.1.</li>
+  <li><strong>ActionPack page and action caching</strong> (<a href="https://github.com/rails/rails/commit/b0a7068564f0c95e7ef28fc39d0335ed17d93e90">commit</a>) - Page and action caching are extracted to a separate gem. Page and action caching requires too much manual intervention (manually expiring caches when the underlying model objects are updated). Instead, use Russian doll caching.</li>
+  <li><strong>ActiveRecord observers</strong> (<a href="https://github.com/rails/rails/commit/ccecab3ba950a288b61a516bf9b6962e384aae0b">commit</a>) - Observers are extracted to a separate gem. Observers are only needed for page and action caching, and can lead to spaghetti code.</li>
+  <li><strong>ActiveRecord session store</strong> (<a href="https://github.com/rails/rails/commit/0ffe19056c8e8b2f9ae9d487b896cad2ce9387ad">commit</a>) - The ActiveRecord session store is extracted to a separate gem. Storing sessions in SQL is costly. Instead, use cookie sessions, memcache sessions, or a custom session store.</li>
+  <li><strong>ActiveModel mass assignment protection</strong> (<a href="https://github.com/rails/rails/commit/f8c9a4d3e88181cee644f91e1342bfe896ca64c6">commit</a>) - Rails 3 mass assignment protection is deprecated. Instead, use strong parameters.</li>
+  <li><strong>ActiveResource</strong> (<a href="https://github.com/rails/rails/commit/f1637bf2bb00490203503fbd943b73406e043d1d">commit</a>) - ActiveResource is extracted to a separate gem. ActiveResource was not widely used.</li>
+  <li><strong>vendor/plugins removed</strong> (<a href="https://github.com/rails/rails/commit/853de2bd9ac572735fa6cf59fcf827e485a231c3">commit</a>) - Use a Gemfile to manage installed gems.</li>
+</ul>
+
+<h3 id="actionpack">ActionPack</h3>
+
+<ul>
+  <li><strong>Strong parameters</strong> (<a href="https://github.com/rails/rails/commit/a8f6d5c6450a7fe058348a7f10a908352bb6c7fc">commit</a>) - Only allow whitelisted parameters to update model objects (<code>params.permit(:title, :text)</code>).</li>
+  <li><strong>Routing concerns</strong> (<a href="https://github.com/rails/rails/commit/0dd24728a088fcb4ae616bb5d62734aca5276b1b">commit</a>) - In the routing DSL, factor out common subroutes (<code>comments</code> from <code>/posts/1/comments</code> and <code>/videos/1/comments</code>).</li>
+  <li><strong>ActionController::Live</strong> (<a href="https://github.com/rails/rails/commit/af0a9f9eefaee3a8120cfd8d05cbc431af376da3">commit</a>) - Stream JSON with <code>response.stream</code>.</li>
+  <li><strong>Declarative ETags</strong> (<a href="https://github.com/rails/rails/commit/ed5c938fa36995f06d4917d9543ba78ed506bb8d">commit</a>) - Add controller-level etag additions that will be part of the action etag computation</li>
+  <li><strong><a href="http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works">Russian doll caching</a></strong> (<a href="https://github.com/rails/rails/commit/4154bf012d2bec2aae79e4a49aa94a70d3e91d49">commit</a>) - Cache nested fragments of views. Each fragment expires based on a set of dependencies (a cache key). The cache key is usually a template version number and a model object.</li>
+  <li><strong>Turbolinks</strong> (<a href="https://github.com/rails/rails/commit/e35d8b18d0649c0ecc58f6b73df6b3c8d0c6bb74">commit</a>) - Serve only one initial HTML page. When the user navigates to another page, use pushState to update the URL and use AJAX to update the title and body.</li>
+  <li><strong>Decouple ActionView from ActionController</strong> (<a href="https://github.com/rails/rails/commit/78b0934dd1bb84e8f093fb8ef95ca99b297b51cd">commit</a>) - ActionView was decoupled from ActionPack and will be moved to a separated gem in Rails 4.1.</li>
+  <li><strong>Do not depend on ActiveModel</strong> (<a href="https://github.com/rails/rails/commit/166dbaa7526a96fdf046f093f25b0a134b277a68">commit</a>) - ActionPack no longer depends on ActiveModel.</li>
+</ul>
+
+<h3 id="general">General</h3>
+
+<ul>
+  <li><strong>ActiveModel::Model</strong> (<a href="https://github.com/rails/rails/commit/3b822e91d1a6c4eab0064989bbd07aae3a6d0d08">commit</a>) - <code>ActiveModel::Model</code>, a mixin to make normal Ruby objects to work with ActionPack out of box (ex. for <code>form_for</code>)</li>
+  <li><strong>New scope API</strong> (<a href="https://github.com/rails/rails/commit/50cbc03d18c5984347965a94027879623fc44cce">commit</a>) - Scopes must always use callables.</li>
+  <li><strong>Schema cache dump</strong> (<a href="https://github.com/rails/rails/commit/5ca4fc95818047108e69e22d200e7a4a22969477">commit</a>) - To improve Rails boot time, instead of loading the schema directly from the database, load the schema from a dump file.</li>
+  <li><strong>Support for specifying transaction isolation level</strong> (<a href="https://github.com/rails/rails/commit/392eeecc11a291e406db927a18b75f41b2658253">commit</a>) - Choose whether repeatable reads or improved performance (less locking) is more important.</li>
+  <li><strong>Dalli</strong> (<a href="https://github.com/rails/rails/commit/82663306f428a5bbc90c511458432afb26d2f238">commit</a>) - Use Dalli memcache client for the memcache store.</li>
+  <li><strong>Notifications start &amp; finish</strong> (<a href="https://github.com/rails/rails/commit/f08f8750a512f741acb004d0cebe210c5f949f28">commit</a>) - Active Support instrumentation reports start and finish notifications to subscribers.</li>
+  <li><strong>Thread safe by default</strong> (<a href="https://github.com/rails/rails/commit/5d416b907864d99af55ebaa400fff217e17570cd">commit</a>) - Rails can run in threaded app servers without additional configuration. Note: Check that the gems you are using are threadsafe.</li>
+  <li><strong>PATCH verb</strong> (<a href="https://github.com/rails/rails/commit/eed9f2539e3ab5a68e798802f464b8e4e95e619e">commit</a>) - In Rails, PATCH replaces PUT. PATCH is used for partial updates of resources.</li>
+</ul>
+
+<h3 id="security">Security</h3>
+
+<ul>
+  <li><strong>match do not catch all</strong> (<a href="https://github.com/rails/rails/commit/90d2802b71a6e89aedfe40564a37bd35f777e541">commit</a>) - In the routing DSL, match requires the HTTP verb or verbs to be specified.</li>
+  <li><strong>html entities escaped by default</strong> (<a href="https://github.com/rails/rails/commit/5f189f41258b83d49012ec5a0678d827327e7543">commit</a>) - Strings rendered in erb are escaped unless wrapped with <code>raw</code> or <code>html_safe</code> is called.</li>
+  <li><strong>New security headers</strong> (<a href="https://github.com/rails/rails/commit/6794e92b204572d75a07bd6413bdae6ae22d5a82">commit</a>) - Rails sends the following headers with every HTTP request: <code>X-Frame-Options</code> (prevents clickjacking by forbidding the browser from embedding the page in a frame), <code>X-XSS-Protection</code> (asks the browser to halt script injection) and <code>X-Content-Type-Options</code> (prevents the browser from opening a jpeg as an exe).</li>
+</ul>
+
+<h2 id="extraction-of-features-to-gems">Extraction of features to gems</h2>
+
+<p>In Rails 4.0, several features have been extracted into gems. You can simply add the extracted gems to your <code>Gemfile</code> to bring the functionality back.</p>
+
+<ul>
+  <li>Hash-based &amp; Dynamic finder methods (<a href="https://github.com/rails/activerecord-deprecated_finders">GitHub</a>)</li>
+  <li>Mass assignment protection in Active Record models (<a href="https://github.com/rails/protected_attributes">GitHub</a>, <a href="https://github.com/rails/rails/pull/7251">Pull Request</a>)</li>
+  <li>ActiveRecord::SessionStore (<a href="https://github.com/rails/activerecord-session_store">GitHub</a>, <a href="https://github.com/rails/rails/pull/7436">Pull Request</a>)</li>
+  <li>Active Record Observers (<a href="https://github.com/rails/rails-observers">GitHub</a>, <a href="https://github.com/rails/rails/commit/39e85b3b90c58449164673909a6f1893cba290b2">Commit</a>)</li>
+  <li>Active Resource (<a href="https://github.com/rails/activeresource">GitHub</a>, <a href="https://github.com/rails/rails/pull/572">Pull Request</a>, <a href="http://yetimedia.tumblr.com/post/35233051627/activeresource-is-dead-long-live-activeresource">Blog</a>)</li>
+  <li>Action Caching (<a href="https://github.com/rails/actionpack-action_caching">GitHub</a>, <a href="https://github.com/rails/rails/pull/7833">Pull Request</a>)</li>
+  <li>Page Caching (<a href="https://github.com/rails/actionpack-page_caching">GitHub</a>, <a href="https://github.com/rails/rails/pull/7833">Pull Request</a>)</li>
+  <li>Sprockets (<a href="https://github.com/rails/sprockets-rails">GitHub</a>)</li>
+  <li>Performance tests (<a href="https://github.com/rails/rails-perftest">GitHub</a>, <a href="https://github.com/rails/rails/pull/8876">Pull Request</a>)</li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+  <li>
+    <p>Guides are rewritten in GitHub Flavored Markdown.</p>
+  </li>
+  <li>
+    <p>Guides have a responsive design.</p>
+  </li>
+</ul>
+
+<h2 id="railties">Railties</h2>
+
+<p>Please refer to the <a href="https://github.com/rails/rails/blob/4-0-stable/railties/CHANGELOG.md">Changelog</a> for detailed changes.</p>
+
+<h3 id="notable-changes">Notable changes</h3>
+
+<ul>
+  <li>
+    <p>New test locations <code>test/models</code>, <code>test/helpers</code>, <code>test/controllers</code>, and <code>test/mailers</code>. Corresponding rake tasks added as well. (<a href="https://github.com/rails/rails/pull/7878">Pull Request</a>)</p>
+  </li>
+  <li>
+    <p>Your app’s executables now live in the <code>bin/</code> directory. Run <code>rake rails:update:bin</code> to get <code>bin/bundle</code>, <code>bin/rails</code>, and <code>bin/rake</code>.</p>
+  </li>
+  <li>
+    <p>Threadsafe on by default</p>
+  </li>
+  <li>
+    <p>Ability to use a custom builder by passing <code>--builder</code> (or <code>-b</code>) to
+<code>rails new</code> has been removed. Consider using application templates
+instead. (<a href="https://github.com/rails/rails/pull/9401">Pull Request</a>)</p>
+  </li>
+</ul>
+
+<h3 id="deprecations">Deprecations</h3>
+
+<ul>
+  <li>
+    <p><code>config.threadsafe!</code> is deprecated in favor of <code>config.eager_load</code> which provides a more fine grained control on what is eager loaded.</p>
+  </li>
+  <li>
+    <p><code>Rails::Plugin</code> has gone. Instead of adding plugins to <code>vendor/plugins</code> use gems or bundler with path or git dependencies.</p>
+  </li>
+</ul>
+
+<h2 id="action-mailer">Action Mailer</h2>
+
+<p>Please refer to the <a href="https://github.com/rails/rails/blob/4-0-stable/actionmailer/CHANGELOG.md">Changelog</a> for detailed changes.</p>
+
+<h3 id="notable-changes-1">Notable changes</h3>
+
+<h3 id="deprecations-1">Deprecations</h3>
+
+<h2 id="active-model">Active Model</h2>
+
+<p>Please refer to the <a href="https://github.com/rails/rails/blob/4-0-stable/activemodel/CHANGELOG.md">Changelog</a> for detailed changes.</p>
+
+<h3 id="notable-changes-2">Notable changes</h3>
+
+<ul>
+  <li>
+    <p>Add <code>ActiveModel::ForbiddenAttributesProtection</code>, a simple module to protect attributes from mass assignment when non-permitted attributes are passed.</p>
+  </li>
+  <li>
+    <p>Added <code>ActiveModel::Model</code>, a mixin to make Ruby objects work with Action Pack out of box.</p>
+  </li>
+</ul>
+
+<h3 id="deprecations-2">Deprecations</h3>
+
+<h2 id="active-support">Active Support</h2>
+
+<p>Please refer to the <a href="https://github.com/rails/rails/blob/4-0-stable/activesupport/CHANGELOG.md">Changelog</a> for detailed changes.</p>
+
+<h3 id="notable-changes-3">Notable changes</h3>
+
+<ul>
+  <li>
+    <p>Replace deprecated <code>memcache-client</code> gem with <code>dalli</code> in <code>ActiveSupport::Cache::MemCacheStore</code>.</p>
+  </li>
+  <li>
+    <p>Optimize <code>ActiveSupport::Cache::Entry</code> to reduce memory and processing overhead.</p>
+  </li>
+  <li>
+    <p>Inflections can now be defined per locale. <code>singularize</code> and <code>pluralize</code> accept locale as an extra argument.</p>
+  </li>
+  <li>
+    <p><code>Object#try</code> will now return nil instead of raise a NoMethodError if the receiving object does not implement the method, but you can still get the old behavior by using the new <code>Object#try!</code>.</p>
+  </li>
+  <li>
+    <p><code>String#to_date</code> now raises <code>ArgumentError: invalid date</code> instead of <code>NoMethodError: undefined method 'div' for nil:NilClass</code>
+when given an invalid date. It is now the same as <code>Date.parse</code>, and it accepts more invalid dates than 3.x, such as:</p>
+
+    <pre><code># ActiveSupport 3.x
+"asdf".to_date # =&gt; NoMethodError: undefined method `div' for nil:NilClass
+"333".to_date # =&gt; NoMethodError: undefined method `div' for nil:NilClass
+
+# ActiveSupport 4
+"asdf".to_date # =&gt; ArgumentError: invalid date
+"333".to_date # =&gt; Fri, 29 Nov 2013
+</code></pre>
+  </li>
+</ul>
+
+<h3 id="deprecations-3">Deprecations</h3>
+
+<ul>
+  <li>
+    <p>Deprecate <code>ActiveSupport::TestCase#pending</code> method, use <code>skip</code> from MiniTest instead.</p>
+  </li>
+  <li>
+    <p><code>ActiveSupport::Benchmarkable#silence</code> has been deprecated due to its lack of thread safety. It will be removed without replacement in Rails 4.1.</p>
+  </li>
+  <li>
+    <p><code>ActiveSupport::JSON::Variable</code> is deprecated. Define your own <code>#as_json</code> and <code>#encode_json</code> methods for custom JSON string literals.</p>
+  </li>
+  <li>
+    <p>Deprecates the compatibility method <code>Module#local_constant_names</code>, use <code>Module#local_constants</code> instead (which returns symbols).</p>
+  </li>
+  <li>
+    <p><code>BufferedLogger</code> is deprecated. Use <code>ActiveSupport::Logger</code>, or the logger from Ruby standard library.</p>
+  </li>
+  <li>
+    <p>Deprecate <code>assert_present</code> and <code>assert_blank</code> in favor of <code>assert object.blank?</code> and <code>assert object.present?</code></p>
+  </li>
+</ul>
+
+<h2 id="action-pack">Action Pack</h2>
+
+<p>Please refer to the <a href="https://github.com/rails/rails/blob/4-0-stable/actionpack/CHANGELOG.md">Changelog</a> for detailed changes.</p>
+
+<h3 id="notable-changes-4">Notable changes</h3>
+
+<ul>
+  <li>Change the stylesheet of exception pages for development mode. Additionally display also the line of code and fragment that raised the exception in all exceptions pages.</li>
+</ul>
+
+<h3 id="deprecations-4">Deprecations</h3>
+
+<h2 id="active-record">Active Record</h2>
+
+<p>Please refer to the <a href="https://github.com/rails/rails/blob/4-0-stable/activerecord/CHANGELOG.md">Changelog</a> for detailed changes.</p>
+
+<h3 id="notable-changes-5">Notable changes</h3>
+
+<ul>
+  <li>
+    <p>Improve ways to write <code>change</code> migrations, making the old <code>up</code> &amp; <code>down</code> methods no longer necessary.</p>
+
+    <ul>
+      <li>
+        <p>The methods <code>drop_table</code> and <code>remove_column</code> are now reversible, as long as the necessary information is given.
+The method <code>remove_column</code> used to accept multiple column names; instead use <code>remove_columns</code> (which is not revertible).
+The method <code>change_table</code> is also reversible, as long as its block doesn’t call <code>remove</code>, <code>change</code> or <code>change_default</code></p>
+      </li>
+      <li>
+        <p>New method <code>reversible</code> makes it possible to specify code to be run when migrating up or down.
+See the <a href="https://github.com/rails/rails/blob/master/guides/source/active_record_migrations.md#using-reversible">Guide on Migration</a></p>
+      </li>
+      <li>
+        <p>New method <code>revert</code> will revert a whole migration or the given block.
+If migrating down, the given migration / block is run normally.
+See the <a href="https://github.com/rails/rails/blob/master/guides/source/active_record_migrations.md#reverting-previous-migrations">Guide on Migration</a></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Adds PostgreSQL array type support. Any datatype can be used to create an array column, with full migration and schema dumper support.</p>
+  </li>
+  <li>
+    <p>Add <code>Relation#load</code> to explicitly load the record and return <code>self</code>.</p>
+  </li>
+  <li>
+    <p><code>Model.all</code> now returns an <code>ActiveRecord::Relation</code>, rather than an array of records. Use <code>Relation#to_a</code> if you really want an array. In some specific cases, this may cause breakage when upgrading.</p>
+  </li>
+  <li>
+    <p>Added <code>ActiveRecord::Migration.check_pending!</code> that raises an error if migrations are pending.</p>
+  </li>
+  <li>
+    <p>Added custom coders support for <code>ActiveRecord::Store</code>. Now you can set your custom coder like this:</p>
+
+    <pre><code>  store :settings, accessors: [ :color, :homepage ], coder: JSON
+</code></pre>
+  </li>
+  <li>
+    <p><code>mysql</code> and <code>mysql2</code> connections will set <code>SQL_MODE=STRICT_ALL_TABLES</code> by default to avoid silent data loss. This can be disabled by specifying <code>strict: false</code> in your <code>database.yml</code>.</p>
+  </li>
+  <li>
+    <p>Remove IdentityMap.</p>
+  </li>
+  <li>
+    <p>Remove automatic execution of EXPLAIN queries. The option <code>active_record.auto_explain_threshold_in_seconds</code> is no longer used and should be removed.</p>
+  </li>
+  <li>
+    <p>Adds <code>ActiveRecord::NullRelation</code> and <code>ActiveRecord::Relation#none</code> implementing the null object pattern for the Relation class.</p>
+  </li>
+  <li>
+    <p>Added <code>create_join_table</code> migration helper to create HABTM join tables.</p>
+  </li>
+  <li>
+    <p>Allows PostgreSQL hstore records to be created.</p>
+  </li>
+</ul>
+
+<h3 id="deprecations-5">Deprecations</h3>
+
+<ul>
+  <li>
+    <p>Deprecated the old-style hash based finder API. This means that methods which previously accepted “finder options” no longer do.</p>
+  </li>
+  <li>
+    <p>All dynamic methods except for <code>find_by_...</code> and <code>find_by_...!</code> are deprecated. Here’s
+how you can rewrite the code:</p>
+
+    <pre><code>* `find_all_by_...` can be rewritten using `where(...)`.
+* `find_last_by_...` can be rewritten using `where(...).last`.
+* `scoped_by_...` can be rewritten using `where(...)`.
+* `find_or_initialize_by_...` can be rewritten using `find_or_initialize_by(...)`.
+* `find_or_create_by_...` can be rewritten using `find_or_create_by(...)`.
+* `find_or_create_by_...!` can be rewritten using `find_or_create_by!(...)`.
+</code></pre>
+  </li>
+</ul>
+
+<h2 id="credits">Credits</h2>
+
+<p>See the <a href="http://contributors.rubyonrails.org/">full list of contributors to Rails</a> for the many people who spent many hours making Rails, the stable and robust framework it is. Kudos to all of them.</p>
+
+  </div>
+</body>
+</html>
