@@ -37,7 +37,7 @@ app = Rack::Builder.new do
     end
   end
 
-  map '/' do
+  map '/lh' do
     run Heartbeat
   end
 
@@ -101,7 +101,7 @@ app = Rack::Builder.new do
     end
   end
 
-  map '/' do
+  map '/lost' do
     run AAsite
   end
 
