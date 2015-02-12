@@ -1,6 +1,6 @@
 require 'rack'
 require 'rack/lobster'
-require_relative './AA_District_71_Area_20/app'
+
 
 app = Rack::Builder.new do
   use Rack::Reloader
@@ -97,7 +97,7 @@ app = Rack::Builder.new do
 
   class AAsite
     def self.call(env)
-      [200, { "Content-Type" => "text/html" }, ["./AA_District_71_Area_20/app"]]
+      [200, { "Content-Type" => "text/html" }, [""]]
     end
   end
 
