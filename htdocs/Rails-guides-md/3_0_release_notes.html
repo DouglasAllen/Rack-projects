@@ -1,420 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="ruby-on-rails-30-release-notes">Ruby on Rails 3.0 Release Notes</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="ruby-on-rails-30-release-notes">Ruby on Rails 3.0 Release Notes</h1>
 
 <p>Rails 3.0 is ponies and rainbows! It’s going to cook you dinner and fold your laundry. You’re going to wonder how life was ever possible before it arrived. It’s the Best Version of Rails We’ve Ever Done!</p>
 
@@ -432,7 +29,7 @@
 
 <p>On top of all that, we’ve tried our best to deprecate the old APIs with nice warnings. That means that you can move your existing application to Rails 3 without immediately rewriting all your old code to the latest best practices.</p>
 
-<p>These release notes cover the major upgrades, but don’t include every little bug fix and change. Rails 3.0 consists of almost 4,000 commits by more than 250 authors! If you want to see everything, check out the <a href="http://github.com/rails/rails/commits/3-0-stable">list of commits</a> in the main Rails repository on GitHub.</p>
+<p>These release notes cover the major upgrades, but don’t include every little bug fix and change. Rails 3.0 consists of almost 4,000 commits by more than 250 authors! If you want to see everything, check out the <a href="http://github.com/rails/rails/commits/master">list of commits</a> in the main Rails repository on GitHub.</p>
 
 <hr />
 
@@ -493,6 +90,8 @@ $ rails g scaffold post title:string # instead of script/generate scaffold post 
 <p>You can see an example of how that works at <a href="http://omgbloglol.com/post/364624593/rails-upgrade-is-now-an-official-plugin">Rails Upgrade is now an Official Plugin</a></p>
 
 <p>Aside from Rails Upgrade tool, if you need more help, there are people on IRC and <a href="http://groups.google.com/group/rubyonrails-talk">rubyonrails-talk</a> that are probably doing the same thing, possibly hitting the same issues. Be sure to blog your own experiences when upgrading so others can benefit from your knowledge!</p>
+
+<p>More information - <a href="http://omgbloglol.com/post/353978923/the-path-to-rails-3-approaching-the-upgrade">The Path to Rails 3: Approaching the upgrade</a></p>
 
 <h2 id="creating-a-rails-30-application">Creating a Rails 3.0 application</h2>
 
@@ -560,7 +159,7 @@ $ cd myapp
 
 <p><a href="http://github.com/brynary/arel">Arel</a> (or Active Relation) has been taken on as the underpinnings of Active Record and is now required for Rails. Arel provides an SQL abstraction that simplifies out Active Record and provides the underpinnings for the relation functionality in Active Record.</p>
 
-<p>More information: - <a href="https://web.archive.org/web/20120718093140/http://magicscalingsprinkles.wordpress.com/2010/01/28/why-i-wrote-arel/">Why I wrote Arel</a></p>
+<p>More information: - <a href="http://magicscalingsprinkles.wordpress.com/2010/01/28/why-i-wrote-arel/.">Why I wrote Arel</a></p>
 
 <h3 id="mail-extraction">Mail Extraction</h3>
 
@@ -732,12 +331,12 @@ $ cd myapp
 
 <ul>
   <li>The catch all route for non-REST applications (<code>/:controller/:action/:id</code>) is now commented out.</li>
-  <li>Routes <code>:path_prefix</code> no longer exists and <code>:name_prefix</code> now automatically adds “_” at the end of the given value.</li>
+  <li>Routes :path_prefix no longer exists and :name_prefix now automatically adds “_” at the end of the given value.</li>
 </ul>
 
 <p>More Information:
 * <a href="http://yehudakatz.com/2009/12/26/the-rails-3-router-rack-it-up/">The Rails 3 Router: Rack it Up</a>
-* <a href="https://medium.com/fusion-of-thoughts/revamped-routes-in-rails-3-b6d00654e5b0">Revamped Routes in Rails 3</a>
+* <a href="http://rizwanreza.com/2009/12/20/revamped-routes-in-rails-3">Revamped Routes in Rails 3</a>
 * <a href="http://yehudakatz.com/2009/12/20/generic-actions-in-rails-3/">Generic Actions in Rails 3</a></p>
 
 <h3 id="action-view">Action View</h3>
@@ -746,7 +345,7 @@ $ cd myapp
 
 <p>Major re-write was done in the Action View helpers, implementing Unobtrusive JavaScript (UJS) hooks and removing the old inline AJAX commands. This enables Rails to use any compliant UJS driver to implement the UJS hooks in the helpers.</p>
 
-<p>What this means is that all previous <code>remote_&lt;method&gt;</code> helpers have been removed from Rails core and put into the <a href="http://github.com/rails/prototype_legacy_helper">Prototype Legacy Helper</a>. To get UJS hooks into your HTML, you now pass <code>:remote =&gt; true</code> instead. For example:</p>
+<p>What this means is that all previous <code>remote_&lt;method&gt;</code> helpers have been removed from Rails core and put into the <a href="http://github.com/rails/prototype_legacy_helper.">Prototype Legacy Helper</a> To get UJS hooks into your HTML, you now pass <code>:remote =&gt; true</code> instead. For example:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>form_for <span style="color:#33B">@post</span>, <span style="color:#A60">:remote</span> =&gt; <span style="color:#069">true</span>
@@ -783,7 +382,7 @@ $ cd myapp
   <li>Helpers now output HTML 5 by default.</li>
   <li>Form label helper now pulls values from I18n with a single value, so <code>f.label :name</code> will pull the <code>:name</code> translation.</li>
   <li>I18n select label on should now be :en.helpers.select instead of :en.support.select.</li>
-  <li>You no longer need to place a minus sign at the end of a Ruby interpolation inside an ERB template to remove the trailing carriage return in the HTML output.</li>
+  <li>You no longer need to place a minus sign at the end of a ruby interpolation inside an ERb template to remove the trailing carriage return in the HTML output.</li>
   <li>Added <code>grouped_collection_select</code> helper to Action View.</li>
   <li><code>content_for?</code> has been added allowing you to check for the existence of content in a view before rendering.</li>
   <li>passing <code>:value =&gt; nil</code> to form helpers will set the field’s <code>value</code> attribute to nil as opposed to using the default value</li>
@@ -981,7 +580,7 @@ $ cd myapp
 
 <ul>
   <li>Large clean up of the library removing unused methods throughout.</li>
-  <li>Active Support no longer provides vendored versions of TZInfo, Memcache Client and Builder. These are all included as dependencies and installed via the <code>bundle install</code> command.</li>
+  <li>Active Support no longer provides vendored versions of <a href="http://tzinfo.rubyforge.org/">TZInfo</a>, <a href="http://deveiate.org/projects/RMemCache/">Memcache Client</a> and <a href="http://builder.rubyforge.org/,">Builder</a> these are all included as dependencies and installed via the <code>bundle install</code> command.</li>
   <li>Safe buffers are implemented in <code>ActiveSupport::SafeBuffer</code>.</li>
   <li>Added <code>Array.uniq_by</code> and <code>Array.uniq_by!</code>.</li>
   <li>Removed <code>Array#rand</code> and backported <code>Array#sample</code> from Ruby 1.9.</li>
@@ -1005,7 +604,7 @@ $ cd myapp
   <li><code>String#to_time</code> and <code>String#to_datetime</code> handle fractional seconds.</li>
   <li>Added support to new callbacks for around filter object that respond to <code>:before</code> and <code>:after</code> used in before and after callbacks.</li>
   <li>The <code>ActiveSupport::OrderedHash#to_a</code> method returns an ordered set of arrays. Matches Ruby 1.9’s <code>Hash#to_a</code>.</li>
-  <li><code>MissingSourceFile</code> exists as a constant but it is now just equal to <code>LoadError</code>.</li>
+  <li><code>MissingSourceFile</code> exists as a constant but it is now just equals to <code>LoadError</code>.</li>
   <li>Added <code>Class#class_attribute</code>, to be able to declare a class-level attribute whose value is inheritable and overwritable by subclasses.</li>
   <li>Finally removed <code>DeprecatedCallbacks</code> in <code>ActiveRecord::Associations</code>.</li>
   <li><code>Object#metaclass</code> is now <code>Kernel#singleton_class</code> to match Ruby.</li>
@@ -1037,7 +636,7 @@ $ cd myapp
 
 <h2 id="action-mailer">Action Mailer</h2>
 
-<p>Action Mailer has been given a new API with TMail being replaced out with the new <a href="http://github.com/mikel/mail">Mail</a> as the email library. Action Mailer itself has been given an almost complete re-write with pretty much every line of code touched. The result is that Action Mailer now simply inherits from Abstract Controller and wraps the Mail gem in a Rails DSL. This reduces the amount of code and duplication of other libraries in Action Mailer considerably.</p>
+<p>Action Mailer has been given a new API with TMail being replaced out with the new <a href="http://github.com/mikel/mail">Mail</a> as the Email library. Action Mailer itself has been given an almost complete re-write with pretty much every line of code touched. The result is that Action Mailer now simply inherits from Abstract Controller and wraps the Mail gem in a Rails DSL. This reduces the amount of code and duplication of other libraries in Action Mailer considerably.</p>
 
 <ul>
   <li>All mailers are now in <code>app/mailers</code> by default.</li>
@@ -1075,8 +674,9 @@ $ cd myapp
 
 <p>See the <a href="http://contributors.rubyonrails.org/">full list of contributors to Rails</a> for the many people who spent many hours making Rails 3. Kudos to all of them.</p>
 
-<p>Rails 3.0 Release Notes were compiled by <a href="http://lindsaar.net">Mikel Lindsaar</a>.</p>
+<p>Rails 3.0 Release Notes were compiled by <a href="http://lindsaar.net.">Mikel Lindsaar</a></p>
 
-  </div>
-</body>
+
+    </div>
+  </body>
 </html>

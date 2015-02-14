@@ -1,420 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="active-support-core-extensions">Active Support Core Extensions</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="active-support-core-extensions">Active Support Core Extensions</h1>
 
 <p>Active Support is the Ruby on Rails component responsible for providing Ruby language extensions, utilities, and other transversal stuff.</p>
 
@@ -455,11 +52,10 @@
 
 <p>NOTE: Defined in <code>active_support/core_ext/object/blank.rb</code>.</p>
 
-<p>That means that you can require it like this:</p>
+<p>That means that this single call is enough:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support</span><span style="color:#710">'</span></span>
-require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support/core_ext/object/blank</span><span style="color:#710">'</span></span>
+  <div class="code"><pre>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support/core_ext/object/blank</span><span style="color:#710">'</span></span>
 </pre></div>
 </div>
 </div>
@@ -473,8 +69,7 @@ require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:
 <p>Thus, to load all extensions to <code>Object</code> (including <code>blank?</code>):</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support</span><span style="color:#710">'</span></span>
-require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support/core_ext/object</span><span style="color:#710">'</span></span>
+  <div class="code"><pre>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support/core_ext/object</span><span style="color:#710">'</span></span>
 </pre></div>
 </div>
 </div>
@@ -484,8 +79,7 @@ require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:
 <p>You may prefer just to load all core extensions, there is a file for that:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support</span><span style="color:#710">'</span></span>
-require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support/core_ext</span><span style="color:#710">'</span></span>
+  <div class="code"><pre>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_support/core_ext</span><span style="color:#710">'</span></span>
 </pre></div>
 </div>
 </div>
@@ -531,13 +125,12 @@ require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:
 
 <p>WARNING: Note that numbers are not mentioned. In particular, 0 and 0.0 are <strong>not</strong> blank.</p>
 
-<p>For example, this method from <code>ActionController::HttpAuthentication::Token::ControllerMethods</code> uses <code>blank?</code> for checking whether a token is present:</p>
+<p>For example, this method from <code>ActionDispatch::Session::AbstractStore</code> uses <code>blank?</code> for checking whether a session key is present:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">authenticate</span>(controller, &amp;login_procedure)
-  token, options = token_and_options(controller.request)
-  <span style="color:#080;font-weight:bold">unless</span> token.blank?
-    login_procedure.call(token, options)
+  <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">ensure_session_key!</span>
+  <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@key</span>.blank?
+    raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">A key is required...</span><span style="color:#710">'</span></span>
   <span style="color:#080;font-weight:bold">end</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
@@ -601,14 +194,14 @@ require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">foo</span><span style="color:#710">&quot;</span></span>.duplicable? <span style="color:#777"># =&gt; true</span>
-<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>.duplicable?    <span style="color:#777"># =&gt; true</span>
+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>.duplicable?     <span style="color:#777"># =&gt; true</span>
 <span style="color:#60E">0.0</span>.duplicable?   <span style="color:#777"># =&gt; false</span>
-<span style="color:#069">false</span>.duplicable? <span style="color:#777"># =&gt; false</span>
+<span style="color:#069">false</span>.duplicable?  <span style="color:#777"># =&gt; false</span>
 </pre></div>
 </div>
 </div>
 
-<p>By definition all objects are <code>duplicable?</code> except <code>nil</code>, <code>false</code>, <code>true</code>, symbols, numbers, class, module, and method objects.</p>
+<p>By definition all objects are <code>duplicable?</code> except <code>nil</code>, <code>false</code>, <code>true</code>, symbols, numbers, class, and module objects.</p>
 
 <p>WARNING: Any class can disallow duplication by removing <code>dup</code> and <code>clone</code> or raising exceptions from them. Thus only <code>rescue</code> can tell whether a given arbitrary object is duplicable. <code>duplicable?</code> depends on the hard-coded list above, but it is much faster than <code>rescue</code>. Use it only if you know the hard-coded list is enough in your use case.</p>
 
@@ -616,7 +209,7 @@ require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:
 
 <h3 id="deepdup"><code>deep_dup</code></h3>
 
-<p>The <code>deep_dup</code> method returns deep copy of a given object. Normally, when you <code>dup</code> an object that contains other objects, Ruby does not <code>dup</code> them, so it creates a shallow copy of the object. If you have an array with a string, for example, it will look like this:</p>
+<p>The <code>deep_dup</code> method returns deep copy of a given object. Normally, when you <code>dup</code> an object that contains other objects, ruby does not <code>dup</code> them, so it creates a shallow copy of the object. If you have an array with a string, for example, it will look like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>array     = [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">string</span><span style="color:#710">'</span></span>]
@@ -625,14 +218,14 @@ duplicate = array.dup
 duplicate.push <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">another-string</span><span style="color:#710">'</span></span>
 
 <span style="color:#777"># the object was duplicated, so the element was added only to the duplicate</span>
-array     <span style="color:#777"># =&gt; ['string']</span>
-duplicate <span style="color:#777"># =&gt; ['string', 'another-string']</span>
+array     <span style="color:#777">#=&gt; ['string']</span>
+duplicate <span style="color:#777">#=&gt; ['string', 'another-string']</span>
 
 duplicate.first.gsub!(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">string</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">foo</span><span style="color:#710">'</span></span>)
 
 <span style="color:#777"># first element was not duplicated, it will be changed in both arrays</span>
-array     <span style="color:#777"># =&gt; ['foo']</span>
-duplicate <span style="color:#777"># =&gt; ['foo', 'another-string']</span>
+array     <span style="color:#777">#=&gt; ['foo']</span>
+duplicate <span style="color:#777">#=&gt; ['foo', 'another-string']</span>
 </pre></div>
 </div>
 </div>
@@ -647,8 +240,8 @@ duplicate = array.deep_dup
 
 duplicate.first.gsub!(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">string</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">foo</span><span style="color:#710">'</span></span>)
 
-array     <span style="color:#777"># =&gt; ['string']</span>
-duplicate <span style="color:#777"># =&gt; ['foo']</span>
+array     <span style="color:#777">#=&gt; ['string']</span>
+duplicate <span style="color:#777">#=&gt; ['foo']</span>
 </pre></div>
 </div>
 </div>
@@ -914,12 +507,6 @@ number.object_id == duplicate.object_id   <span style="color:#777"># =&gt; true<
 
 <p>NOTE: Defined in <code>active_support/core_ext/object/with_options.rb</code>.</p>
 
-<h3 id="json-support">JSON support</h3>
-
-<p>Active Support provides a better implementation of <code>to_json</code> than the <code>json</code> gem ordinarily provides for Ruby objects. This is because some classes, like <code>Hash</code>, <code>OrderedHash</code> and <code>Process::Status</code> need special handling in order to provide a proper JSON representation.</p>
-
-<p>NOTE: Defined in <code>active_support/core_ext/object/json.rb</code>.</p>
-
 <h3 id="instance-variables">Instance Variables</h3>
 
 <p>Active Support provides several methods to ease access to instance variables.</p>
@@ -937,24 +524,6 @@ corresponding values. Keys are strings:</p>
 <span style="color:#080;font-weight:bold">end</span>
 
 <span style="color:#036;font-weight:bold">C</span>.new(<span style="color:#00D">0</span>, <span style="color:#00D">1</span>).instance_values <span style="color:#777"># =&gt; {&quot;x&quot; =&gt; 0, &quot;y&quot; =&gt; 1}</span>
-</pre></div>
-</div>
-</div>
-
-<p>NOTE: Defined in <code>active_support/core_ext/object/instance_variables.rb</code>.</p>
-
-<h4 id="instancevariablenames"><code>instance_variable_names</code></h4>
-
-<p>The method <code>instance_variable_names</code> returns an array.  Each name includes the “@” sign.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">C</span>
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(x, y)
-    <span style="color:#33B">@x</span>, <span style="color:#33B">@y</span> = x, y
-  <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-
-<span style="color:#036;font-weight:bold">C</span>.new(<span style="color:#00D">0</span>, <span style="color:#00D">1</span>).instance_variable_names <span style="color:#777"># =&gt; [&quot;@x&quot;, &quot;@y&quot;]</span>
 </pre></div>
 </div>
 </div>
@@ -1083,12 +652,12 @@ suppress(<span style="color:#036;font-weight:bold">ActiveRecord</span>::<span st
 
 <h4 id="aliasattribute"><code>alias_attribute</code></h4>
 
-<p>Model attributes have a reader, a writer, and a predicate. You can alias a model attribute having the corresponding three methods defined for you in one shot. As in other aliasing methods, the new name is the first argument, and the old name is the second (one mnemonic is that they go in the same order as if you did an assignment):</p>
+<p>Model attributes have a reader, a writer, and a predicate. You can alias a model attribute having the corresponding three methods defined for you in one shot. As in other aliasing methods, the new name is the first argument, and the old name is the second (my mnemonic is they go in the same order as if you did an assignment):</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">User</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
-  <span style="color:#777"># You can refer to the email column as &quot;login&quot;.</span>
-  <span style="color:#777"># This can be meaningful for authentication code.</span>
+  <span style="color:#777"># let me refer to the email column as &quot;login&quot;,</span>
+  <span style="color:#777"># possibly meaningful for authentication code</span>
   alias_attribute <span style="color:#A60">:login</span>, <span style="color:#A60">:email</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
@@ -1141,7 +710,7 @@ suppress(<span style="color:#036;font-weight:bold">ActiveRecord</span>::<span st
 
 <h4 id="module-attributes">Module Attributes</h4>
 
-<p>The macros <code>mattr_reader</code>, <code>mattr_writer</code>, and <code>mattr_accessor</code> are the same as the <code>cattr_*</code> macros defined for class. In fact, the <code>cattr_*</code> macros are just aliases for the <code>mattr_*</code> macros. Check <a href="#class-attributes">Class Attributes</a>.</p>
+<p>The macros <code>mattr_reader</code>, <code>mattr_writer</code>, and <code>mattr_accessor</code> are analogous to the <code>cattr_*</code> macros defined for class. Check <a href="#class-attributes">Class Attributes</a>.</p>
 
 <p>For example, the dependencies mechanism uses them:</p>
 
@@ -1262,7 +831,7 @@ defined in the receiver module:</p>
 </div>
 </div>
 
-<p>The names are returned as symbols.</p>
+<p>The names are returned as symbols. (The deprecated method <code>local_constant_names</code> returns strings.)</p>
 
 <p>NOTE: Defined in <code>active_support/core_ext/module/introspection.rb</code>.</p>
 
@@ -1292,7 +861,7 @@ names relative to their receiver:</p>
 </div>
 </div>
 
-<p>These methods are analogous to their built-in counterparts. In particular,
+<p>These methods are analogous to their builtin counterparts. In particular,
 <code>qualified_constant_defined?</code> accepts an optional second argument to be
 able to say whether you want the predicate to look in the ancestors.
 This flag is taken into account for each constant in the expression while
@@ -1327,7 +896,7 @@ walking down the path.</p>
 <p>As the last example implies, the second argument defaults to true,
 as in <code>const_defined?</code>.</p>
 
-<p>For coherence with the built-in methods only relative paths are accepted.
+<p>For coherence with the builtin methods only relative paths are accepted.
 Absolute qualified constant names like <code>::Math::PI</code> raise <code>NameError</code>.</p>
 
 <p>NOTE: Defined in <code>active_support/core_ext/module/qualified_const.rb</code>.</p>
@@ -1435,7 +1004,7 @@ m.anonymous? <span style="color:#777"># =&gt; false</span>
 </div>
 </div>
 
-<p>With that configuration you get a user’s name via their profile, <code>user.profile.name</code>, but it could be handy to still be able to access such attribute directly:</p>
+<p>With that configuration you get a user’s name via his profile, <code>user.profile.name</code>, but it could be handy to still be able to access such attribute directly:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">User</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
@@ -1525,7 +1094,22 @@ delegate <span style="color:#A60">:table_name</span>, <span style="color:#606">t
 
 <p>There are cases where you need to define a method with <code>define_method</code>, but don’t know whether a method with that name already exists. If it does, a warning is issued if they are enabled. No big deal, but not clean either.</p>
 
-<p>The method <code>redefine_method</code> prevents such a potential warning, removing the existing method before if needed.</p>
+<p>The method <code>redefine_method</code> prevents such a potential warning, removing the existing method before if needed. Rails uses it in a few places, for instance when it generates an association’s API:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>redefine_method(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>reflection.name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">=</span><span style="color:#710">&quot;</span></span>) <span style="color:#080;font-weight:bold">do</span> |new_value|
+  association = association_instance_get(reflection.name)
+
+  <span style="color:#080;font-weight:bold">if</span> association.nil? || association.target != new_value
+    association = association_proxy_class.new(<span style="color:#069">self</span>, reflection)
+  <span style="color:#080;font-weight:bold">end</span>
+
+  association.replace(new_value)
+  association_instance_set(reflection.name, new_value.nil? ? <span style="color:#069">nil</span> : association)
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
 
 <p>NOTE: Defined in <code>active_support/core_ext/module/remove_method.rb</code></p>
 
@@ -1575,7 +1159,7 @@ delegate <span style="color:#A60">:table_name</span>, <span style="color:#606">t
 </div>
 </div>
 
-<p>They can also be accessed and overridden at the instance level.</p>
+<p>They can be also accessed and overridden at the instance level.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#036;font-weight:bold">A</span>.x = <span style="color:#00D">1</span>
@@ -1621,7 +1205,7 @@ a2.x <span style="color:#777"># =&gt; 2, overridden in a2</span>
 
 <p>When <code>:instance_reader</code> is <code>false</code>, the instance predicate returns a <code>NoMethodError</code> just like the reader method.</p>
 
-<p>If you do not want the instance predicate, pass <code>instance_predicate: false</code> and it will not be defined.</p>
+<p>If you do not want the instance predicate,  pass <code>instance_predicate: false</code> and it will not be defined.</p>
 
 <p>NOTE: Defined in <code>active_support/core_ext/class/attribute.rb</code></p>
 
@@ -1654,17 +1238,6 @@ a2.x <span style="color:#777"># =&gt; 2, overridden in a2</span>
 
 <p>we can access <code>field_error_proc</code> in views.</p>
 
-<p>Also, you can pass a block to <code>cattr_*</code> to set up the attribute with a default value:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">MysqlAdapter</span> &lt; <span style="color:#036;font-weight:bold">AbstractAdapter</span>
-  <span style="color:#777"># Generates class methods to access @@emulate_booleans with default value of true.</span>
-  cattr_accessor(<span style="color:#A60">:emulate_booleans</span>) { <span style="color:#069">true</span> }
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
 <p>The generation of the reader instance method can be prevented by setting <code>:instance_reader</code> to <code>false</code> and the generation of the writer instance method can be prevented by setting <code>:instance_writer</code> to <code>false</code>. Generation of both methods can be prevented by setting <code>:instance_accessor</code> to <code>false</code>. In all cases, the value must be exactly <code>false</code> and not any false value.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -1684,7 +1257,7 @@ a2.x <span style="color:#777"># =&gt; 2, overridden in a2</span>
 
 <p>A model may find it useful to set <code>:instance_accessor</code> to <code>false</code> as a way to prevent mass-assignment from setting the attribute.</p>
 
-<p>NOTE: Defined in <code>active_support/core_ext/module/attribute_accessors.rb</code>.</p>
+<p>NOTE: Defined in <code>active_support/core_ext/class/attribute_accessors.rb</code>.</p>
 
 <h3 id="subclasses--descendants">Subclasses &amp; Descendants</h3>
 
@@ -1746,9 +1319,9 @@ a2.x <span style="color:#777"># =&gt; 2, overridden in a2</span>
 
 <h4 id="safe-strings">Safe Strings</h4>
 
-<p>Active Support has the concept of <em>(html) safe</em> strings. A safe string is one that is marked as being insertable into HTML as is. It is trusted, no matter whether it has been escaped or not.</p>
+<p>Active Support has the concept of <i>(html) safe</i> strings. A safe string is one that is marked as being insertable into HTML as is. It is trusted, no matter whether it has been escaped or not.</p>
 
-<p>Strings are considered to be <em>unsafe</em> by default:</p>
+<p>Strings are considered to be <i>unsafe</i> by default:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>.html_safe? <span style="color:#777"># =&gt; false</span>
@@ -1845,20 +1418,6 @@ s            <span style="color:#777"># =&gt; &quot;&lt;script&gt;...&lt;/script
 
 <p>Calling <code>dup</code> or <code>clone</code> on safe strings yields safe strings.</p>
 
-<h3 id="remove"><code>remove</code></h3>
-
-<p>The method <code>remove</code> will remove all occurrences of the pattern:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Hello World</span><span style="color:#710">&quot;</span></span>.remove(<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">Hello </span><span style="color:#404">/</span></span>) =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">World</span><span style="color:#710">&quot;</span></span>
-</pre></div>
-</div>
-</div>
-
-<p>There’s also the destructive version <code>String#remove!</code>.</p>
-
-<p>NOTE: Defined in <code>active_support/core_ext/string/filters.rb</code>.</p>
-
 <h3 id="squish"><code>squish</code></h3>
 
 <p>The method <code>squish</code> strips leading and trailing whitespace, and substitutes runs of whitespace with a single space each:</p>
@@ -1871,7 +1430,7 @@ s            <span style="color:#777"># =&gt; &quot;&lt;script&gt;...&lt;/script
 
 <p>There’s also the destructive version <code>String#squish!</code>.</p>
 
-<p>Note that it handles both ASCII and Unicode whitespace.</p>
+<p>Note that it handles both ASCII and Unicode whitespace like mongolian vowel separator (U+180E).</p>
 
 <p>NOTE: Defined in <code>active_support/core_ext/string/filters.rb</code>.</p>
 
@@ -1918,46 +1477,6 @@ s            <span style="color:#777"># =&gt; &quot;&lt;script&gt;...&lt;/script
 </div>
 
 <p>In above examples “dear” gets cut first, but then <code>:separator</code> prevents it.</p>
-
-<p>NOTE: Defined in <code>active_support/core_ext/string/filters.rb</code>.</p>
-
-<h3 id="truncatewords"><code>truncate_words</code></h3>
-
-<p>The method <code>truncate_words</code> returns a copy of its receiver truncated after a given number of words:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Oh dear! Oh dear! I shall be late!</span><span style="color:#710">&quot;</span></span>.truncate_words(<span style="color:#00D">4</span>)
-<span style="color:#777"># =&gt; &quot;Oh dear! Oh dear!...&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<p>Ellipsis can be customized with the <code>:omission</code> option:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Oh dear! Oh dear! I shall be late!</span><span style="color:#710">&quot;</span></span>.truncate_words(<span style="color:#00D">4</span>, <span style="color:#606">omission</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&amp;hellip;</span><span style="color:#710">'</span></span>)
-<span style="color:#777"># =&gt; &quot;Oh dear! Oh dear!&amp;hellip;&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<p>Pass a <code>:separator</code> to truncate the string at a natural break:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Oh dear! Oh dear! I shall be late!</span><span style="color:#710">&quot;</span></span>.truncate_words(<span style="color:#00D">3</span>, <span style="color:#606">separator</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">!</span><span style="color:#710">'</span></span>)
-<span style="color:#777"># =&gt; &quot;Oh dear! Oh dear! I shall be late...&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<p>The option <code>:separator</code> can be a regexp:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Oh dear! Oh dear! I shall be late!</span><span style="color:#710">&quot;</span></span>.truncate_words(<span style="color:#00D">4</span>, <span style="color:#606">separator</span>: <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#D20">\s</span><span style="color:#404">/</span></span>)
-<span style="color:#777"># =&gt; &quot;Oh dear! Oh dear!...&quot;</span>
-</pre></div>
-</div>
-</div>
 
 <p>NOTE: Defined in <code>active_support/core_ext/string/filters.rb</code>.</p>
 
@@ -2053,8 +1572,6 @@ EOS</span></span>
 
 <p>The <code>indent!</code> method performs indentation in-place.</p>
 
-<p>NOTE: Defined in <code>active_support/core_ext/string/indent.rb</code>.</p>
-
 <h3 id="access">Access</h3>
 
 <h4 id="atposition"><code>at(position)</code></h4>
@@ -2130,7 +1647,7 @@ EOS</span></span>
 
 <p>As the previous example shows, Active Support knows some irregular plurals and uncountable nouns. Built-in rules can be extended in <code>config/initializers/inflections.rb</code>. That file is generated by the <code>rails</code> command and has instructions in comments.</p>
 
-<p><code>pluralize</code> can also take an optional <code>count</code> parameter. If <code>count == 1</code> the singular form will be returned. For any other value of <code>count</code> the plural form will be returned:</p>
+<p><code>pluralize</code> can also take an optional <code>count</code> parameter.  If <code>count == 1</code> the singular form will be returned.  For any other value of <code>count</code> the plural form will be returned:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">dude</span><span style="color:#710">&quot;</span></span>.pluralize(<span style="color:#00D">0</span>) <span style="color:#777"># =&gt; &quot;dudes&quot;</span>
@@ -2230,7 +1747,7 @@ EOS</span></span>
   inflect.acronym <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">SSL</span><span style="color:#710">'</span></span>
 <span style="color:#080;font-weight:bold">end</span>
 
-<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">SSLError</span><span style="color:#710">&quot;</span></span>.underscore.camelize <span style="color:#777"># =&gt; &quot;SSLError&quot;</span>
+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">SSLError</span><span style="color:#710">&quot;</span></span>.underscore.camelize <span style="color:#777">#=&gt; &quot;SSLError&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -2334,9 +1851,6 @@ EOS</span></span>
   <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Product</span><span style="color:#710">&quot;</span></span>.demodulize                        <span style="color:#777"># =&gt; &quot;Product&quot;</span>
 <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Backoffice::UsersController</span><span style="color:#710">&quot;</span></span>.demodulize    <span style="color:#777"># =&gt; &quot;UsersController&quot;</span>
 <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Admin::Hotel::ReservationUtils</span><span style="color:#710">&quot;</span></span>.demodulize <span style="color:#777"># =&gt; &quot;ReservationUtils&quot;</span>
-<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">::Inflections</span><span style="color:#710">&quot;</span></span>.demodulize                  <span style="color:#777"># =&gt; &quot;Inflections&quot;</span>
-<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>.demodulize                               <span style="color:#777"># =&gt; &quot;&quot;</span>
-
 </pre></div>
 </div>
 </div>
@@ -2493,53 +2007,30 @@ EOS</span></span>
 
 <h4 id="humanize"><code>humanize</code></h4>
 
-<p>The method <code>humanize</code> tweaks an attribute name for display to end users.</p>
-
-<p>Specifically performs these transformations:</p>
-
-<ul>
-  <li>Applies human inflection rules to the argument.</li>
-  <li>Deletes leading underscores, if any.</li>
-  <li>Removes a “_id” suffix if present.</li>
-  <li>Replaces underscores with spaces, if any.</li>
-  <li>Downcases all words except acronyms.</li>
-  <li>Capitalizes the first word.</li>
-</ul>
-
-<p>The capitalization of the first word can be turned off by setting the
-+:capitalize+ option to false (default is true).</p>
+<p>The method <code>humanize</code> gives you a sensible name for display out of an attribute name. To do so it replaces underscores with spaces, removes any “_id” suffix, and capitalizes the first word:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">name</span><span style="color:#710">&quot;</span></span>.humanize                         <span style="color:#777"># =&gt; &quot;Name&quot;</span>
-<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">author_id</span><span style="color:#710">&quot;</span></span>.humanize                    <span style="color:#777"># =&gt; &quot;Author&quot;</span>
-<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">author_id</span><span style="color:#710">&quot;</span></span>.humanize(<span style="color:#606">capitalize</span>: <span style="color:#069">false</span>) <span style="color:#777"># =&gt; &quot;author&quot;</span>
-<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">comments_count</span><span style="color:#710">&quot;</span></span>.humanize               <span style="color:#777"># =&gt; &quot;Comments count&quot;</span>
-<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">_id</span><span style="color:#710">&quot;</span></span>.humanize                          <span style="color:#777"># =&gt; &quot;Id&quot;</span>
+  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">name</span><span style="color:#710">&quot;</span></span>.humanize           <span style="color:#777"># =&gt; &quot;Name&quot;</span>
+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">author_id</span><span style="color:#710">&quot;</span></span>.humanize      <span style="color:#777"># =&gt; &quot;Author&quot;</span>
+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">comments_count</span><span style="color:#710">&quot;</span></span>.humanize <span style="color:#777"># =&gt; &quot;Comments count&quot;</span>
 </pre></div>
 </div>
 </div>
 
-<p>If “SSL” was defined to be an acronym:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">ssl_error</span><span style="color:#710">'</span></span>.humanize <span style="color:#777"># =&gt; &quot;SSL error&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<p>The helper method <code>full_messages</code> uses <code>humanize</code> as a fallback to include
-attribute names:</p>
+<p>The helper method <code>full_messages</code> uses <code>humanize</code> as a fallback to include attribute names:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">full_messages</span>
-  map { |attribute, message| full_message(attribute, message) }
-<span style="color:#080;font-weight:bold">end</span>
+  full_messages = []
 
-<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">full_message</span>
-  ...
-  attr_name = attribute.to_s.tr(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">.</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">_</span><span style="color:#710">'</span></span>).humanize
-  attr_name = <span style="color:#33B">@base</span>.class.human_attribute_name(attribute, <span style="color:#606">default</span>: attr_name)
-  ...
+  each <span style="color:#080;font-weight:bold">do</span> |attribute, messages|
+    ...
+    attr_name = attribute.to_s.gsub(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">.</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">_</span><span style="color:#710">'</span></span>).humanize
+    attr_name = <span style="color:#33B">@base</span>.class.human_attribute_name(attribute, <span style="color:#606">default</span>: attr_name)
+    ...
+  <span style="color:#080;font-weight:bold">end</span>
+
+  full_messages
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -2668,6 +2159,26 @@ as well as adding or subtracting their results from a Time object. For example:<
 </div>
 </div>
 
+<p>While these methods provide precise calculation when used as in the examples above, care
+should be taken to note that this is not true if the result of <code>months', </code>years’, etc is
+converted before use:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#777"># equivalent to 30.days.to_i.from_now</span>
+<span style="color:#00D">1</span>.month.to_i.from_now
+
+<span style="color:#777"># equivalent to 365.25.days.to_f.from_now</span>
+<span style="color:#00D">1</span>.year.to_f.from_now
+</pre></div>
+</div>
+</div>
+
+<p>In such cases, Ruby’s core <a href="http://ruby-doc.org/stdlib/libdoc/date/rdoc/Date.html">Date</a> and
+<a href="http://ruby-doc.org/stdlib/libdoc/time/rdoc/Time.html">Time</a> should be used for precision
+date and time arithmetic.</p>
+
+<p>NOTE: Defined in <code>active_support/core_ext/numeric/time.rb</code>.</p>
+
 <h3 id="formatting">Formatting</h3>
 
 <p>Enables the formatting of numbers in a variety of ways.</p>
@@ -2767,7 +2278,7 @@ as well as adding or subtracting their results from a Time object. For example:<
 </div>
 </div>
 
-<p>NOTE: Defined in <code>active_support/core_ext/numeric/conversions.rb</code>.</p>
+<p>NOTE: Defined in <code>active_support/core_ext/numeric/formatting.rb</code>.</p>
 
 <h2 id="extensions-to-integer">Extensions to <code>Integer</code></h2>
 
@@ -2819,41 +2330,8 @@ as well as adding or subtracting their results from a Time object. For example:<
 <p>NOTE: Defined in <code>active_support/core_ext/integer/inflections.rb</code>.</p>
 
 <h2 id="extensions-to-bigdecimal">Extensions to <code>BigDecimal</code></h2>
-<p>### <code>to_s</code></p>
 
-<p>The method <code>to_s</code> is aliased to <code>to_formatted_s</code>. This provides a convenient way to display a BigDecimal value in floating-point notation:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#036;font-weight:bold">BigDecimal</span>.new(<span style="color:#60E">5.00</span>, <span style="color:#00D">6</span>).to_s  <span style="color:#777"># =&gt; &quot;5.0&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<h3 id="toformatteds"><code>to_formatted_s</code></h3>
-
-<p>Te method <code>to_formatted_s</code> provides a default specifier of “F”.  This means that a simple call to <code>to_formatted_s</code> or <code>to_s</code> will result in floating point representation instead of engineering notation:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#036;font-weight:bold">BigDecimal</span>.new(<span style="color:#60E">5.00</span>, <span style="color:#00D">6</span>).to_formatted_s  <span style="color:#777"># =&gt; &quot;5.0&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<p>and that symbol specifiers are also supported:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#036;font-weight:bold">BigDecimal</span>.new(<span style="color:#60E">5.00</span>, <span style="color:#00D">6</span>).to_formatted_s(<span style="color:#A60">:db</span>)  <span style="color:#777"># =&gt; &quot;5.0&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<p>Engineering notation is still supported:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#036;font-weight:bold">BigDecimal</span>.new(<span style="color:#60E">5.00</span>, <span style="color:#00D">6</span>).to_formatted_s(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">e</span><span style="color:#710">&quot;</span></span>)  <span style="color:#777"># =&gt; &quot;0.5E1&quot;</span>
-</pre></div>
-</div>
-</div>
+<p>…</p>
 
 <h2 id="extensions-to-enumerable">Extensions to <code>Enumerable</code></h2>
 
@@ -3099,9 +2577,11 @@ as well as adding or subtracting their results from a Time object. For example:<
   </tbody>
 </table>
 
+<p>Options <code>:connector</code> and <code>:skip_last_comma</code> are deprecated.</p>
+
 <p>NOTE: Defined in <code>active_support/core_ext/array/conversions.rb</code>.</p>
 
-<h4 id="toformatteds-1"><code>to_formatted_s</code></h4>
+<h4 id="toformatteds"><code>to_formatted_s</code></h4>
 
 <p>The method <code>to_formatted_s</code> acts like <code>to_s</code> by default.</p>
 
@@ -3295,7 +2775,7 @@ array[<span style="color:#00D">1</span>][<span style="color:#00D">2</span>] == <
 </div>
 </div>
 
-<p>NOTE: Defined in <code>active_support/core_ext/object/deep_dup.rb</code>.</p>
+<p>NOTE: Defined in <code>active_support/core_ext/array/deep_dup.rb</code>.</p>
 
 <h3 id="grouping">Grouping</h3>
 
@@ -3562,7 +3042,55 @@ hash[<span style="color:#A60">:b</span>][<span style="color:#A60">:d</span>] == 
 </div>
 </div>
 
-<p>NOTE: Defined in <code>active_support/core_ext/object/deep_dup.rb</code>.</p>
+<p>NOTE: Defined in <code>active_support/core_ext/hash/deep_dup.rb</code>.</p>
+
+<h3 id="diffing">Diffing</h3>
+
+<p>The method <code>diff</code> returns a hash that represents a diff of the receiver and the argument with the following logic:</p>
+
+<ul>
+  <li>
+    <p>Pairs <code>key</code>, <code>value</code> that exist in both hashes do not belong to the diff hash.</p>
+  </li>
+  <li>
+    <p>If both hashes have <code>key</code>, but with different values, the pair in the receiver wins.</p>
+  </li>
+  <li>
+    <p>The rest is just merged.</p>
+  </li>
+</ul>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>{<span style="color:#606">a</span>: <span style="color:#00D">1</span>}.diff(<span style="color:#606">a</span>: <span style="color:#00D">1</span>)
+<span style="color:#777"># =&gt; {}, first rule</span>
+
+{<span style="color:#606">a</span>: <span style="color:#00D">1</span>}.diff(<span style="color:#606">a</span>: <span style="color:#00D">2</span>)
+<span style="color:#777"># =&gt; {:a=&gt;1}, second rule</span>
+
+{<span style="color:#606">a</span>: <span style="color:#00D">1</span>}.diff(<span style="color:#606">b</span>: <span style="color:#00D">2</span>)
+<span style="color:#777"># =&gt; {:a=&gt;1, :b=&gt;2}, third rule</span>
+
+{<span style="color:#606">a</span>: <span style="color:#00D">1</span>, <span style="color:#606">b</span>: <span style="color:#00D">2</span>, <span style="color:#606">c</span>: <span style="color:#00D">3</span>}.diff(<span style="color:#606">b</span>: <span style="color:#00D">1</span>, <span style="color:#606">c</span>: <span style="color:#00D">3</span>, <span style="color:#606">d</span>: <span style="color:#00D">4</span>)
+<span style="color:#777"># =&gt; {:a=&gt;1, :b=&gt;2, :d=&gt;4}, all rules</span>
+
+{}.diff({})        <span style="color:#777"># =&gt; {}</span>
+{<span style="color:#606">a</span>: <span style="color:#00D">1</span>}.diff({})    <span style="color:#777"># =&gt; {:a=&gt;1}</span>
+{}.diff(<span style="color:#606">a</span>: <span style="color:#00D">1</span>)      <span style="color:#777"># =&gt; {:a=&gt;1}</span>
+</pre></div>
+</div>
+</div>
+
+<p>An important property of this diff hash is that you can retrieve the original hash by applying <code>diff</code> twice:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>hash.diff(hash2).diff(hash2) == hash
+</pre></div>
+</div>
+</div>
+
+<p>Diffing hashes may be useful for error messages related to expected option hashes for example.</p>
+
+<p>NOTE: Defined in <code>active_support/core_ext/hash/diff.rb</code>.</p>
 
 <h3 id="working-with-keys">Working with Keys</h3>
 
@@ -3594,20 +3122,17 @@ hash[<span style="color:#A60">:b</span>][<span style="color:#A60">:d</span>] == 
 <p>The method <code>transform_keys</code> accepts a block and returns a hash that has applied the block operations to each of the keys in the receiver:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span style="color:#069">nil</span> =&gt; <span style="color:#069">nil</span>, <span style="color:#00D">1</span> =&gt; <span style="color:#00D">1</span>, <span style="color:#606">a</span>: <span style="color:#A60">:a</span>}.transform_keys { |key| key.to_s.upcase }
+  <div class="code"><pre>{<span style="color:#069">nil</span> =&gt; <span style="color:#069">nil</span>, <span style="color:#00D">1</span> =&gt; <span style="color:#00D">1</span>, <span style="color:#606">a</span>: <span style="color:#A60">:a</span>}.transform_keys{ |key| key.to_s.upcase }
 <span style="color:#777"># =&gt; {&quot;&quot; =&gt; nil, &quot;A&quot; =&gt; :a, &quot;1&quot; =&gt; 1}</span>
 </pre></div>
 </div>
 </div>
 
-<p>In case of key collision, one of the values will be chosen. The chosen value may not always be the same given the same hash:</p>
+<p>The result in case of collision is undefined:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">1</span>, <span style="color:#606">a</span>: <span style="color:#00D">2</span>}.transform_keys { |key| key.to_s.upcase }
-<span style="color:#777"># The result could either be</span>
-<span style="color:#777"># =&gt; {&quot;A&quot;=&gt;2}</span>
-<span style="color:#777"># or</span>
-<span style="color:#777"># =&gt; {&quot;A&quot;=&gt;1}</span>
+  <div class="code"><pre>{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">1</span>, <span style="color:#606">a</span>: <span style="color:#00D">2</span>}.transform_keys{ |key| key.to_s.upcase }
+<span style="color:#777"># =&gt; {&quot;A&quot; =&gt; 2}, in my test, can't rely on this result though</span>
 </pre></div>
 </div>
 </div>
@@ -3616,11 +3141,11 @@ hash[<span style="color:#A60">:b</span>][<span style="color:#A60">:d</span>] == 
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">stringify_keys</span>
-  transform_keys { |key| key.to_s }
+  transform_keys{ |key| key.to_s }
 <span style="color:#080;font-weight:bold">end</span>
 ...
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">symbolize_keys</span>
-  transform_keys { |key| key.to_sym <span style="color:#080;font-weight:bold">rescue</span> key }
+  transform_keys{ |key| key.to_sym <span style="color:#080;font-weight:bold">rescue</span> key }
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -3631,7 +3156,7 @@ hash[<span style="color:#A60">:b</span>][<span style="color:#A60">:d</span>] == 
 <p>Besides that, one can use <code>deep_transform_keys</code> and <code>deep_transform_keys!</code> to perform the block operation on all the keys in the given hash and all the hashes nested into it. An example of the result is:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span style="color:#069">nil</span> =&gt; <span style="color:#069">nil</span>, <span style="color:#00D">1</span> =&gt; <span style="color:#00D">1</span>, <span style="color:#606">nested</span>: {<span style="color:#606">a</span>: <span style="color:#00D">3</span>, <span style="color:#00D">5</span> =&gt; <span style="color:#00D">5</span>}}.deep_transform_keys { |key| key.to_s.upcase }
+  <div class="code"><pre>{<span style="color:#069">nil</span> =&gt; <span style="color:#069">nil</span>, <span style="color:#00D">1</span> =&gt; <span style="color:#00D">1</span>, <span style="color:#606">nested</span>: {<span style="color:#606">a</span>: <span style="color:#00D">3</span>, <span style="color:#00D">5</span> =&gt; <span style="color:#00D">5</span>}}.deep_transform_keys{ |key| key.to_s.upcase }
 <span style="color:#777"># =&gt; {&quot;&quot;=&gt;nil, &quot;1&quot;=&gt;1, &quot;NESTED&quot;=&gt;{&quot;A&quot;=&gt;3, &quot;5&quot;=&gt;5}}</span>
 </pre></div>
 </div>
@@ -3650,14 +3175,11 @@ hash[<span style="color:#A60">:b</span>][<span style="color:#A60">:d</span>] == 
 </div>
 </div>
 
-<p>In case of key collision, one of the values will be chosen. The chosen value may not always be the same given the same hash:</p>
+<p>The result in case of collision is undefined:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">1</span>, <span style="color:#606">a</span>: <span style="color:#00D">2</span>}.stringify_keys
-<span style="color:#777"># The result could either be</span>
-<span style="color:#777"># =&gt; {&quot;a&quot;=&gt;2}</span>
-<span style="color:#777"># or</span>
-<span style="color:#777"># =&gt; {&quot;a&quot;=&gt;1}</span>
+<span style="color:#777"># =&gt; {&quot;a&quot; =&gt; 2}, in my test, can't rely on this result though</span>
 </pre></div>
 </div>
 </div>
@@ -3702,14 +3224,11 @@ hash[<span style="color:#A60">:b</span>][<span style="color:#A60">:d</span>] == 
 
 <p>WARNING. Note in the previous example only one key was symbolized.</p>
 
-<p>In case of key collision, one of the values will be chosen. The chosen value may not always be the same given the same hash:</p>
+<p>The result in case of collision is undefined:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>{<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">1</span>, <span style="color:#606">a</span>: <span style="color:#00D">2</span>}.symbolize_keys
-<span style="color:#777"># The result could either be</span>
-<span style="color:#777"># =&gt; {:a=&gt;2}</span>
-<span style="color:#777"># or</span>
-<span style="color:#777"># =&gt; {:a=&gt;1}</span>
+<span style="color:#777"># =&gt; {:a=&gt;2}, in my test, can't rely on this result though</span>
 </pre></div>
 </div>
 </div>
@@ -3761,22 +3280,6 @@ hash[<span style="color:#A60">:b</span>][<span style="color:#A60">:d</span>] == 
 <p>Active Record does not accept unknown options when building associations, for example. It implements that control via <code>assert_valid_keys</code>.</p>
 
 <p>NOTE: Defined in <code>active_support/core_ext/hash/keys.rb</code>.</p>
-
-<h3 id="working-with-values">Working with Values</h3>
-
-<h4 id="transformvalues--transformvalues"><code>transform_values</code> &amp;&amp; <code>transform_values!</code></h4>
-
-<p>The method <code>transform_values</code> accepts a block and returns a hash that has applied the block operations to each of the values in the receiver.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{ <span style="color:#069">nil</span> =&gt; <span style="color:#069">nil</span>, <span style="color:#00D">1</span> =&gt; <span style="color:#00D">1</span>, <span style="color:#A60">:x</span> =&gt; <span style="color:#A60">:a</span> }.transform_values { |value| value.to_s.upcase }
-<span style="color:#777"># =&gt; {nil=&gt;&quot;&quot;, 1=&gt;&quot;1&quot;, :x=&gt;&quot;A&quot;}</span>
-</pre></div>
-</div>
-</div>
-<p>There’s also the bang variant <code>transform_values!</code> that applies the block operations to values in the very receiver.</p>
-
-<p>NOTE: Defined in <code>active_support/core_text/hash/transform_values.rb</code>.</p>
 
 <h3 id="slicing">Slicing</h3>
 
@@ -3850,18 +3353,6 @@ rest = hash.extract!(<span style="color:#A60">:a</span>).class
 </div>
 
 <p>NOTE: Defined in <code>active_support/core_ext/hash/indifferent_access.rb</code>.</p>
-
-<h3 id="compacting">Compacting</h3>
-
-<p>The methods <code>compact</code> and <code>compact!</code> return a Hash without items with <code>nil</code> value.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{<span style="color:#606">a</span>: <span style="color:#00D">1</span>, <span style="color:#606">b</span>: <span style="color:#00D">2</span>, <span style="color:#606">c</span>: <span style="color:#069">nil</span>}.compact <span style="color:#777"># =&gt; {a: 1, b: 2}</span>
-</pre></div>
-</div>
-</div>
-
-<p>NOTE: Defined in <code>active_support/core_ext/hash/compact.rb</code>.</p>
 
 <h2 id="extensions-to-regexp">Extensions to <code>Regexp</code></h2>
 
@@ -4722,9 +4213,9 @@ t.advance(<span style="color:#606">seconds</span>: <span style="color:#00D">1</s
 
 <h4 id="timecurrent"><code>Time.current</code></h4>
 
-<p>Active Support defines <code>Time.current</code> to be today in the current time zone. That’s like <code>Time.now</code>, except that it honors the user time zone, if defined. It also defines the instance predicates <code>past?</code>, <code>today?</code>, and <code>future?</code>, all of them relative to <code>Time.current</code>.</p>
+<p>Active Support defines <code>Time.current</code> to be today in the current time zone. That’s like <code>Time.now</code>, except that it honors the user time zone, if defined. It also defines <code>Time.yesterday</code> and <code>Time.tomorrow</code>, and the instance predicates <code>past?</code>, <code>today?</code>, and <code>future?</code>, all of them relative to <code>Time.current</code>.</p>
 
-<p>When making Time comparisons using methods which honor the user time zone, make sure to use <code>Time.current</code> instead of <code>Time.now</code>. There are cases where the user time zone might be in the future compared to the system time zone, which <code>Time.now</code> uses by default. This means <code>Time.now.to_date</code> may equal <code>Date.yesterday</code>.</p>
+<p>When making Time comparisons using methods which honor the user time zone, make sure to use <code>Time.current</code> and not <code>Time.now</code>. There are cases where the user time zone might be in the future compared to the system time zone, which <code>Time.today</code> uses by default. This means <code>Time.now</code> may equal <code>Time.yesterday</code>.</p>
 
 <h4 id="allday-allweek-allmonth-allquarter-and-allyear"><code>all_day</code>, <code>all_week</code>, <code>all_month</code>, <code>all_quarter</code> and <code>all_year</code></h4>
 
@@ -4904,7 +4395,7 @@ logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="co
 
 <p>TIP: A symbol can represent a fully-qualified constant name as in <code>:"ActiveRecord::Base"</code>, so the behavior for symbols is defined for convenience, not because it has to be that way technically.</p>
 
-<p>For example, when an action of <code>ArticlesController</code> is called Rails tries optimistically to use <code>ArticlesHelper</code>. It is OK that the helper module does not exist, so if an exception for that constant name is raised it should be silenced. But it could be the case that <code>articles_helper.rb</code> raises a <code>NameError</code> due to an actual unknown constant. That should be reraised. The method <code>missing_name?</code> provides a way to distinguish both cases:</p>
+<p>For example, when an action of <code>PostsController</code> is called Rails tries optimistically to use <code>PostsHelper</code>. It is OK that the helper module does not exist, so if an exception for that constant name is raised it should be silenced. But it could be the case that <code>posts_helper.rb</code> raises a <code>NameError</code> due to an actual unknown constant. That should be reraised. The method <code>missing_name?</code> provides a way to distinguish both cases:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">default_helper_module!</span>
@@ -4912,7 +4403,7 @@ logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="co
   module_path = module_name.underscore
   helper module_path
 <span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">MissingSourceFile</span> =&gt; e
-  raise e <span style="color:#080;font-weight:bold">unless</span> e.is_missing? <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">helpers/</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>module_path<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">_helper</span><span style="color:#710">&quot;</span></span>
+  raise e <span style="color:#080;font-weight:bold">unless</span> e.is_missing? <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>module_path<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">_helper</span><span style="color:#710">&quot;</span></span>
 <span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">NameError</span> =&gt; e
   raise e <span style="color:#080;font-weight:bold">unless</span> e.missing_name? <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>module_name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">Helper</span><span style="color:#710">&quot;</span></span>
 <span style="color:#080;font-weight:bold">end</span>
@@ -4928,7 +4419,7 @@ logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="co
 
 <p>Given a path name <code>is_missing?</code> tests whether the exception was raised due to that particular file (except perhaps for the “.rb” extension).</p>
 
-<p>For example, when an action of <code>ArticlesController</code> is called Rails tries to load <code>articles_helper.rb</code>, but that file may not exist. That’s fine, the helper module is not mandatory so Rails silences a load error. But it could be the case that the helper module does exist and in turn requires another library that is missing. In that case Rails must reraise the exception. The method <code>is_missing?</code> provides a way to distinguish both cases:</p>
+<p>For example, when an action of <code>PostsController</code> is called Rails tries to load <code>posts_helper.rb</code>, but that file may not exist. That’s fine, the helper module is not mandatory so Rails silences a load error. But it could be the case that the helper module does exist and in turn requires another library that is missing. In that case Rails must reraise the exception. The method <code>is_missing?</code> provides a way to distinguish both cases:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">default_helper_module!</span>
@@ -4946,6 +4437,6 @@ logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="co
 
 <p>NOTE: Defined in <code>active_support/core_ext/load_error.rb</code>.</p>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>

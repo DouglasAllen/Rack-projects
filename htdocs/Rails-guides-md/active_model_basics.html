@@ -1,448 +1,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="active-model-basics">Active Model Basics</h1>
-
-<p>This guide should provide you with all you need to get started using model
-classes. Active Model allows for Action Pack helpers to interact with
-plain Ruby objects. Active Model also helps build custom ORMs for use
-outside of the Rails framework.</p>
-
-<p>After reading this guide, you will be able to add to plain Ruby objects:</p>
-
-<ul>
-  <li>The ability to behave like an Active Record model.</li>
-  <li>Callbacks and validations like Active Record.</li>
-  <li>Serializers.</li>
-  <li>Integration with the Rails internationalization (i18n) framework.</li>
-</ul>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="active-model-basics">Active Model Basics</h1>
+
+<p>This guide should provide you with all you need to get started using model classes. Active Model allows for Action Pack helpers to interact with non-Active Record models. Active Model also helps building custom ORMs for use outside of the Rails framework.</p>
+
+<p>After reading this guide, you will know:</p>
 
 <hr />
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Active Model is a library containing various modules used in developing
-classes that need some features present on Active Record.
-Some of these modules are explained below.</p>
+<p>Active Model is a library containing various modules used in developing frameworks that need to interact with the Rails Action Pack library. Active Model provides a known set of interfaces for usage in classes. Some of modules are explained below.</p>
 
-<h3 id="attribute-methods">Attribute Methods</h3>
+<h3 id="attributemethods">AttributeMethods</h3>
 
-<p>The <code>ActiveModel::AttributeMethods</code> module can add custom prefixes and suffixes
-on methods of a class. It is used by defining the prefixes and suffixes and
-which methods on the object will use them.</p>
+<p>The AttributeMethods module can add custom prefixes and suffixes on methods of a class. It is used by defining the prefixes and suffixes, which methods on the object will use them.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
@@ -466,19 +49,16 @@ which methods on the object will use them.</p>
 
 person = <span style="color:#036;font-weight:bold">Person</span>.new
 person.age = <span style="color:#00D">110</span>
-person.age_highest?  <span style="color:#777"># =&gt; true</span>
-person.reset_age     <span style="color:#777"># =&gt; 0</span>
-person.age_highest?  <span style="color:#777"># =&gt; false</span>
+person.age_highest?  <span style="color:#777"># true</span>
+person.reset_age     <span style="color:#777"># 0</span>
+person.age_highest?  <span style="color:#777"># false</span>
 </pre></div>
 </div>
 </div>
 
 <h3 id="callbacks">Callbacks</h3>
 
-<p><code>ActiveModel::Callbacks</code> gives Active Record style callbacks. This provides an
-ability to define callbacks which run at appropriate times.
-After defining callbacks, you can wrap them with before, after and around
-custom methods.</p>
+<p>Callbacks gives Active Record style callbacks. This provides the ability to define the callbacks and those will run at appropriate time. After defining a callbacks you can wrap with before, after and around custom methods.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
@@ -490,12 +70,12 @@ custom methods.</p>
 
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">update</span>
     run_callbacks(<span style="color:#A60">:update</span>) <span style="color:#080;font-weight:bold">do</span>
-      <span style="color:#777"># This method is called when update is called on an object.</span>
+      <span style="color:#777"># This will call when we are trying to call update on object.</span>
     <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#080;font-weight:bold">end</span>
 
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">reset_me</span>
-    <span style="color:#777"># This method is called when update is called on an object as a before_update callback is defined.</span>
+    <span style="color:#777"># This method will call when you are calling update on object as a before_update callback as defined.</span>
   <span style="color:#080;font-weight:bold">end</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
@@ -504,9 +84,7 @@ custom methods.</p>
 
 <h3 id="conversion">Conversion</h3>
 
-<p>If a class defines <code>persisted?</code> and <code>id</code> methods, then you can include the
-<code>ActiveModel::Conversion</code> module in that class and call the Rails conversion
-methods on objects of that class.</p>
+<p>If a class defines <code>persisted?</code> and <code>id</code> methods then you can include <code>Conversion</code> module in that class and you can able to call Rails conversion methods to objects of that class.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
@@ -531,14 +109,12 @@ person.to_param            <span style="color:#777"># =&gt; nil</span>
 
 <h3 id="dirty">Dirty</h3>
 
-<p>An object becomes dirty when it has gone through one or more changes to its
-attributes and has not been saved. <code>ActiveModel::Dirty</code> gives the ability to
-check whether an object has been changed or not. It also has attribute based
-accessor methods. Let’s consider a Person class with attributes <code>first_name</code>
-and <code>last_name</code>:</p>
+<p>An object becomes dirty when it has gone through one or more changes to its attributes and has not been saved. This gives the ability to check whether an object has been changed or not. It also has attribute based accessor methods. Let’s consider a Person class with attributes <code>first_name</code> and <code>last_name</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
+  <div class="code"><pre>require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">active_model</span><span style="color:#710">'</span></span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
   include <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Dirty</span>
   define_attribute_methods <span style="color:#A60">:first_name</span>, <span style="color:#A60">:last_name</span>
 
@@ -561,8 +137,8 @@ and <code>last_name</code>:</p>
   <span style="color:#080;font-weight:bold">end</span>
 
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">save</span>
+    <span style="color:#33B">@previously_changed</span> = changes
     <span style="color:#777"># do save work...</span>
-    changes_applied
   <span style="color:#080;font-weight:bold">end</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
@@ -609,13 +185,12 @@ person.first_name_changed? <span style="color:#777"># =&gt; true</span>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#777"># attr_name_was accessor</span>
-person.first_name_was <span style="color:#777"># =&gt; nil</span>
+person.first_name_was <span style="color:#777"># =&gt; &quot;First Name&quot;</span>
 </pre></div>
 </div>
 </div>
 
-<p>Track both previous and current value of the changed attribute. Returns an array
-if changed, else returns nil.</p>
+<p>Track both previous and current value of the changed attribute. Returns an array if changed, else returns nil.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#777"># attr_name_change</span>
@@ -627,8 +202,7 @@ person.last_name_change <span style="color:#777"># =&gt; nil</span>
 
 <h3 id="validations">Validations</h3>
 
-<p><code>ActiveModel::Validations</code> module adds the ability to validate class objects
-like in Active Record.</p>
+<p>Validations module adds the ability to class objects to validate them in Active Record style.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
@@ -641,8 +215,7 @@ like in Active Record.</p>
   validates! <span style="color:#A60">:token</span>, <span style="color:#606">presence</span>: <span style="color:#069">true</span>
 <span style="color:#080;font-weight:bold">end</span>
 
-person = <span style="color:#036;font-weight:bold">Person</span>.new
-person.token = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">2b1f325</span><span style="color:#710">&quot;</span></span>
+person = <span style="color:#036;font-weight:bold">Person</span>.new(<span style="color:#606">token</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">2b1f325</span><span style="color:#710">&quot;</span></span>)
 person.valid?                        <span style="color:#777"># =&gt; false</span>
 person.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">vishnu</span><span style="color:#710">'</span></span>
 person.email = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">me</span><span style="color:#710">'</span></span>
@@ -655,386 +228,6 @@ person.valid?                        <span style="color:#777"># =&gt; raises Act
 </div>
 </div>
 
-<h3 id="naming">Naming</h3>
-
-<p><code>ActiveModel::Naming</code> adds a number of class methods which make the naming and routing
-easier to manage. The module defines the <code>model_name</code> class method which
-will define a number of accessors using some <code>ActiveSupport::Inflector</code> methods.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
-  extend <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Naming</span>
-<span style="color:#080;font-weight:bold">end</span>
-
-<span style="color:#036;font-weight:bold">Person</span>.model_name.name                <span style="color:#777"># =&gt; &quot;Person&quot;</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.singular            <span style="color:#777"># =&gt; &quot;person&quot;</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.plural              <span style="color:#777"># =&gt; &quot;people&quot;</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.element             <span style="color:#777"># =&gt; &quot;person&quot;</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.human               <span style="color:#777"># =&gt; &quot;Person&quot;</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.collection          <span style="color:#777"># =&gt; &quot;people&quot;</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.param_key           <span style="color:#777"># =&gt; &quot;person&quot;</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.i18n_key            <span style="color:#777"># =&gt; :person</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.route_key           <span style="color:#777"># =&gt; &quot;people&quot;</span>
-<span style="color:#036;font-weight:bold">Person</span>.model_name.singular_route_key  <span style="color:#777"># =&gt; &quot;person&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<h3 id="model">Model</h3>
-
-<p><code>ActiveModel::Model</code> adds the ability to a class to work with Action Pack and
-Action View right out of the box.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">EmailContact</span>
-  include <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Model</span>
-
-  attr_accessor <span style="color:#A60">:name</span>, <span style="color:#A60">:email</span>, <span style="color:#A60">:message</span>
-  validates <span style="color:#A60">:name</span>, <span style="color:#A60">:email</span>, <span style="color:#A60">:message</span>, <span style="color:#606">presence</span>: <span style="color:#069">true</span>
-
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">deliver</span>
-    <span style="color:#080;font-weight:bold">if</span> valid?
-      <span style="color:#777"># deliver email</span>
-    <span style="color:#080;font-weight:bold">end</span>
-  <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>When including <code>ActiveModel::Model</code> you get some features like:</p>
-
-<ul>
-  <li>model name introspection</li>
-  <li>conversions</li>
-  <li>translations</li>
-  <li>validations</li>
-</ul>
-
-<p>It also gives you the ability to initialize an object with a hash of attributes,
-much like any Active Record object.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>email_contact = <span style="color:#036;font-weight:bold">EmailContact</span>.new(<span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>,
-                                 <span style="color:#606">email</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">david@example.com</span><span style="color:#710">'</span></span>,
-                                 <span style="color:#606">message</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Hello World</span><span style="color:#710">'</span></span>)
-email_contact.name       <span style="color:#777"># =&gt; 'David'</span>
-email_contact.email      <span style="color:#777"># =&gt; 'david@example.com'</span>
-email_contact.valid?     <span style="color:#777"># =&gt; true</span>
-email_contact.persisted? <span style="color:#777"># =&gt; false</span>
-</pre></div>
-</div>
-</div>
-
-<p>Any class that includes <code>ActiveModel::Model</code> can be used with <code>form_for</code>,
-<code>render</code> and any other Action View helper methods, just like Active Record
-objects.</p>
-
-<h3 id="serialization">Serialization</h3>
-
-<p><code>ActiveModel::Serialization</code> provides a basic serialization for your object.
-You need to declare an attributes hash which contains the attributes you want to
-serialize. Attributes must be strings, not symbols.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
-  include <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Serialization</span>
-
-  attr_accessor <span style="color:#A60">:name</span>
-
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">attributes</span>
-    {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name</span><span style="color:#710">'</span></span> =&gt; <span style="color:#069">nil</span>}
-  <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>Now you can access a serialized hash of your object using the <code>serializable_hash</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>person = <span style="color:#036;font-weight:bold">Person</span>.new
-person.serializable_hash   <span style="color:#777"># =&gt; {&quot;name&quot;=&gt;nil}</span>
-person.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Bob</span><span style="color:#710">&quot;</span></span>
-person.serializable_hash   <span style="color:#777"># =&gt; {&quot;name&quot;=&gt;&quot;Bob&quot;}</span>
-</pre></div>
-</div>
-</div>
-
-<h4 id="activemodelserializers">ActiveModel::Serializers</h4>
-
-<p>Rails provides two serializers <code>ActiveModel::Serializers::JSON</code> and
-<code>ActiveModel::Serializers::Xml</code>. Both of these modules automatically include
-the <code>ActiveModel::Serialization</code>.</p>
-
-<h5 id="activemodelserializersjson">ActiveModel::Serializers::JSON</h5>
-
-<p>To use the <code>ActiveModel::Serializers::JSON</code> you only need to change from
-<code>ActiveModel::Serialization</code> to <code>ActiveModel::Serializers::JSON</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
-  include <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Serializers</span>::<span style="color:#036;font-weight:bold">JSON</span>
-
-  attr_accessor <span style="color:#A60">:name</span>
-
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">attributes</span>
-    {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name</span><span style="color:#710">'</span></span> =&gt; <span style="color:#069">nil</span>}
-  <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>With the <code>as_json</code> you have a hash representing the model.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>person = <span style="color:#036;font-weight:bold">Person</span>.new
-person.as_json <span style="color:#777"># =&gt; {&quot;name&quot;=&gt;nil}</span>
-person.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Bob</span><span style="color:#710">&quot;</span></span>
-person.as_json <span style="color:#777"># =&gt; {&quot;name&quot;=&gt;&quot;Bob&quot;}</span>
-</pre></div>
-</div>
-</div>
-
-<p>From a JSON string you define the attributes of the model.
-You need to have the <code>attributes=</code> method defined on your class:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
-  include <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Serializers</span>::<span style="color:#036;font-weight:bold">JSON</span>
-
-  attr_accessor <span style="color:#A60">:name</span>
-
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">attributes=</span>(hash)
-    hash.each <span style="color:#080;font-weight:bold">do</span> |key, value|
-      send(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>key<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">=</span><span style="color:#710">&quot;</span></span>, value)
-    <span style="color:#080;font-weight:bold">end</span>
-  <span style="color:#080;font-weight:bold">end</span>
-
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">attributes</span>
-    {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name</span><span style="color:#710">'</span></span> =&gt; <span style="color:#069">nil</span>}
-  <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>Now it is possible to create an instance of person and set the attributes using <code>from_json</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>json = { <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Bob</span><span style="color:#710">'</span></span> }.to_json
-person = <span style="color:#036;font-weight:bold">Person</span>.new
-person.from_json(json) <span style="color:#777"># =&gt; #&lt;Person:0x00000100c773f0 @name=&quot;Bob&quot;&gt;</span>
-person.name            <span style="color:#777"># =&gt; &quot;Bob&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<h5 id="activemodelserializersxml">ActiveModel::Serializers::Xml</h5>
-
-<p>To use the <code>ActiveModel::Serializers::Xml</code> you only need to change from
-<code>ActiveModel::Serialization</code> to <code>ActiveModel::Serializers::Xml</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
-  include <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Serializers</span>::<span style="color:#036;font-weight:bold">Xml</span>
-
-  attr_accessor <span style="color:#A60">:name</span>
-
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">attributes</span>
-    {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name</span><span style="color:#710">'</span></span> =&gt; <span style="color:#069">nil</span>}
-  <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>With the <code>to_xml</code> you have a XML representing the model.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>person = <span style="color:#036;font-weight:bold">Person</span>.new
-person.to_xml <span style="color:#777"># =&gt; &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;person&gt;\n  &lt;name nil=\&quot;true\&quot;/&gt;\n&lt;/person&gt;\n&quot;</span>
-person.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Bob</span><span style="color:#710">&quot;</span></span>
-person.to_xml <span style="color:#777"># =&gt; &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;person&gt;\n  &lt;name&gt;Bob&lt;/name&gt;\n&lt;/person&gt;\n&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<p>From a XML string you define the attributes of the model.
-You need to have the <code>attributes=</code> method defined on your class:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
-  include <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Serializers</span>::<span style="color:#036;font-weight:bold">Xml</span>
-
-  attr_accessor <span style="color:#A60">:name</span>
-
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">attributes=</span>(hash)
-    hash.each <span style="color:#080;font-weight:bold">do</span> |key, value|
-      send(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>key<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">=</span><span style="color:#710">&quot;</span></span>, value)
-    <span style="color:#080;font-weight:bold">end</span>
-  <span style="color:#080;font-weight:bold">end</span>
-
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">attributes</span>
-    {<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name</span><span style="color:#710">'</span></span> =&gt; <span style="color:#069">nil</span>}
-  <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>Now it is possible to create an instance of person and set the attributes using <code>from_xml</code>.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>xml = { <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Bob</span><span style="color:#710">'</span></span> }.to_xml
-person = <span style="color:#036;font-weight:bold">Person</span>.new
-person.from_xml(xml) <span style="color:#777"># =&gt; #&lt;Person:0x00000100c773f0 @name=&quot;Bob&quot;&gt;</span>
-person.name          <span style="color:#777"># =&gt; &quot;Bob&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<h3 id="translation">Translation</h3>
-
-<p><code>ActiveModel::Translation</code> provides integration between your object and the Rails
-internationalization (i18n) framework.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
-  extend <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Translation</span>
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>With the <code>human_attribute_name</code> you can transform attribute names into a more
-human format. The human format is defined in your locale file.</p>
-
-<ul>
-  <li>
-    <p>config/locales/app.pt-BR.yml</p>
-
-    <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#606">pt-BR</span>:
-  <span style="color:#606">activemodel</span>:
-    <span style="color:#606">attributes</span>:
-      <span style="color:#606">person</span>:
-        <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">'Nome'</span></span>
-</pre></div>
-</div>
     </div>
-  </li>
-</ul>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#036;font-weight:bold">Person</span>.human_attribute_name(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">name</span><span style="color:#710">'</span></span>) <span style="color:#777"># =&gt; &quot;Nome&quot;</span>
-</pre></div>
-</div>
-</div>
-
-<h3 id="lint-tests">Lint Tests</h3>
-
-<p><code>ActiveModel::Lint::Tests</code> allow you to test whether an object is compliant with
-the Active Model API.</p>
-
-<ul>
-  <li>
-    <p>app/models/person.rb</p>
-
-    <p>~~~ruby
-  class Person
-    include ActiveModel::Model</p>
-
-    <p>end
-  ~~~</p>
-  </li>
-  <li>
-    <p>test/models/person_test.rb</p>
-
-    <p>~~~ruby
-  require ‘test_helper’</p>
-
-    <p>class PersonTest &lt; ActiveSupport::TestCase
-    include ActiveModel::Lint::Tests</p>
-
-    <pre><code>def setup
-  @model = Person.new
-end   end   ~~~
-</code></pre>
-  </li>
-</ul>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ rake test
-
-Run options: --seed 14596
-
-# Running:
-
-......
-
-Finished in 0.024899s, 240.9735 runs/s, 1204.8677 assertions/s.
-
-6 runs, 30 assertions, 0 failures, 0 errors, 0 skips
-</pre></div>
-</div>
-</div>
-
-<p>An object is not required to implement all APIs in order to work with
-Action Pack. This module only intends to provide guidance in case you want all
-features out of the box.</p>
-
-<h3 id="securepassword">SecurePassword</h3>
-
-<p><code>ActiveModel::SecurePassword</code> provides a way to securely store any
-password in an encrypted form. On including this module, a
-<code>has_secure_password</code> class method is provided which defines
-an accessor named <code>password</code> with certain validations on it.</p>
-
-<h4 id="requirements">Requirements</h4>
-
-<p><code>ActiveModel::SecurePassword</code> depends on the <a href="https://github.com/codahale/bcrypt-ruby" title="BCrypt"><code>bcrypt</code></a>,
-so include this gem in your Gemfile to use <code>ActiveModel::SecurePassword</code> correctly.
-In order to make this work, the model must have an accessor named <code>password_digest</code>.
-The <code>has_secure_password</code> will add the following validations on the <code>password</code> accessor:</p>
-
-<ol>
-  <li>Password should be present.</li>
-  <li>Password should be equal to its confirmation.</li>
-  <li>This maximum length of a password is 72 (required by <code>bcrypt</code> on which ActiveModel::SecurePassword depends)</li>
-</ol>
-
-<h4 id="examples">Examples</h4>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span>
-  include <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">SecurePassword</span>
-  has_secure_password
-  attr_accessor <span style="color:#A60">:password_digest</span>
-<span style="color:#080;font-weight:bold">end</span>
-
-person = <span style="color:#036;font-weight:bold">Person</span>.new
-
-<span style="color:#777"># When password is blank.</span>
-person.valid? <span style="color:#777"># =&gt; false</span>
-
-<span style="color:#777"># When the confirmation doesn't match the password.</span>
-person.password = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">aditya</span><span style="color:#710">'</span></span>
-person.password_confirmation = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">nomatch</span><span style="color:#710">'</span></span>
-person.valid? <span style="color:#777"># =&gt; false</span>
-
-<span style="color:#777"># When the length of password, exceeds 72.</span>
-person.password = person.password_confirmation = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">a</span><span style="color:#710">'</span></span> * <span style="color:#00D">100</span>
-person.valid? <span style="color:#777"># =&gt; false</span>
-
-<span style="color:#777"># When all validations are passed.</span>
-person.password = person.password_confirmation = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">aditya</span><span style="color:#710">'</span></span>
-person.valid? <span style="color:#777"># =&gt; true</span>
-</pre></div>
-</div>
-</div>
-
-  </div>
-</body>
+  </body>
 </html>

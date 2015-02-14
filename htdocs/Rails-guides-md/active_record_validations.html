@@ -1,420 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="active-record-validations">Active Record Validations</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="active-record-validations">Active Record Validations</h1>
 
 <p>This guide teaches you how to validate the state of objects before they go into
 the database using Active Record’s validations feature.</p>
@@ -507,7 +104,7 @@ Consider the following simple Active Record class:</p>
 <p>We can see how it works by looking at some <code>rails console</code> output:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#F00;background-color:#FAA">$</span> bin/rails console
+  <div class="code"><pre><span style="color:#F00;background-color:#FAA">$</span> rails console
 &gt;&gt; p = <span style="color:#036;font-weight:bold">Person</span>.new(<span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">John Doe</span><span style="color:#710">&quot;</span></span>)
 =&gt; <span style="color:#777">#&lt;Person id: nil, name: &quot;John Doe&quot;, created_at: nil, updated_at: nil&gt;</span>
 &gt;&gt; p.new_record?
@@ -546,8 +143,8 @@ database only if the object is valid:</p>
 </ul>
 
 <p>The bang versions (e.g. <code>save!</code>) raise an exception if the record is invalid.
-The non-bang versions don’t, <code>save</code> and <code>update</code> return <code>false</code>,
-<code>create</code> just returns the object.</p>
+The non-bang versions don’t: <code>save</code> and <code>update</code> return <code>false</code>,
+<code>create</code> and <code>update</code> just return the objects.</p>
 
 <h3 id="skipping-validations">Skipping Validations</h3>
 
@@ -594,8 +191,8 @@ As you saw above:</p>
 </div>
 
 <p>After Active Record has performed validations, any errors found can be accessed
-through the <code>errors.messages</code> instance method, which returns a collection of errors.
-By definition, an object is valid if this collection is empty after running
+through the <code>errors</code> instance method, which returns a collection of errors. By
+definition, an object is valid if this collection is empty after running
 validations.</p>
 
 <p>Note that an object instantiated with <code>new</code> will not report errors even if it’s
@@ -607,28 +204,28 @@ technically invalid, because validations are not run when using <code>new</code>
 <span style="color:#080;font-weight:bold">end</span>
 
 &gt;&gt; p = <span style="color:#036;font-weight:bold">Person</span>.new
-<span style="color:#777"># =&gt; #&lt;Person id: nil, name: nil&gt;</span>
-&gt;&gt; p.errors.messages
-<span style="color:#777"># =&gt; {}</span>
+<span style="color:#777">#=&gt; #&lt;Person id: nil, name: nil&gt;</span>
+&gt;&gt; p.errors
+<span style="color:#777">#=&gt; {}</span>
 
 &gt;&gt; p.valid?
-<span style="color:#777"># =&gt; false</span>
-&gt;&gt; p.errors.messages
-<span style="color:#777"># =&gt; {name:[&quot;can't be blank&quot;]}</span>
+<span style="color:#777">#=&gt; false</span>
+&gt;&gt; p.errors
+<span style="color:#777">#=&gt; {name:[&quot;can't be blank&quot;]}</span>
 
 &gt;&gt; p = <span style="color:#036;font-weight:bold">Person</span>.create
-<span style="color:#777"># =&gt; #&lt;Person id: nil, name: nil&gt;</span>
-&gt;&gt; p.errors.messages
-<span style="color:#777"># =&gt; {name:[&quot;can't be blank&quot;]}</span>
+<span style="color:#777">#=&gt; #&lt;Person id: nil, name: nil&gt;</span>
+&gt;&gt; p.errors
+<span style="color:#777">#=&gt; {name:[&quot;can't be blank&quot;]}</span>
 
 &gt;&gt; p.save
-<span style="color:#777"># =&gt; false</span>
+<span style="color:#777">#=&gt; false</span>
 
 &gt;&gt; p.save!
-<span style="color:#777"># =&gt; ActiveRecord::RecordInvalid: Validation failed: Name can't be blank</span>
+<span style="color:#777">#=&gt; ActiveRecord::RecordInvalid: Validation failed: Name can't be blank</span>
 
 &gt;&gt; <span style="color:#036;font-weight:bold">Person</span>.create!
-<span style="color:#777"># =&gt; ActiveRecord::RecordInvalid: Validation failed: Name can't be blank</span>
+<span style="color:#777">#=&gt; ActiveRecord::RecordInvalid: Validation failed: Name can't be blank</span>
 </pre></div>
 </div>
 </div>
@@ -678,7 +275,7 @@ line of code you can add the same kind of validation to several attributes.</p>
 <p>All of them accept the <code>:on</code> and <code>:message</code> options, which define when the
 validation should be run and what message should be added to the <code>errors</code>
 collection if it fails, respectively. The <code>:on</code> option takes one of the values
-<code>:create</code> or <code>:update</code>. There is a default error
+<code>:save</code> (the default), <code>:create</code>  or <code>:update</code>. There is a default error
 message for each one of the validation helpers. These messages are used when
 the <code>:message</code> option isn’t specified. Let’s take a look at each one of the
 available helpers.</p>
@@ -784,7 +381,7 @@ set. In fact, this set can be any enumerable object.</p>
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Account</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
   validates <span style="color:#A60">:subdomain</span>, <span style="color:#606">exclusion</span>: { <span style="color:#606">in</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%w(</span><span style="color:#D20">www us ca jp</span><span style="color:#710">)</span></span>,
-    <span style="color:#606">message</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">%{value} is reserved.</span><span style="color:#710">&quot;</span></span> }
+    <span style="color:#606">message</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Subdomain %{value} is reserved.</span><span style="color:#710">&quot;</span></span> }
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -806,13 +403,11 @@ given regular expression, which is specified using the <code>:with</code> option
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Product</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
   validates <span style="color:#A60">:legacy_code</span>, <span style="color:#606">format</span>: { <span style="color:#606">with</span>: <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#D20">\A</span><span style="color:#808">[a-zA-Z]+</span><span style="color:#D20">\z</span><span style="color:#404">/</span></span>,
-    <span style="color:#606">message</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">only allows letters</span><span style="color:#710">&quot;</span></span> }
+    <span style="color:#606">message</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Only letters allowed</span><span style="color:#710">&quot;</span></span> }
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
 </div>
-
-<p>Alternatively, you can require that the specified attribute does <em>not</em> match the regular expression by using the <code>:without</code> option.</p>
 
 <p>The default error message is <em>“is invalid”</em>.</p>
 
@@ -886,7 +481,7 @@ different way using the <code>:tokenizer</code> option:</p>
   validates <span style="color:#A60">:content</span>, <span style="color:#606">length</span>: {
     <span style="color:#606">minimum</span>: <span style="color:#00D">300</span>,
     <span style="color:#606">maximum</span>: <span style="color:#00D">400</span>,
-    <span style="color:#606">tokenizer</span>: lambda { |str| str.split(<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#D20">\s</span><span style="color:#808">+</span><span style="color:#404">/</span></span>) },
+    <span style="color:#606">tokenizer</span>: lambda { |str| str.scan(<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#D20">\w</span><span style="color:#808">+</span><span style="color:#404">/</span></span>) },
     <span style="color:#606">too_short</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">must have at least %{count} words</span><span style="color:#710">&quot;</span></span>,
     <span style="color:#606">too_long</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">must have at most %{count} words</span><span style="color:#710">&quot;</span></span>
   }
@@ -900,6 +495,8 @@ is %{count} characters)”). For this reason, when <code>:minimum</code> is 1 yo
 provide a personalized message or use <code>presence: true</code> instead. When
 <code>:in</code> or <code>:within</code> have a lower limit of 1, you should either provide a
 personalized message or call <code>presence</code> prior to <code>length</code>.</p>
+
+<p>The <code>size</code> helper is an alias for <code>length</code>.</p>
 
 <h3 id="numericality"><code>numericality</code></h3>
 
@@ -999,18 +596,9 @@ specify the <code>:inverse_of</code> option for the association:</p>
 <code>marked_for_destruction?</code>.</p>
 
 <p>Since <code>false.blank?</code> is true, if you want to validate the presence of a boolean
-field you should use one of the following validations:</p>
+field you should use <code>validates :field_name, inclusion: { in: [true, false] }</code>.</p>
 
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>validates <span style="color:#A60">:boolean_field_name</span>, <span style="color:#606">presence</span>: <span style="color:#069">true</span>
-validates <span style="color:#A60">:boolean_field_name</span>, <span style="color:#606">inclusion</span>: { <span style="color:#606">in</span>: [<span style="color:#069">true</span>, <span style="color:#069">false</span>] }
-validates <span style="color:#A60">:boolean_field_name</span>, <span style="color:#606">exclusion</span>: { <span style="color:#606">in</span>: [<span style="color:#069">nil</span>] }
-</pre></div>
-</div>
-</div>
-
-<p>By using one of these validations, you will ensure the value will NOT be <code>nil</code>
-which would result in a <code>NULL</code> value in most cases.</p>
+<p>The default error message is <em>“can’t be empty”</em>.</p>
 
 <h3 id="absence"><code>absence</code></h3>
 
@@ -1065,9 +653,7 @@ field you should use <code>validates :field_name, exclusion: { in: [true, false]
 object gets saved. It does not create a uniqueness constraint in the database,
 so it may happen that two different database connections create two records
 with the same value for a column that you intend to be unique. To avoid that,
-you must create a unique index on both columns in your database. See
-<a href="http://dev.mysql.com/doc/refman/5.6/en/multiple-column-indexes.html">the MySQL manual</a>
-for more details about multiple column indexes.</p>
+you must create a unique index in your database.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Account</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
@@ -1114,16 +700,16 @@ searches anyway.</p>
 <p>This helper passes the record to a separate class for validation.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">GoodnessValidator</span> &lt; <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Validator</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
+  validates_with <span style="color:#036;font-weight:bold">GoodnessValidator</span>
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">GoodnessValidator</span> &lt; <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Validator</span>
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">validate</span>(record)
     <span style="color:#080;font-weight:bold">if</span> record.first_name == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Evil</span><span style="color:#710">&quot;</span></span>
       record.errors[<span style="color:#A60">:base</span>] &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">This person is evil</span><span style="color:#710">&quot;</span></span>
     <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
-  validates_with <span style="color:#036;font-weight:bold">GoodnessValidator</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -1144,16 +730,16 @@ which is the record to be validated.</p>
 validator class as <code>options</code>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">GoodnessValidator</span> &lt; <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Validator</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
+  validates_with <span style="color:#036;font-weight:bold">GoodnessValidator</span>, <span style="color:#606">fields</span>: [<span style="color:#A60">:first_name</span>, <span style="color:#A60">:last_name</span>]
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">GoodnessValidator</span> &lt; <span style="color:#036;font-weight:bold">ActiveModel</span>::<span style="color:#036;font-weight:bold">Validator</span>
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">validate</span>(record)
     <span style="color:#080;font-weight:bold">if</span> options[<span style="color:#A60">:fields</span>].any?{|field| record.send(field) == <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Evil</span><span style="color:#710">&quot;</span></span> }
       record.errors[<span style="color:#A60">:base</span>] &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">This person is evil</span><span style="color:#710">&quot;</span></span>
     <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
-  validates_with <span style="color:#036;font-weight:bold">GoodnessValidator</span>, <span style="color:#606">fields</span>: [<span style="color:#A60">:first_name</span>, <span style="color:#A60">:last_name</span>]
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -1177,14 +763,14 @@ easily use a plain old Ruby object instead:</p>
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(person)
     <span style="color:#33B">@person</span> = person
   <span style="color:#080;font-weight:bold">end</span>
-
+  
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">validate</span>
     <span style="color:#080;font-weight:bold">if</span> some_complex_condition_involving_ivars_and_private_methods?
       <span style="color:#33B">@person</span>.errors[<span style="color:#A60">:base</span>] &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">This person is evil</span><span style="color:#710">&quot;</span></span>
     <span style="color:#080;font-weight:bold">end</span>
   <span style="color:#080;font-weight:bold">end</span>
-
-  <span style="color:#777"># ...</span>
+  
+  <span style="color:#777"># …</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -1200,7 +786,7 @@ we don’t want names and surnames to begin with lower case.</p>
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
   validates_each <span style="color:#A60">:name</span>, <span style="color:#A60">:surname</span> <span style="color:#080;font-weight:bold">do</span> |record, attr, value|
-    record.errors.add(attr, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">must start with upper case</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">if</span> value =~ <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#D20">\A</span><span style="color:#808">[[:lower:]]</span><span style="color:#404">/</span></span>
+    record.errors.add(attr, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">must start with upper case</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">if</span> value =~ <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#D20">\A</span><span style="color:#808">[a-z]</span><span style="color:#404">/</span></span>
   <span style="color:#080;font-weight:bold">end</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
@@ -1241,8 +827,8 @@ empty string for example.</p>
   validates <span style="color:#A60">:title</span>, <span style="color:#606">length</span>: { <span style="color:#606">is</span>: <span style="color:#00D">5</span> }, <span style="color:#606">allow_blank</span>: <span style="color:#069">true</span>
 <span style="color:#080;font-weight:bold">end</span>
 
-<span style="color:#036;font-weight:bold">Topic</span>.create(<span style="color:#606">title</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>).valid?  <span style="color:#777"># =&gt; true</span>
-<span style="color:#036;font-weight:bold">Topic</span>.create(<span style="color:#606">title</span>: <span style="color:#069">nil</span>).valid? <span style="color:#777"># =&gt; true</span>
+<span style="color:#036;font-weight:bold">Topic</span>.create(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">title</span><span style="color:#710">&quot;</span></span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>).valid?  <span style="color:#777"># =&gt; true</span>
+<span style="color:#036;font-weight:bold">Topic</span>.create(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">title</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#069">nil</span>).valid? <span style="color:#777"># =&gt; true</span>
 </pre></div>
 </div>
 </div>
@@ -1272,11 +858,12 @@ is updated.</p>
   validates <span style="color:#A60">:age</span>, <span style="color:#606">numericality</span>: <span style="color:#069">true</span>, <span style="color:#606">on</span>: <span style="color:#A60">:update</span>
 
   <span style="color:#777"># the default (validates on both create and update)</span>
-  validates <span style="color:#A60">:name</span>, <span style="color:#606">presence</span>: <span style="color:#069">true</span>
+  validates <span style="color:#A60">:name</span>, <span style="color:#606">presence</span>: <span style="color:#069">true</span>, <span style="color:#606">on</span>: <span style="color:#A60">:save</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
 </div>
+<p>The last line is in review state and as of now, it is not running in any version of Rails 3.2.x as discussed in this <a href="https://github.com/rails/rails/issues/10248">issue</a></p>
 
 <h2 id="strict-validations">Strict Validations</h2>
 
@@ -1293,7 +880,7 @@ is updated.</p>
 </div>
 </div>
 
-<p>There is also an ability to pass custom exception to <code>:strict</code> option.</p>
+<p>There is also an ability to pass custom exception to <code>:strict</code> option</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Person</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
@@ -1390,7 +977,7 @@ should happen, an <code>Array</code> can be used. Moreover, you can apply both <
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Computer</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
   validates <span style="color:#A60">:mouse</span>, <span style="color:#606">presence</span>: <span style="color:#069">true</span>,
-                    <span style="color:#606">if</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">market.retail?</span><span style="color:#710">&quot;</span></span>, <span style="color:#A60">:desktop?</span>],
+                    <span style="color:#606">if</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">market.retail?</span><span style="color:#710">&quot;</span></span>, <span style="color:#A60">:desktop?</span>]
                     <span style="color:#606">unless</span>: <span style="color:#036;font-weight:bold">Proc</span>.new { |c| c.trackpad.present? }
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
@@ -1432,8 +1019,8 @@ and performs the validation on it. The custom validator is called using the
 <p>The easiest way to add custom validators for validating individual attributes
 is with the convenient <code>ActiveModel::EachValidator</code>. In this case, the custom
 validator class must implement a <code>validate_each</code> method which takes three
-arguments: record, attribute, and value. These correspond to the instance, the
-attribute to be validated, and the value of the attribute in the passed
+arguments: record, attribute and value which correspond to the instance, the
+attribute to be validated and the value of the attribute in the passed
 instance.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -1519,12 +1106,12 @@ option to the <code>validate</code> method, with either: <code>:create</code> or
 
 person = <span style="color:#036;font-weight:bold">Person</span>.new
 person.valid? <span style="color:#777"># =&gt; false</span>
-person.errors.messages
+person.errors
  <span style="color:#777"># =&gt; {:name=&gt;[&quot;can't be blank&quot;, &quot;is too short (minimum is 3 characters)&quot;]}</span>
 
 person = <span style="color:#036;font-weight:bold">Person</span>.new(<span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">John Doe</span><span style="color:#710">&quot;</span></span>)
 person.valid? <span style="color:#777"># =&gt; true</span>
-person.errors.messages <span style="color:#777"># =&gt; {}</span>
+person.errors <span style="color:#777"># =&gt; []</span>
 </pre></div>
 </div>
 </div>
@@ -1669,15 +1256,15 @@ generating a scaffold, Rails will put some ERB into the <code>_form.html.erb</co
 it generates that displays the full list of errors on that model.</p>
 
 <p>Assuming we have a model that’s been saved in an instance variable named
-<code>@article</code>, it looks like this:</p>
+<code>@post</code>, it looks like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">% </span><span style="color:#D20">if</span><span style="color:#710"> </span></span><span style="color:#33B">@article</span>.errors.any? <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%&gt;</span><span style="color:#D20">
+  <div class="code"><pre>&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">% </span><span style="color:#D20">if</span><span style="color:#710"> </span></span><span style="color:#33B">@post</span>.errors.any? <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%&gt;</span><span style="color:#D20">
   &lt;div id=&quot;error_explanation&quot;</span><span style="color:#710">&gt;</span></span>
-    &lt;h2&gt;&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> pluralize(@article.errors.count, &quot;error&quot;) %&gt; prohibited this article from being saved:&lt;/h2&gt;
+    &lt;h2&gt;&lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%=</span><span style="color:#D20"> pluralize(@post.errors.count, &quot;error&quot;) %&gt; prohibited this post from being saved:&lt;/h2&gt;
 
     &lt;ul&gt;
-    &lt;% @article.errors.full_messages.each do |msg| %&gt;
+    &lt;% @post.errors.full_messages.each do |msg| %&gt;
       &lt;li&gt;&lt;%</span><span style="color:#710">=</span></span> msg <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%&gt;</span><span style="color:#D20">&lt;/li</span><span style="color:#710">&gt;</span></span>
     &lt;<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">% </span><span style="color:#D20">end</span><span style="color:#710"> </span></span>%&gt;
     &lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">ul&gt;
@@ -1692,7 +1279,7 @@ a validation error occurs on a field, it will generate an extra <code>&lt;div&gt
 the entry.</p>
 
 <pre><code>&lt;div class="field_with_errors"&gt;
- &lt;input id="article_title" name="article[title]" size="30" type="text" value=""&gt;
+ &lt;input id="post_title" name="post[title]" size="30" type="text" value=""&gt;
 &lt;/div&gt;
 </code></pre>
 
@@ -1708,6 +1295,6 @@ Rails generates, for example, adds this CSS rule:</p>
 
 <p>This means that any field with an error ends up with a 2 pixel red border.</p>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>

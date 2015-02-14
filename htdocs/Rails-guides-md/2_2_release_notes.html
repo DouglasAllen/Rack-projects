@@ -1,422 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="ruby-on-rails-22-release-notes">Ruby on Rails 2.2 Release Notes</h1>
-
-<p>Rails 2.2 delivers a number of new and improved features. This list covers the major upgrades, but doesn’t include every little bug fix and change. If you want to see everything, check out the <a href="http://github.com/rails/rails/commits/2-2-stable">list of commits</a> in the main Rails repository on GitHub.</p>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="ruby-on-rails-22-release-notes">Ruby on Rails 2.2 Release Notes</h1>
+
+<p>Rails 2.2 delivers a number of new and improved features. This list covers the major upgrades, but doesn’t include every little bug fix and change. If you want to see everything, check out the <a href="http://github.com/rails/rails/commits/master">list of commits</a> in the main Rails repository on GitHub.</p>
 
 <p>Along with Rails, 2.2 marks the launch of the <a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a>, the first results of the ongoing <a href="http://hackfest.rubyonrails.org/guide">Rails Guides hackfest</a>. This site will deliver high-quality documentation of the major features of Rails.</p>
 
@@ -450,20 +47,47 @@
 <p>The internal documentation of Rails, in the form of code comments, has been improved in numerous places. In addition, the <a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a> project is the definitive source for information on major Rails components. In its first official release, the Guides page includes:</p>
 
 <ul>
-  <li><a href="getting_started.html">Getting Started with Rails</a></li>
-  <li><a href="migrations.html">Rails Database Migrations</a></li>
-  <li><a href="association_basics.html">Active Record Associations</a></li>
-  <li><a href="active_record_querying.html">Active Record Query Interface</a></li>
-  <li><a href="layouts_and_rendering.html">Layouts and Rendering in Rails</a></li>
-  <li><a href="form_helpers.html">Action View Form Helpers</a></li>
-  <li><a href="routing.html">Rails Routing from the Outside In</a></li>
-  <li><a href="action_controller_overview.html">Action Controller Overview</a></li>
-  <li><a href="caching_with_rails.html">Rails Caching</a></li>
-  <li><a href="testing.html">A Guide to Testing Rails Applications</a></li>
-  <li><a href="security.html">Securing Rails Applications</a></li>
-  <li><a href="debugging_rails_applications.html">Debugging Rails Applications</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/getting_started.md">Getting Started with Rails</a></li>
+</ul>
+
+<p>-</p>
+
+<ul>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/action_controller_overview.md">Action Controller Overview</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/action_mailer_basics.md">Action Mailer Basics</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/action_view_overview.md">Action View Overview</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/form_helpers.md">Action View Form Helpers</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/active_model_basics.md">Active Model Basics</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/active_record_basics.md">Active Record Basics</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/association_basics.md">Active Record Associations</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/active_record_callbacks.md">Active Record Callbacks</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/migrations.md">Active Record Migrations</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/active_record_querying.md">Active Record Query Interface</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/active_record_validations.md">Active Record Validations</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/active_support_core_extensions.md">Active Support Core Extensions</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/active_support_instrumentation.md">Active Support Instrumentation</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/asset_pipeline.md">Asset Pipeline</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/caching_with_rails.md">Caching with Rails: An overview</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/command_line.md">Command Line</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/configuring.md">Configuring Rails Applications</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/contributing_to_ruby_on_rails.md">Contributing to Ruby on Rails</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/generators.md">Creating and Customizing Rails Generators &amp; Templates</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/debugging_rails_applications.md">Debugging Rails Applications</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/development_dependencies_install.md">Development Dependencies Install</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/engines.md">Getting Started with Engines</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/working_with_javascript_in_rails.md">Working with JavaScript in Rails</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/layouts_and_rendering.md">Layouts and Rendering in Rails</a></li>
   <li><a href="performance_testing.html">Performance Testing Rails Applications</a></li>
-  <li><a href="plugins.html">The Basics of Creating Rails Plugins</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/rails_application_templates.md">Rails Application Templates</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/i18n.md">Rails Internationalization (I18n) API</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/nested_model_forms.md">Rails nested model forms</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/plugins.md">The Basics of Creating Rails Plugins</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/rails_on_rack.md">Rails on Rack</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/routing.md">Rails Routing from the Outside In</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/ruby_on_rails_guides_guidelines.md">Ruby on Rails Guides Guidelines</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/security.md">Ruby on Rails Security Guide</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/testing.md">A Guide to Testing Rails Applications</a></li>
+  <li><a href="https://github.com/DouglasAllen/Rails-projects/blob/master/getting_started/public/upgrading_ruby_on_rails.md">A Guide for Upgrading Ruby on Rails</a></li>
 </ul>
 
 <p>All told, the Guides provide tens of thousands of words of guidance for beginning and intermediate Rails developers.</p>
@@ -819,7 +443,7 @@ memoize <span style="color:#A60">:full_name</span>
 <p>The <code>each_with_object</code> method provides an alternative to <code>inject</code>, using a method backported from Ruby 1.9. It iterates over a collection, passing the current element and the memo into the block.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%w(</span><span style="color:#D20">foo bar</span><span style="color:#710">)</span></span>.each_with_object({}) { |str, hsh| hsh[str] = str.upcase } <span style="color:#777"># =&gt; {'foo' =&gt; 'FOO', 'bar' =&gt; 'BAR'}</span>
+  <div class="code"><pre><span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%w(</span><span style="color:#D20">foo bar</span><span style="color:#710">)</span></span>.each_with_object({}) { |str, hsh| hsh[str] = str.upcase } <span style="color:#777">#=&gt; {'foo' =&gt; 'FOO', 'bar' =&gt; 'BAR'}</span>
 </pre></div>
 </div>
 </div>
@@ -865,7 +489,7 @@ memoize <span style="color:#A60">:full_name</span>
   <li><code>Inflector#parameterize</code> produces a URL-ready version of its input, for use in <code>to_param</code>.</li>
   <li><code>Time#advance</code> recognizes fractional days and weeks, so you can do <code>1.7.weeks.ago</code>, <code>1.5.hours.since</code>, and so on.</li>
   <li>The included TzInfo library has been upgraded to version 0.3.12.</li>
-  <li><code>ActiveSupport::StringInquirer</code> gives you a pretty way to test for equality in strings: <code>ActiveSupport::StringInquirer.new("abc").abc? =&gt; true</code></li>
+  <li><code>ActiveSuport::StringInquirer</code> gives you a pretty way to test for equality in strings: <code>ActiveSupport::StringInquirer.new("abc").abc? =&gt; true</code></li>
 </ul>
 
 <h2 id="railties">Railties</h2>
@@ -943,6 +567,6 @@ memoize <span style="color:#A60">:full_name</span>
 
 <p>Release notes compiled by <a href="http://afreshcup.com">Mike Gunderloy</a></p>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>

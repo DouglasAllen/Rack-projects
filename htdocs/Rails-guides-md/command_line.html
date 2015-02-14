@@ -1,420 +1,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="the-rails-command-line">The Rails Command Line</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="the-rails-command-line">The Rails Command Line</h1>
+
+<p>Rails comes with every command line tool you’ll need to</p>
 
 <p>After reading this guide, you will know:</p>
 
@@ -423,6 +22,7 @@
   <li>How to generate models, controllers, database migrations, and unit tests.</li>
   <li>How to start a development server.</li>
   <li>How to experiment with objects through an interactive shell.</li>
+  <li>How to profile and benchmark your new creation.</li>
 </ul>
 
 <hr />
@@ -441,8 +41,6 @@
   <li><code>rails dbconsole</code></li>
   <li><code>rails new app_name</code></li>
 </ul>
-
-<p>All commands can run with ~~~-h or –help~~~ to list more information.</p>
 
 <p>Let’s create a simple Rails application to step through each of these commands in context.</p>
 
@@ -475,18 +73,20 @@
 
 <p>The <code>rails server</code> command launches a small web server named WEBrick which comes bundled with Ruby. You’ll use this any time you want to access your application through a web browser.</p>
 
+<p>INFO: WEBrick isn’t your only option for serving Rails. We’ll get to that <a href="#server-with-different-backends">later</a>.</p>
+
 <p>With no further work, <code>rails server</code> will run our new shiny Rails app:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ cd commandsapp
-$ bin/rails server
+$ rails server
 =&gt; Booting WEBrick
-=&gt; Rails 4.2.0 application starting in development on http://localhost:3000
+=&gt; Rails 3.2.3 application starting in development on http://0.0.0.0:3000
 =&gt; Call with -d to detach
 =&gt; Ctrl-C to shutdown server
-[2013-08-07 02:00:01] INFO  WEBrick 1.3.1
-[2013-08-07 02:00:01] INFO  ruby 2.0.0 (2013-06-27) [x86_64-darwin11.2.0]
-[2013-08-07 02:00:01] INFO  WEBrick::HTTPServer#start: pid=69680 port=3000
+[2012-05-28 00:39:41] INFO  WEBrick 1.3.1
+[2012-05-28 00:39:41] INFO  ruby 1.9.2 (2011-02-18) [x86_64-darwin11.2.0]
+[2012-05-28 00:39:41] INFO  WEBrick::HTTPServer#start: pid=69680 port=3000
 </pre></div>
 </div>
 </div>
@@ -498,12 +98,12 @@ $ bin/rails server
 <p>The server can be run on a different port using the <code>-p</code> option. The default development environment can be changed using <code>-e</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails server -e production -p 4000
+  <div class="code"><pre>$ rails server -e production -p 4000
 </pre></div>
 </div>
 </div>
 
-<p>The <code>-b</code> option binds Rails to the specified IP, by default it is localhost. You can run a server as a daemon by passing a <code>-d</code> option.</p>
+<p>The <code>-b</code> option binds Rails to the specified IP, by default it is 0.0.0.0. You can run a server as a daemon by passing a <code>-d</code> option.</p>
 
 <h3 id="rails-generate"><code>rails generate</code></h3>
 
@@ -512,7 +112,7 @@ $ bin/rails server
 <p>INFO: You can also use the alias “g” to invoke the generator command: <code>rails g</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails generate
+  <div class="code"><pre>$ rails generate
 Usage: rails generate GENERATOR [args] [options]
 
 ...
@@ -539,7 +139,7 @@ Rails:
 <p>INFO: All Rails console utilities have help text. As with most *nix utilities, you can try adding <code>--help</code> or <code>-h</code> to the end, for example <code>rails server --help</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails generate controller
+  <div class="code"><pre>$ rails generate controller
 Usage: rails generate controller NAME [action action] [options]
 
 ...
@@ -548,18 +148,19 @@ Usage: rails generate controller NAME [action action] [options]
 Description:
     ...
 
-    To create a controller within a module, specify the controller name as a path like 'parent_module/controller_name'.
+    To create a controller within a module, specify the controller name as a
+    path like 'parent_module/controller_name'.
 
     ...
 
 Example:
-    `rails generate controller CreditCards open debit credit close`
+    `rails generate controller CreditCard open debit credit close`
 
-    Credit card controller with URLs like /credit_cards/debit.
-        Controller: app/controllers/credit_cards_controller.rb
-        Test:       test/controllers/credit_cards_controller_test.rb
-        Views:      app/views/credit_cards/debit.html.erb [...]
-        Helper:     app/helpers/credit_cards_helper.rb
+    Credit card controller with URLs like /credit_card/debit.
+        Controller: app/controllers/credit_card_controller.rb
+        Test:       test/controllers/credit_card_controller_test.rb
+        Views:      app/views/credit_card/debit.html.erb [...]
+        Helper:     app/helpers/credit_card_helper.rb
 </pre></div>
 </div>
 </div>
@@ -567,7 +168,7 @@ Example:
 <p>The controller generator is expecting parameters in the form of <code>generate controller ControllerName action1 action2</code>. Let’s make a <code>Greetings</code> controller with an action of <strong>hello</strong>, which will say something nice to us.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails generate controller Greetings hello
+  <div class="code"><pre>$ rails generate controller Greetings hello
      create  app/controllers/greetings_controller.rb
       route  get &quot;greetings/hello&quot;
      invoke  erb
@@ -577,6 +178,8 @@ Example:
      create    test/controllers/greetings_controller_test.rb
      invoke  helper
      create    app/helpers/greetings_helper.rb
+     invoke    test_unit
+     create      test/helpers/greetings_helper_test.rb
      invoke  assets
      invoke    coffee
      create      app/assets/javascripts/greetings.js.coffee
@@ -612,7 +215,7 @@ Example:
 <p>Fire up your server using <code>rails server</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails server
+  <div class="code"><pre>$ rails server
 =&gt; Booting WEBrick...
 </pre></div>
 </div>
@@ -625,7 +228,7 @@ Example:
 <p>Rails comes with a generator for data models too.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails generate model
+  <div class="code"><pre>$ rails generate model
 Usage:
   rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
 
@@ -650,9 +253,9 @@ Description:
 <p>We will set up a simple resource called “HighScore” that will keep track of our highest score on video games we play.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails generate scaffold HighScore game:string score:integer
+  <div class="code"><pre>$ rails generate scaffold HighScore game:string score:integer
     invoke  active_record
-    create    db/migrate/20130717151933_create_high_scores.rb
+    create    db/migrate/20120528060026_create_high_scores.rb
     create    app/models/high_score.rb
     invoke    test_unit
     create      test/models/high_score_test.rb
@@ -672,26 +275,25 @@ Description:
     create      test/controllers/high_scores_controller_test.rb
     invoke    helper
     create      app/helpers/high_scores_helper.rb
-    invoke    jbuilder
-    create      app/views/high_scores/index.json.jbuilder
-    create      app/views/high_scores/show.json.jbuilder
+    invoke      test_unit
+    create        test/helpers/high_scores_helper_test.rb
     invoke  assets
     invoke    coffee
     create      app/assets/javascripts/high_scores.js.coffee
     invoke    scss
     create      app/assets/stylesheets/high_scores.css.scss
     invoke  scss
-   identical    app/assets/stylesheets/scaffolds.css.scss
+    create    app/assets/stylesheets/scaffolds.css.scss
 </pre></div>
 </div>
 </div>
 
 <p>The generator checks that there exist the directories for models, controllers, helpers, layouts, functional and unit tests, stylesheets, creates the views, controller, model and database migration for HighScore (creating the <code>high_scores</code> table and fields), takes care of the route for the <strong>resource</strong>, and new tests for everything.</p>
 
-<p>The migration requires that we <strong>migrate</strong>, that is, run some Ruby code (living in that <code>20130717151933_create_high_scores.rb</code>) to modify the schema of our database. Which database? The SQLite3 database that Rails will create for you when we run the <code>rake db:migrate</code> command. We’ll talk more about Rake in-depth in a little while.</p>
+<p>The migration requires that we <strong>migrate</strong>, that is, run some Ruby code (living in that <code>20120528060026_create_high_scores.rb</code>) to modify the schema of our database. Which database? The sqlite3 database that Rails will create for you when we run the <code>rake db:migrate</code> command. We’ll talk more about Rake in-depth in a little while.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rake db:migrate
+  <div class="code"><pre>$ rake db:migrate
 ==  CreateHighScores: migrating ===============================================
 -- create_table(:high_scores)
    -&gt; 0.0017s
@@ -705,7 +307,7 @@ Description:
 <p>Let’s see the interface Rails created for us.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails server
+  <div class="code"><pre>$ rails server
 </pre></div>
 </div>
 </div>
@@ -721,7 +323,7 @@ Description:
 <p>You can specify the environment in which the <code>console</code> command should operate.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails console staging
+  <div class="code"><pre>$ rails console staging
 </pre></div>
 </div>
 </div>
@@ -729,39 +331,10 @@ Description:
 <p>If you wish to test out some code without changing any data, you can do that by invoking <code>rails console --sandbox</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails console --sandbox
-Loading development environment in sandbox (Rails 4.2.0)
+  <div class="code"><pre>$ rails console --sandbox
+Loading development environment in sandbox (Rails 3.2.3)
 Any modifications you make will be rolled back on exit
 irb(main):001:0&gt;
-</pre></div>
-</div>
-</div>
-
-<h4 id="the-app-and-helper-objects">The app and helper objects</h4>
-
-<p>Inside the <code>rails console</code> you have access to the <code>app</code> and <code>helper</code> instances.</p>
-
-<p>With the <code>app</code> method you can access url and path helpers, as well as do requests.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&gt;&gt; app.root_path
-=&gt; &quot;/&quot;
-
-&gt;&gt; app.get _
-Started GET &quot;/&quot; for 127.0.0.1 at 2014-06-19 10:41:57 -0300
-...
-</pre></div>
-</div>
-</div>
-
-<p>With the <code>helper</code> method it is possible to access Rails and your application’s helpers.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>&gt;&gt; helper.time_ago_in_words 30.days.ago
-=&gt; &quot;about 1 month&quot;
-
-&gt;&gt; helper.my_custom_helper
-=&gt; &quot;my custom helper&quot;
 </pre></div>
 </div>
 </div>
@@ -777,7 +350,7 @@ Started GET &quot;/&quot; for 127.0.0.1 at 2014-06-19 10:41:57 -0300
 <p><code>runner</code> runs Ruby code in the context of Rails non-interactively. For instance:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails runner &quot;Model.long_running_method&quot;
+  <div class="code"><pre>$ rails runner &quot;Model.long_running_method&quot;
 </pre></div>
 </div>
 </div>
@@ -787,7 +360,7 @@ Started GET &quot;/&quot; for 127.0.0.1 at 2014-06-19 10:41:57 -0300
 <p>You can specify the environment in which the <code>runner</code> command should operate using the <code>-e</code> switch.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails runner -e staging &quot;Model.long_running_method&quot;
+  <div class="code"><pre>$ rails runner -e staging &quot;Model.long_running_method&quot;
 </pre></div>
 </div>
 </div>
@@ -799,7 +372,7 @@ Started GET &quot;/&quot; for 127.0.0.1 at 2014-06-19 10:41:57 -0300
 <p>INFO: You can also use the alias “d” to invoke the destroy command: <code>rails d</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails generate model Oops
+  <div class="code"><pre>$ rails generate model Oops
       invoke  active_record
       create    db/migrate/20120528062523_create_oops.rb
       create    app/models/oops.rb
@@ -810,7 +383,7 @@ Started GET &quot;/&quot; for 127.0.0.1 at 2014-06-19 10:41:57 -0300
 </div>
 </div>
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails destroy model Oops
+  <div class="code"><pre>$ rails destroy model Oops
       invoke  active_record
       remove    db/migrate/20120528062523_create_oops.rb
       remove    app/models/oops.rb
@@ -827,13 +400,10 @@ Started GET &quot;/&quot; for 127.0.0.1 at 2014-06-19 10:41:57 -0300
 
 <p>You can get a list of Rake tasks available to you, which will often depend on your current directory, by typing <code>rake --tasks</code>. Each task has a description, and should help you find the thing you need.</p>
 
-<p>To get the full backtrace for running rake task you can pass the option ~~~–trace~~~ to command line, for example ~~~rake db:create –trace~~~.</p>
-
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rake --tasks
+  <div class="code"><pre>$ rake --tasks
 rake about              # List versions of all Rails frameworks and the environment
-rake assets:clean       # Remove old compiled assets
-rake assets:clobber     # Remove compiled assets
+rake assets:clean       # Remove compiled assets
 rake assets:precompile  # Compile all the assets named in config.assets.precompile
 rake db:create          # Create the database from config/database.yml for the current Rails.env
 ...
@@ -845,21 +415,24 @@ rake tmp:create         # Creates tmp directories for sessions, cache, sockets, 
 </pre></div>
 </div>
 </div>
-<p>INFO: You can also use ~~~rake -T~~~  to get the list of tasks.</p>
 
 <h3 id="about"><code>about</code></h3>
 
 <p><code>rake about</code> gives information about version numbers for Ruby, RubyGems, Rails, the Rails subcomponents, your application’s folder, the current Rails environment name, your app’s database adapter, and schema version. It is useful when you need to ask for help, check if a security patch might affect you, or when you need some stats for an existing Rails installation.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rake about
+  <div class="code"><pre>$ rake about
 About your application's environment
-Rails version             4.2.0
 Ruby version              1.9.3 (x86_64-linux)
 RubyGems version          1.3.6
 Rack version              1.3
+Rails version             4.0.0.beta
 JavaScript Runtime        Node.js (V8)
-Middleware                Rack::Sendfile, ActionDispatch::Static, Rack::Lock, #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x007ffd131a7c88&gt;, Rack::Runtime, Rack::MethodOverride, ActionDispatch::RequestId, Rails::Rack::Logger, ActionDispatch::ShowExceptions, ActionDispatch::DebugExceptions, ActionDispatch::RemoteIp, ActionDispatch::Reloader, ActionDispatch::Callbacks, ActiveRecord::Migration::CheckPending, ActiveRecord::ConnectionAdapters::ConnectionManagement, ActiveRecord::QueryCache, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ParamsParser, Rack::Head, Rack::ConditionalGet, Rack::ETag
+Active Record version     4.0.0.beta
+Action Pack version       4.0.0.beta
+Action Mailer version     4.0.0.beta
+Active Support version    4.0.0.beta
+Middleware                ActionDispatch::Static, Rack::Lock, Rack::Runtime, Rack::MethodOverride, ActionDispatch::RequestId, Rails::Rack::Logger, ActionDispatch::ShowExceptions, ActionDispatch::DebugExceptions, ActionDispatch::RemoteIp, ActionDispatch::Reloader, ActionDispatch::Callbacks, ActiveRecord::Migration::CheckPending, ActiveRecord::ConnectionAdapters::ConnectionManagement, ActiveRecord::QueryCache, ActionDispatch::Cookies, ActionDispatch::Session::EncryptedCookieStore, ActionDispatch::Flash, ActionDispatch::ParamsParser, Rack::Head, Rack::ConditionalGet, Rack::ETag
 Application root          /home/foobar/commandsapp
 Environment               development
 Database adapter          sqlite3
@@ -870,9 +443,7 @@ Database schema version   20110805173523
 
 <h3 id="assets"><code>assets</code></h3>
 
-<p>You can precompile the assets in <code>app/assets</code> using <code>rake assets:precompile</code>, and remove older compiled assets using <code>rake assets:clean</code>. The <code>assets:clean</code> task allows for rolling deploys that may still be linking to an old asset while the new assets are being built.</p>
-
-<p>If you want to clear <code>public/assets</code> completely, you can use <code>rake assets:clobber</code>.</p>
+<p>You can precompile the assets in <code>app/assets</code> using <code>rake assets:precompile</code> and remove those compiled assets using <code>rake assets:clean</code>.</p>
 
 <h3 id="db"><code>db</code></h3>
 
@@ -892,10 +463,10 @@ Database schema version   20110805173523
 
 <h3 id="notes"><code>notes</code></h3>
 
-<p><code>rake notes</code> will search through your code for comments beginning with FIXME, OPTIMIZE or TODO. The search is done in files with extension <code>.builder</code>, <code>.rb</code>, <code>.rake</code>, <code>.yml</code>, <code>.yaml</code>, <code>.ruby</code>, <code>.css</code>, <code>.js</code> and <code>.erb</code> for both default and custom annotations.</p>
+<p><code>rake notes</code> will search through your code for comments beginning with FIXME, OPTIMIZE or TODO. The search is done in files with extension <code>.builder</code>, <code>.rb</code>, <code>.erb</code>, <code>.haml</code> and <code>.slim</code> for both default and custom annotations.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rake notes
+  <div class="code"><pre>$ rake notes
 (in /home/foobar/commandsapp)
 app/controllers/admin/users_controller.rb:
   * [ 20] [TODO] any other way to do this?
@@ -908,18 +479,10 @@ app/models/school.rb:
 </div>
 </div>
 
-<p>You can add support for new file extensions using <code>config.annotations.register_extensions</code> option, which receives a list of the extensions with its corresponding regex to match it up.</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>config.annotations.register_extensions(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">scss</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">sass</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">less</span><span style="color:#710">&quot;</span></span>) { |annotation| <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#D20">\/</span><span style="color:#D20">\/</span><span style="color:#D20">\s</span><span style="color:#808">*(</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>annotation<span style="font-weight:bold;color:#666">}</span></span><span style="color:#808">):?</span><span style="color:#D20">\s</span><span style="color:#808">*(.*)$</span><span style="color:#404">/</span></span> }
-</pre></div>
-</div>
-</div>
-
 <p>If you are looking for a specific annotation, say FIXME, you can use <code>rake notes:fixme</code>. Note that you have to lower case the annotation’s name.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rake notes:fixme
+  <div class="code"><pre>$ rake notes:fixme
 (in /home/foobar/commandsapp)
 app/controllers/admin/users_controller.rb:
   * [132] high priority for next deploy
@@ -933,9 +496,9 @@ app/models/school.rb:
 <p>You can also use custom annotations in your code and list them using <code>rake notes:custom</code> by specifying the annotation using an environment variable <code>ANNOTATION</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rake notes:custom ANNOTATION=BUG
+  <div class="code"><pre>$ rake notes:custom ANNOTATION=BUG
 (in /home/foobar/commandsapp)
-app/models/article.rb:
+app/models/post.rb:
   * [ 23] Have to fix this one before pushing!
 </pre></div>
 </div>
@@ -947,7 +510,7 @@ app/models/article.rb:
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ export SOURCE_ANNOTATION_DIRECTORIES='spec,vendor'
-$ bin/rake notes
+$ rake notes
 (in /home/foobar/commandsapp)
 app/models/user.rb:
   * [ 35] [FIXME] User should have a subscription at this point
@@ -965,20 +528,19 @@ spec/models/user_spec.rb:
 
 <p>INFO: A good description of unit testing in Rails is given in <a href="testing.html">A Guide to Testing Rails Applications</a></p>
 
-<p>Rails comes with a test suite called Minitest. Rails owes its stability to the use of tests. The tasks available in the <code>test:</code> namespace helps in running the different tests you will hopefully write.</p>
+<p>Rails comes with a test suite called <code>Test::Unit</code>. Rails owes its stability to the use of tests. The tasks available in the <code>test:</code> namespace helps in running the different tests you will hopefully write.</p>
 
 <h3 id="tmp"><code>tmp</code></h3>
 
-<p>The <code>Rails.root/tmp</code> directory is, like the *nix /tmp directory, the holding place for temporary files like sessions (if you’re using a file store for sessions), process id files, and cached actions.</p>
+<p>The <code>Rails.root/tmp</code> directory is, like the *nix /tmp directory, the holding place for temporary files like sessions (if you’re using a file store for files), process id files, and cached actions.</p>
 
-<p>The <code>tmp:</code> namespaced tasks will help you clear and create the <code>Rails.root/tmp</code> directory:</p>
+<p>The <code>tmp:</code> namespaced tasks will help you clear the <code>Rails.root/tmp</code> directory:</p>
 
 <ul>
   <li><code>rake tmp:cache:clear</code> clears <code>tmp/cache</code>.</li>
   <li><code>rake tmp:sessions:clear</code> clears <code>tmp/sessions</code>.</li>
   <li><code>rake tmp:sockets:clear</code> clears <code>tmp/sockets</code>.</li>
   <li><code>rake tmp:clear</code> clears all the three: cache, sessions and sockets.</li>
-  <li><code>rake tmp:create</code> creates tmp directories for sessions, cache, sockets, and pids.</li>
 </ul>
 
 <h3 id="miscellaneous">Miscellaneous</h3>
@@ -991,9 +553,7 @@ spec/models/user_spec.rb:
 
 <h3 id="custom-rake-tasks">Custom Rake Tasks</h3>
 
-<p>Custom rake tasks have a <code>.rake</code> extension and are placed in
-<code>Rails.root/lib/tasks</code>. You can create these custom rake tasks with the
-<code>bin/rails generate task</code> command.</p>
+<p>Custom rake tasks have a <code>.rake</code> extension and are placed in <code>Rails.root/lib/tasks</code>.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>desc <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">I am short, but comprehensive description for my cool task</span><span style="color:#710">&quot;</span></span>
@@ -1031,9 +591,9 @@ task <span style="color:#606">task_name</span>: [<span style="color:#A60">:prere
 <p>Invocation of the tasks will look like:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rake task_name
-$ bin/rake &quot;task_name[value 1]&quot; # entire argument string should be quoted
-$ bin/rake db:nothing
+  <div class="code"><pre>rake task_name
+rake &quot;task_name[value 1]&quot; # entire argument string should be quoted
+rake db:nothing
 </pre></div>
 </div>
 </div>
@@ -1114,6 +674,6 @@ development:
 
 <p>NOTE. The only catch with using the SCM options is that you have to make your application’s directory first, then initialize your SCM, then you can run the <code>rails new</code> command to generate the basis of your app.</p>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>

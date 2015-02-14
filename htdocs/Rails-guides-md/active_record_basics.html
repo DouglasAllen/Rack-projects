@@ -1,420 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="active-record-basics">Active Record Basics</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="active-record-basics">Active Record Basics</h1>
 
 <p>This guide is an introduction to Active Record.</p>
 
@@ -447,7 +44,7 @@ Object Relational Mapping system.</p>
 in his book <em>Patterns of Enterprise Application Architecture</em>. In
 Active Record, objects carry both persistent data and behavior which
 operates on that data. Active Record takes the opinion that ensuring
-data access logic as part of the object will educate users of that
+data access logic is part of the object will educate users of that
 object on how to write to and read from the database.</p>
 
 <h3 id="object-relational-mapping">Object Relational Mapping</h3>
@@ -465,10 +62,10 @@ overall database access code.</p>
 to:</p>
 
 <ul>
-  <li>Represent models and their data.</li>
-  <li>Represent associations between these models.</li>
-  <li>Represent inheritance hierarchies through related models.</li>
-  <li>Validate models before they get persisted to the database.</li>
+  <li>Represent models and their data</li>
+  <li>Represent associations between these models</li>
+  <li>Represent inheritance hierarchies through related models</li>
+  <li>Validate models before they get persisted to the database</li>
   <li>Perform database operations in an object-oriented fashion.</li>
 </ul>
 
@@ -479,9 +76,9 @@ may be necessary to write a lot of configuration code. This is particularly true
 for ORM frameworks in general. However, if you follow the conventions adopted by
 Rails, you’ll need to write very little configuration (in some case no
 configuration at all) when creating Active Record models. The idea is that if
-you configure your applications in the very same way most of the time then this
-should be the default way. Thus, explicit configuration would be needed
-only in those cases where you can’t follow the standard convention.</p>
+you configure your applications in the very same way most of the times then this
+should be the default way. In this cases, explicit configuration would be needed
+only in those cases where you can’t follow the conventions for any reason.</p>
 
 <h3 id="naming-conventions">Naming Conventions</h3>
 
@@ -496,9 +93,9 @@ using the CamelCase form, while the table name must contain the words separated
 by underscores. Examples:</p>
 
 <ul>
-  <li>Database Table - Plural with underscores separating words (e.g., <code>book_clubs</code>).</li>
+  <li>Database Table - Plural with underscores separating words (e.g., <code>book_clubs</code>)</li>
   <li>Model Class - Singular with the first letter of each word capitalized (e.g.,
-<code>BookClub</code>).</li>
+<code>BookClub</code>)</li>
 </ul>
 
 <table>
@@ -510,8 +107,8 @@ by underscores. Examples:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code>Article</code></td>
-      <td><code>articles</code></td>
+      <td><code>Post</code></td>
+      <td><code>posts</code></td>
     </tr>
     <tr>
       <td><code>LineItem</code></td>
@@ -519,7 +116,7 @@ by underscores. Examples:</p>
     </tr>
     <tr>
       <td><code>Deer</code></td>
-      <td><code>deers</code></td>
+      <td><code>deer</code></td>
     </tr>
     <tr>
       <td><code>Mouse</code></td>
@@ -543,12 +140,12 @@ depending on the purpose of these columns.</p>
 fields that Active Record will look for when you create associations between
 your models.</li>
   <li><strong>Primary keys</strong> - By default, Active Record will use an integer column named
-<code>id</code> as the table’s primary key. When using <a href="migrations.html">Active Record
+<code>id</code> as the table’s primary key. When using <a href="migrations.html">Rails
 Migrations</a> to create your tables, this column will be
 automatically created.</li>
 </ul>
 
-<p>There are also some optional column names that will add additional features
+<p>There are also some optional column names that will create additional features
 to Active Record instances:</p>
 
 <ul>
@@ -559,14 +156,14 @@ the record is updated.</li>
   <li><code>lock_version</code> - Adds <a href="http://api.rubyonrails.org/classes/ActiveRecord/Locking.html">optimistic
 locking</a> to
 a model.</li>
-  <li><code>type</code> - Specifies that the model uses <a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html#class-ActiveRecord::Base-label-Single+table+inheritance">Single Table
-Inheritance</a>.</li>
+  <li><code>type</code> - Specifies that the model uses <a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html">Single Table
+Inheritance</a></li>
   <li><code>(association_name)_type</code> - Stores the type for
 <a href="association_basics.html#polymorphic-associations">polymorphic associations</a>.</li>
   <li><code>(table_name)_count</code> - Used to cache the number of belonging objects on
-associations. For example, a <code>comments_count</code> column in a <code>Articles</code> class that
+associations. For example, a <code>comments_count</code> column in a <code>Post</code> class that
 has many instances of <code>Comment</code> will cache the number of existent comments
-for each article.</li>
+for each post.</li>
 </ul>
 
 <p>NOTE: While these column names are optional, they are in fact reserved by Active Record. Steer clear of reserved keywords unless you want the extra functionality. For example, <code>type</code> is a reserved keyword used to designate a table using Single Table Inheritance (STI). If you are not using STI, try an analogous keyword like “context”, that may still accurately describe the data you are modeling.</p>
@@ -632,7 +229,7 @@ definition:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">FunnyJoke</span> &lt; <span style="color:#036;font-weight:bold">ActiveSupport</span>::<span style="color:#036;font-weight:bold">TestCase</span>
-  set_fixture_class <span style="color:#606">funny_jokes</span>: <span style="color:#036;font-weight:bold">Joke</span>
+  set_fixture_class <span style="color:#606">funny_jokes</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Joke</span><span style="color:#710">'</span></span>
   fixtures <span style="color:#A60">:funny_jokes</span>
   ...
 <span style="color:#080;font-weight:bold">end</span>
@@ -641,11 +238,11 @@ definition:</p>
 </div>
 
 <p>It’s also possible to override the column that should be used as the table’s
-primary key using the <code>ActiveRecord::Base.primary_key=</code> method:</p>
+primary key using the <code>ActiveRecord::Base.set_primary_key</code> method:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Product</span> &lt; <span style="color:#036;font-weight:bold">ActiveRecord</span>::<span style="color:#036;font-weight:bold">Base</span>
-  <span style="color:#069">self</span>.primary_key = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">product_id</span><span style="color:#710">&quot;</span></span>
+  set_primary_key <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">product_id</span><span style="color:#710">&quot;</span></span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -717,7 +314,7 @@ user = <span style="color:#036;font-weight:bold">User</span>.first
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#777"># return the first user named David</span>
-david = <span style="color:#036;font-weight:bold">User</span>.find_by(<span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>)
+david = <span style="color:#036;font-weight:bold">User</span>.find_by_name(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>)
 </pre></div>
 </div>
 </div>
@@ -738,7 +335,7 @@ Query Interface</a> guide.</p>
 and it can be saved to the database.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>user = <span style="color:#036;font-weight:bold">User</span>.find_by(<span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>)
+  <div class="code"><pre>user = <span style="color:#036;font-weight:bold">User</span>.find_by_name(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>)
 user.name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Dave</span><span style="color:#710">'</span></span>
 user.save
 </pre></div>
@@ -749,7 +346,7 @@ user.save
 value, like so:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>user = <span style="color:#036;font-weight:bold">User</span>.find_by(<span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>)
+  <div class="code"><pre>user = <span style="color:#036;font-weight:bold">User</span>.find_by_name(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>)
 user.update(<span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Dave</span><span style="color:#710">'</span></span>)
 </pre></div>
 </div>
@@ -771,7 +368,7 @@ hand, you’d like to update several records in bulk, you may find the
 it from the database.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>user = <span style="color:#036;font-weight:bold">User</span>.find_by(<span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>)
+  <div class="code"><pre>user = <span style="color:#036;font-weight:bold">User</span>.find_by_name(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">David</span><span style="color:#710">'</span></span>)
 user.destroy
 </pre></div>
 </div>
@@ -784,11 +381,11 @@ into the database. There are several methods that you can use to check your
 models and validate that an attribute value is not empty, is unique and not
 already in the database, follows a specific format and many more.</p>
 
-<p>Validation is a very important issue to consider when persisting to the database, so
-the methods <code>save</code> and <code>update</code> take it into account when
+<p>Validation is a very important issue to consider when persisting to database, so
+the methods <code>create</code>, <code>save</code> and <code>update</code> take it into account when
 running: they return <code>false</code> when validation fails and they didn’t actually
-perform any operation on the database. All of these have a bang counterpart (that
-is, <code>save!</code> and <code>update!</code>), which are stricter in that
+perform any operation on database. All of these have a bang counterpart (that
+is, <code>create!</code>, <code>save!</code> and <code>update!</code>), which are stricter in that
 they raise the exception <code>ActiveRecord::RecordInvalid</code> if validation fails.
 A quick example to illustrate:</p>
 
@@ -797,9 +394,8 @@ A quick example to illustrate:</p>
   validates <span style="color:#A60">:name</span>, <span style="color:#606">presence</span>: <span style="color:#069">true</span>
 <span style="color:#080;font-weight:bold">end</span>
 
-user = <span style="color:#036;font-weight:bold">User</span>.new
-user.save  <span style="color:#777"># =&gt; false</span>
-user.save! <span style="color:#777"># =&gt; ActiveRecord::RecordInvalid: Validation failed: Name can't be blank</span>
+<span style="color:#036;font-weight:bold">User</span>.create  <span style="color:#777"># =&gt; false</span>
+<span style="color:#036;font-weight:bold">User</span>.create! <span style="color:#777"># =&gt; ActiveRecord::RecordInvalid: Validation failed: Name can't be blank</span>
 </pre></div>
 </div>
 </div>
@@ -819,7 +415,7 @@ the <a href="active_record_callbacks.html">Active Record Callbacks guide</a>.</p
 
 <p>Rails provides a domain-specific language for managing a database schema called
 migrations. Migrations are stored in files which are executed against any
-database that Active Record supports using <code>rake</code>. Here’s a migration that
+database that Active Record support using <code>rake</code>. Here’s a migration that
 creates a table:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
@@ -833,7 +429,7 @@ creates a table:</p>
       t.string <span style="color:#A60">:publisher_type</span>
       t.boolean <span style="color:#A60">:single_issue</span>
 
-      t.timestamps <span style="color:#606">null</span>: <span style="color:#069">false</span>
+      t.timestamps
     <span style="color:#080;font-weight:bold">end</span>
     add_index <span style="color:#A60">:publications</span>, <span style="color:#A60">:publication_type_id</span>
   <span style="color:#080;font-weight:bold">end</span>
@@ -846,10 +442,10 @@ creates a table:</p>
 provides rollback features. To actually create the table, you’d run <code>rake db:migrate</code>
 and to roll it back, <code>rake db:rollback</code>.</p>
 
-<p>Note that the above code is database-agnostic: it will run in MySQL,
-PostgreSQL, Oracle and others. You can learn more about migrations in the
-<a href="migrations.html">Active Record Migrations guide</a>.</p>
+<p>Note that the above code is database-agnostic: it will run in MySQL, postgresql,
+Oracle and others. You can learn more about migrations in the <a href="migrations.html">Active Record
+Migrations guide</a></p>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>

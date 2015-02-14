@@ -1,420 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="ruby-on-rails-32-release-notes">Ruby on Rails 3.2 Release Notes</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="ruby-on-rails-32-release-notes">Ruby on Rails 3.2 Release Notes</h1>
 
 <p>Highlights in Rails 3.2:</p>
 
@@ -425,10 +22,7 @@
   <li>Tagged Logging</li>
 </ul>
 
-<p>These release notes cover only the major changes. To learn about various bug
-fixes and changes, please refer to the change logs or check out the <a href="https://github.com/rails/rails/commits/3-2-stable">list of
-commits</a> in the main Rails
-repository on GitHub.</p>
+<p>These release notes cover the major changes, but do not include each bug-fix and changes. If you want to see everything, check out the <a href="https://github.com/rails/rails/commits/3-2-stable">list of commits</a> in the main Rails repository on GitHub.</p>
 
 <hr />
 
@@ -440,7 +34,7 @@ repository on GitHub.</p>
 
 <p>Rails 3.2 requires Ruby 1.8.7 or higher. Support for all of the previous Ruby versions has been dropped officially and you should upgrade as early as possible. Rails 3.2 is also compatible with Ruby 1.9.2.</p>
 
-<p>TIP: Note that Ruby 1.8.7 p248 and p249 have marshalling bugs that crash Rails. Ruby Enterprise Edition has these fixed since the release of 1.8.7-2010.02. On the 1.9 front, Ruby 1.9.1 is not usable because it outright segfaults, so if you want to use 1.9.x, jump on to 1.9.2 or 1.9.3 for smooth sailing.</p>
+<p>TIP: Note that Ruby 1.8.7 p248 and p249 have marshaling bugs that crash Rails. Ruby Enterprise Edition has these fixed since the release of 1.8.7-2010.02. On the 1.9 front, Ruby 1.9.1 is not usable because it outright segfaults, so if you want to use 1.9.x, jump on to 1.9.2 or 1.9.3 for smooth sailing.</p>
 
 <h3 id="what-to-update-in-your-apps">What to update in your apps</h3>
 
@@ -577,7 +171,7 @@ $ cd myapp
     <p>Update <code>Rails::Rack::Logger</code> middleware to apply any tags set in <code>config.log_tags</code> to <code>ActiveSupport::TaggedLogging</code>. This makes it easy to tag log lines with debug information like subdomain and request id – both very helpful in debugging multi-user production applications.</p>
   </li>
   <li>
-    <p>Default options to <code>rails new</code> can be set in <code>~/.railsrc</code>. You can specify extra command-line arguments to be used every time <code>rails new</code> runs in the <code>.railsrc</code> configuration file in your home directory.</p>
+    <p>Default options to <code>rails new</code> can be set in <code>~/.railsrc</code>. You can specify extra command-line arguments to be used every time ‘rails new’ runs in the <code>.railsrc</code> configuration file in your home directory.</p>
   </li>
   <li>
     <p>Add an alias <code>d</code> for <code>destroy</code>. This works for engines too.</p>
@@ -642,10 +236,10 @@ $ cd myapp
   end
   ~~~</p>
 
-    <p>Rails will use <code>layouts/single_car</code> when a request comes in <code>:show</code> action, and use <code>layouts/application</code> (or <code>layouts/cars</code>, if exists) when a request comes in for any other actions.</p>
+    <p>Rails will use ‘layouts/single_car’ when a request comes in :show action, and use ‘layouts/application’ (or ‘layouts/cars’, if exists) when a request comes in for any other actions.</p>
   </li>
   <li>
-    <p><code>form_for</code> is changed to use <code>#{action}_#{as}</code> as the css class and id if <code>:as</code> option is provided. Earlier versions used <code>#{as}_#{action}</code>.</p>
+    <p>form_for is changed to use “#{action}_#{as}” as the css class and id if <code>:as</code> option is provided. Earlier versions used “#{as}_#{action}”.</p>
   </li>
   <li>
     <p><code>ActionController::ParamsWrapper</code> on Active Record models now only wrap <code>attr_accessible</code> attributes if they were set. If not, only the attributes returned by the class method <code>attribute_names</code> will be wrapped. This fixes the wrapping of nested attributes by adding them to <code>attr_accessible</code>.</p>
@@ -685,7 +279,7 @@ $ cd myapp
     <p>MIME type entries for PDF, ZIP and other formats were added.</p>
   </li>
   <li>
-    <p>Allow <code>fresh_when/stale?</code> to take a record instead of an options hash.</p>
+    <p>Allow fresh_when/stale? to take a record instead of an options hash.</p>
   </li>
   <li>
     <p>Changed log level of warning for missing CSRF token from <code>:debug</code> to <code>:warn</code>.</p>
@@ -699,7 +293,7 @@ $ cd myapp
 
 <ul>
   <li>
-    <p>Deprecated implied layout lookup in controllers whose parent had an explicit layout set:</p>
+    <p>Deprecated implied layout lookup in controllers whose parent had a explicit layout set:</p>
 
     <p>~~~ruby
   class ApplicationController
@@ -710,16 +304,16 @@ $ cd myapp
   end
   ~~~</p>
 
-    <p>In the example above, <code>PostsController</code> will no longer automatically look up for a posts layout. If you need this functionality you could either remove <code>layout "application"</code> from <code>ApplicationController</code> or explicitly set it to <code>nil</code> in <code>PostsController</code>.</p>
+    <p>In the example above, Posts controller will no longer automatically look up for a posts layout. If you need this functionality you could either remove <code>layout "application"</code> from <code>ApplicationController</code> or explicitly set it to <code>nil</code> in <code>PostsController</code>.</p>
   </li>
   <li>
-    <p>Deprecated <code>ActionController::UnknownAction</code> in favor of <code>AbstractController::ActionNotFound</code>.</p>
+    <p>Deprecated <code>ActionController::UnknownAction</code> in favour of <code>AbstractController::ActionNotFound</code>.</p>
   </li>
   <li>
-    <p>Deprecated <code>ActionController::DoubleRenderError</code> in favor of <code>AbstractController::DoubleRenderError</code>.</p>
+    <p>Deprecated <code>ActionController::DoubleRenderError</code> in favour of <code>AbstractController::DoubleRenderError</code>.</p>
   </li>
   <li>
-    <p>Deprecated <code>method_missing</code> in favor of <code>action_missing</code> for missing actions.</p>
+    <p>Deprecated <code>method_missing</code> in favour of <code>action_missing</code> for missing actions.</p>
   </li>
   <li>
     <p>Deprecated <code>ActionController#rescue_action</code>, <code>ActionController#initialize_template_class</code> and <code>ActionController#assign_shortcuts</code>.</p>
@@ -736,7 +330,7 @@ $ cd myapp
     <p>Added <code>ActionDispatch::RequestId</code> middleware that’ll make a unique X-Request-Id header available to the response and enables the <code>ActionDispatch::Request#uuid</code> method. This makes it easy to trace requests from end-to-end in the stack and to identify individual requests in mixed logs like Syslog.</p>
   </li>
   <li>
-    <p>The <code>ShowExceptions</code> middleware now accepts an exceptions application that is responsible to render an exception when the application fails. The application is invoked with a copy of the exception in <code>env["action_dispatch.exception"]</code> and with the <code>PATH_INFO</code> rewritten to the status code.</p>
+    <p>The <code>ShowExceptions</code> middleware now accepts a exceptions application that is responsible to render an exception when the application fails. The application is invoked with a copy of the exception in <code>env["action_dispatch.exception"]</code> and with the <code>PATH_INFO</code> rewritten to the status code.</p>
   </li>
   <li>
     <p>Allow rescue responses to be configured through a railtie as in <code>config.action_dispatch.rescue_responses</code>.</p>
@@ -888,7 +482,7 @@ $ cd myapp
     <p>Support index sort order in SQLite, MySQL and PostgreSQL adapters.</p>
   </li>
   <li>
-    <p>Allow the <code>:class_name</code> option for associations to take a symbol in addition to a string. This is to avoid confusing newbies, and to be consistent with the fact that other options like <code>:foreign_key</code> already allow a symbol or a string.</p>
+    <p>Allow the <code>:class_name</code> option for associations to take a symbol in addition to a string. This is to avoid confusing newbies, and to be consistent with the fact that other options like :foreign_key already allow a symbol or a string.</p>
 
     <p>~~~ruby
   has_many :clients, :class_name =&gt; :Client # Note that the symbol need to be capitalized
@@ -1126,8 +720,8 @@ $ cd myapp
 
 <p>See the <a href="http://contributors.rubyonrails.org/">full list of contributors to Rails</a> for the many people who spent many hours making Rails, the stable and robust framework it is. Kudos to all of them.</p>
 
-<p>Rails 3.2 Release Notes were compiled by <a href="https://github.com/vijaydev">Vijay Dev</a>.</p>
+<p>Rails 3.2 Release Notes were compiled by <a href="https://github.com/vijaydev.">Vijay Dev</a></p>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>

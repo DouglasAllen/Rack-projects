@@ -1,420 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
-  
-  <style>
-    body {
-      font-family: "Helvetica Neue", arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: white;
-      padding: 30px;
-      color: #333;
-      border: 1px solid #aaa;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-
-    body > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    body > *:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    a {
-      color: #4183C4;
-      text-decoration: none;
-    }
-
-    a.absent {
-      color: #cc0000;
-    }
-
-    a.anchor {
-      display: block;
-      padding-left: 30px;
-      margin-left: -30px;
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      margin: 20px 0 10px;
-      padding: 0;
-      font-weight: bold;
-      -webkit-font-smoothing: antialiased;
-      cursor: text;
-      position: relative;
-    }
-
-    h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-      text-decoration: none;
-    }
-
-    h1 tt, h1 code {
-      font-size: inherit;
-    }
-
-    h2 tt, h2 code {
-      font-size: inherit;
-    }
-
-    h3 tt, h3 code {
-      font-size: inherit;
-    }
-
-    h4 tt, h4 code {
-      font-size: inherit;
-    }
-
-    h5 tt, h5 code {
-      font-size: inherit;
-    }
-
-    h6 tt, h6 code {
-      font-size: inherit;
-    }
-
-    h1 {
-      font-size: 28px;
-      color: black;
-    }
-
-    h2 {
-      font-size: 24px;
-      border-bottom: 1px solid #cccccc;
-      color: black;
-    }
-
-    h3 {
-      font-size: 18px;
-    }
-
-    h4 {
-      font-size: 16px;
-    }
-
-    h5 {
-      font-size: 14px;
-    }
-
-    h6 {
-      color: #777777;
-      font-size: 14px;
-    }
-
-    p, blockquote, ul, ol, dl, li, table, pre {
-      margin: 3px 0;
-    }
-
-    hr {
-      background: transparent url("http://tinyurl.com/bq5kskr") repeat-x 0 0;
-      border: 0 none;
-      color: #cccccc;
-      height: 4px;
-      padding: 0;
-    }
-
-    body > h2:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h1:first-child + h2 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-      margin-top: 0;
-    }
-
-    li p.first {
-      display: inline-block;
-    }
-
-    ul, ol {
-      padding-left: 30px;
-    }
-
-    ul :first-child, ol :first-child {
-      margin-top: 0;
-    }
-
-    ul :last-child, ol :last-child {
-      margin-bottom: 0;
-    }
-
-    dl {
-      padding: 0;
-    }
-
-    dl dt {
-      font-size: 14px;
-      font-weight: bold;
-      font-style: italic;
-      padding: 0;
-      margin: 15px 0 5px;
-    }
-
-    dl dt:first-child {
-      padding: 0;
-    }
-
-    dl dt > :first-child {
-      margin-top: 0;
-    }
-
-    dl dt > :last-child {
-      margin-bottom: 0;
-    }
-
-    dl dd {
-      margin: 0 0 15px;
-      padding: 0 15px;
-    }
-
-    dl dd > :first-child {
-      margin-top: 0;
-    }
-
-    dl dd > :last-child {
-      margin-bottom: 0;
-    }
-
-    blockquote {
-      border-left: 4px solid #dddddd;
-      padding: 0 15px;
-      color: #777777;
-    }
-
-    blockquote > :first-child {
-      margin-top: 0;
-    }
-
-    blockquote > :last-child {
-      margin-bottom: 0;
-    }
-
-    table {
-      padding: 0;
-    }
-    table tr {
-      border-top: 1px solid #cccccc;
-      background-color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    table tr:nth-child(2n) {
-      background-color: #f8f8f8;
-    }
-
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr td {
-      border: 1px solid #cccccc;
-      text-align: left;
-      margin: 0;
-      padding: 6px 13px;
-    }
-
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0;
-    }
-
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    span.frame {
-      display: block;
-      overflow: hidden;
-    }
-
-    span.frame > span {
-      border: 1px solid #dddddd;
-      display: block;
-      float: left;
-      overflow: hidden;
-      margin: 13px 0 0;
-      padding: 7px;
-      width: auto;
-    }
-
-    span.frame span img {
-      display: block;
-      float: left;
-    }
-
-    span.frame span span {
-      clear: both;
-      color: #333333;
-      display: block;
-      padding: 5px 0 0;
-    }
-
-    span.align-center {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-center > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: center;
-    }
-
-    span.align-center span img {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    span.align-right {
-      display: block;
-      overflow: hidden;
-      clear: both;
-    }
-
-    span.align-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px 0 0;
-      text-align: right;
-    }
-
-    span.align-right span img {
-      margin: 0;
-      text-align: right;
-    }
-
-    span.float-left {
-      display: block;
-      margin-right: 13px;
-      overflow: hidden;
-      float: left;
-    }
-
-    span.float-left span {
-      margin: 13px 0 0;
-    }
-
-    span.float-right {
-      display: block;
-      margin-left: 13px;
-      overflow: hidden;
-      float: right;
-    }
-
-    span.float-right > span {
-      display: block;
-      overflow: hidden;
-      margin: 13px auto 0;
-      text-align: right;
-    }
-
-    code, tt {
-      font-family: "Lucida Console", "Courier New", courier;
-      font-size: 12px;
-      margin: 0 2px;
-      padding: 3px 5px;
-      white-space: nowrap;
-      border: 1px solid #eaeaea;
-      background-color: #f8f8f8;
-      border-radius: 3px;
-    }
-
-    pre code {
-      margin: 0;
-      padding: 0;
-      white-space: pre;
-      border: none;
-      background: transparent;
-    }
-
-    .highlight pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre {
-      background-color: #f8f8f8;
-      border: 1px solid #cccccc;
-      font-size: 13px;
-      line-height: 19px;
-      overflow: auto;
-      padding: 6px 10px;
-      border-radius: 3px;
-    }
-
-    pre code, pre tt {
-      background-color: transparent;
-      border: none;
-    }
-
-    span.line-numbers {
-      margin-right: 10px;
-    }
-
-    img.logo {
-      display: block;
-      margin: 10px auto;
-    }
-
-    h1.logo {
-      text-align: center;
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
-  <div id="containter">
-    
-    <h1 id="action-mailer-basics">Action Mailer Basics</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <!--  <link href="stylesheets/d.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/fixes.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/main.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/reset.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/print.css" rel="stylesheet" type="text/css" />-->
+    <!--  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="stylesheets/style.css" rel="stylesheet" type="text/css" />-->
+  </head>
+  <body>
+    <div id="containter">    
+      <h1 id="action-mailer-basics">Action Mailer Basics</h1>
 
 <p>This guide provides you with all you need to get started in sending and
 receiving emails from and to your application, and many internals of Action
@@ -433,10 +30,7 @@ Mailer. It also covers how to test your mailers.</p>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Action Mailer allows you to send emails from your application using mailer classes
-and views. Mailers work very similarly to controllers. They inherit from
-<code>ActionMailer::Base</code> and live in <code>app/mailers</code>, and they have associated views
-that appear in <code>app/views</code>.</p>
+<p>Action Mailer allows you to send emails from your application using mailer classes and views. Mailers work very similarly to controllers. They inherit from <code>ActionMailer::Base</code> and live in <code>app/mailers</code>, and they have associated views that appear in <code>app/views</code>.</p>
 
 <h2 id="sending-emails">Sending Emails</h2>
 
@@ -448,30 +42,12 @@ views.</p>
 <h4 id="create-the-mailer">Create the Mailer</h4>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails generate mailer UserMailer
+  <div class="code"><pre>$ rails generate mailer UserMailer
 create  app/mailers/user_mailer.rb
-create  app/mailers/application_mailer.rb
 invoke  erb
 create    app/views/user_mailer
-create    app/views/layouts/mailer.text.erb
-create    app/views/layouts/mailer.html.erb
 invoke  test_unit
 create    test/mailers/user_mailer_test.rb
-create    test/mailers/previews/user_mailer_preview.rb
-</pre></div>
-</div>
-</div>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#777"># app/mailers/application_mailer.rb</span>
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ApplicationMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
-  default <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">from@example.com</span><span style="color:#710">&quot;</span></span>
-  layout <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mailer</span><span style="color:#710">'</span></span>
-<span style="color:#080;font-weight:bold">end</span>
-
-<span style="color:#777"># app/mailers/user_mailer.rb</span>
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
-<span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
 </div>
@@ -500,7 +76,8 @@ delivered via email.</p>
 <p><code>app/mailers/user_mailer.rb</code> contains an empty mailer:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
+  default <span style="color:#606">from</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">from@example.com</span><span style="color:#710">'</span></span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -510,7 +87,7 @@ delivered via email.</p>
 registered email address:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   default <span style="color:#606">from</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">notifications@example.com</span><span style="color:#710">'</span></span>
 
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">welcome_email</span>(user)
@@ -528,11 +105,8 @@ a full list of all available options, please have a look further down at the
 Complete List of Action Mailer user-settable attributes section.</p>
 
 <ul>
-  <li><code>default Hash</code> - This is a hash of default values for any email you send from
-this mailer. In this case we are setting the <code>:from</code> header to a value for all
-messages in this class. This can be overridden on a per-email basis.</li>
-  <li><code>mail</code> - The actual email message, we are passing the <code>:to</code> and <code>:subject</code>
-headers in.</li>
+  <li><code>default Hash</code> - This is a hash of default values for any email you send from this mailer. In this case we are setting the <code>:from</code> header to a value for all messages in this class. This can be overridden on a per-email basis.</li>
+  <li><code>mail</code> - The actual email message, we are passing the <code>:to</code> and <code>:subject</code> headers in.</li>
 </ul>
 
 <p>Just like controllers, any instance variables we define in the method become
@@ -585,7 +159,7 @@ Thanks for joining and have a great day!
 
 <p>Mailers are really just another way to render a view. Instead of rendering a
 view and sending out the HTTP protocol, they are just sending it out through the
-email protocols instead. Due to this, it makes sense to just have your
+Email protocols instead. Due to this, it makes sense to just have your
 controller tell the Mailer to send an email when a user is successfully created.</p>
 
 <p>Setting this up is painfully simple.</p>
@@ -593,19 +167,16 @@ controller tell the Mailer to send an email when a user is successfully created.
 <p>First, let’s create a simple <code>User</code> scaffold:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>$ bin/rails generate scaffold user name email login
-$ bin/rake db:migrate
+  <div class="code"><pre>$ rails generate scaffold user name email login
+$ rake db:migrate
 </pre></div>
 </div>
 </div>
 
 <p>Now that we have a user model to play with, we will just edit the
-<code>app/controllers/users_controller.rb</code> make it instruct the <code>UserMailer</code> to deliver
+<code>app/controllers/users_controller.rb</code> make it instruct the UserMailer to deliver
 an email to the newly created user by editing the create action and inserting a
-call to <code>UserMailer.welcome_email</code> right after the user is successfully saved.</p>
-
-<p>Action Mailer is nicely integrated with Active Job so you can send emails outside
-of the request-response cycle, so the user doesn’t have to wait on it:</p>
+call to <code>UserMailer.welcome_email</code> right after the user is successfully saved:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UsersController</span> &lt; <span style="color:#036;font-weight:bold">ApplicationController</span>
@@ -616,8 +187,8 @@ of the request-response cycle, so the user doesn’t have to wait on it:</p>
 
     respond_to <span style="color:#080;font-weight:bold">do</span> |format|
       <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@user</span>.save
-        <span style="color:#777"># Tell the UserMailer to send a welcome email after save</span>
-        <span style="color:#036;font-weight:bold">UserMailer</span>.welcome_email(<span style="color:#33B">@user</span>).deliver_later
+        <span style="color:#777"># Tell the UserMailer to send a welcome Email after save</span>
+        <span style="color:#036;font-weight:bold">UserMailer</span>.welcome_email(<span style="color:#33B">@user</span>).deliver
 
         format.html { redirect_to(<span style="color:#33B">@user</span>, <span style="color:#606">notice</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">User was successfully created.</span><span style="color:#710">'</span></span>) }
         format.json { render <span style="color:#606">json</span>: <span style="color:#33B">@user</span>, <span style="color:#606">status</span>: <span style="color:#A60">:created</span>, <span style="color:#606">location</span>: <span style="color:#33B">@user</span> }
@@ -632,31 +203,8 @@ of the request-response cycle, so the user doesn’t have to wait on it:</p>
 </div>
 </div>
 
-<p>NOTE: Active Job’s default behavior is to execute jobs ‘:inline’. So, you can use
-<code>deliver_later</code> now to send emails, and when you later decide to start sending
-them from a background job, you’ll only need to set up Active Job to use a queueing
-backend (Sidekiq, Resque, etc).</p>
-
-<p>If you want to send emails right away (from a cronjob for example) just call
-<code>deliver_now</code>:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">SendWeeklySummary</span>
-  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">run</span>
-    <span style="color:#036;font-weight:bold">User</span>.find_each <span style="color:#080;font-weight:bold">do</span> |user|
-      <span style="color:#036;font-weight:bold">UserMailer</span>.weekly_summary(user).deliver_now
-    <span style="color:#080;font-weight:bold">end</span>
-  <span style="color:#080;font-weight:bold">end</span>
-<span style="color:#080;font-weight:bold">end</span>
-</pre></div>
-</div>
-</div>
-
-<p>The method <code>welcome_email</code> returns a <code>ActionMailer::MessageDelivery</code> object which
-can then just be told <code>deliver_now</code> or <code>deliver_later</code> to send itself out. The
-<code>ActionMailer::MessageDelivery</code> object is just a wrapper around a <code>Mail::Message</code>. If
-you want to inspect, alter or do anything else with the <code>Mail::Message</code> object you can
-access it with the <code>message</code> method on the <code>ActionMailer::MessageDelivery</code> object.</p>
+<p>The method <code>welcome_email</code> returns a <code>Mail::Message</code> object which can then just
+be told <code>deliver</code> to send itself out.</p>
 
 <h3 id="auto-encoding-header-values">Auto encoding header values</h3>
 
@@ -696,11 +244,6 @@ mime_type, set the encoding and create the attachment.</p>
     <p>~~~ruby
   attachments[‘filename.jpg’] = File.read(‘/path/to/filename.jpg’)
   ~~~</p>
-
-    <p>When the <code>mail</code> method will be triggered, it will send a multipart email with
-an attachment, properly nested with the top level being <code>multipart/mixed</code> and
-the first part being a <code>multipart/alternative</code> containing the plain text and
-HTML email messages.</p>
   </li>
 </ul>
 
@@ -715,11 +258,9 @@ will use the settings you pass in.</p>
 
     <p>~~~ruby
   encoded_content = SpecialEncode(File.read(‘/path/to/filename.jpg’))
-  attachments[‘filename.jpg’] = {
-    mime_type: ‘application/x-gzip’,
-    encoding: ‘SpecialEncoding’,
-    content: encoded_content
-  }
+  attachments[‘filename.jpg’] = {mime_type: ‘application/x-gzip’,
+                                 encoding: ‘SpecialEncoding’,
+                                 content: encoded_content }
   ~~~</p>
   </li>
 </ul>
@@ -759,7 +300,8 @@ after the attachment URL as you could for any other image:</p>
     <p>~~~html+erb</p>
     <p>Hello there, this is our image</p>
 
-    <p>&lt;%= image_tag attachments[‘image.jpg’].url, alt: ‘My Photo’, class: ‘photos’ %&gt;
+    <p>&lt;%= image_tag attachments[‘image.jpg’].url, alt: ‘My Photo’,
+                                              class: ‘photos’ %&gt;
   ~~~</p>
   </li>
 </ul>
@@ -797,7 +339,7 @@ email address in the format <code>"Full Name &lt;email&gt;"</code>.</p>
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">welcome_email</span>(user)
   <span style="color:#33B">@user</span> = user
-  email_with_name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%(</span><span style="color:#D20">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@user</span>.name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">&quot; &lt;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@user</span>.email<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">&gt;</span><span style="color:#710">)</span></span>
+  email_with_name = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@user</span>.name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> &lt;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@user</span>.email<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">&gt;</span><span style="color:#710">&quot;</span></span>
   mail(<span style="color:#606">to</span>: email_with_name, <span style="color:#606">subject</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Welcome to My Awesome Site</span><span style="color:#710">'</span></span>)
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
@@ -815,7 +357,7 @@ for the HTML version and <code>welcome_email.text.erb</code> for the plain text 
 <p>To change the default mailer view for your action you do something like:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   default <span style="color:#606">from</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">notifications@example.com</span><span style="color:#710">'</span></span>
 
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">welcome_email</span>(user)
@@ -839,7 +381,7 @@ will be searched in order.</p>
 templates or even render inline or text without using a template file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   default <span style="color:#606">from</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">notifications@example.com</span><span style="color:#710">'</span></span>
 
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">welcome_email</span>(user)
@@ -871,7 +413,7 @@ layout.</p>
 <p>In order to use a different file, call <code>layout</code> in your mailer:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   layout <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">awesome</span><span style="color:#710">'</span></span> <span style="color:#777"># use awesome.(html|text).erb as the layout</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
@@ -882,10 +424,10 @@ layout.</p>
 layout.</p>
 
 <p>You can also pass in a <code>layout: 'layout_name'</code> option to the render call inside
-the format block to specify different layouts for different formats:</p>
+the format block to specify different layouts for different actions:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">welcome_email</span>(user)
     mail(<span style="color:#606">to</span>: user.email) <span style="color:#080;font-weight:bold">do</span> |format|
       format.html { render <span style="color:#606">layout</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">my_layout</span><span style="color:#710">'</span></span> }
@@ -913,20 +455,6 @@ globally in <code>config/application.rb</code>:</p>
 </pre></div>
 </div>
 </div>
-
-<p>Because of this behavior you cannot use any of the <code>*_path</code> helpers inside of
-an email. Instead you will need to use the associated <code>*_url</code> helper. For example
-instead of using</p>
-
-<pre><code>&lt;%= link_to 'welcome', welcome_path %&gt;
-</code></pre>
-
-<p>You will need to use:</p>
-
-<pre><code>&lt;%= link_to 'welcome', welcome_url %&gt;
-</code></pre>
-
-<p>By using the full URL, your links will now work in your emails.</p>
 
 <h4 id="generating-urls-with-urlfor">generating URLs with <code>url_for</code></h4>
 
@@ -983,6 +511,28 @@ with the HTML and text versions setup as different parts.</p>
 <p>The order of the parts getting inserted is determined by the <code>:parts_order</code>
 inside of the <code>ActionMailer::Base.default</code> method.</p>
 
+<h3 id="sending-emails-with-attachments">Sending Emails with Attachments</h3>
+
+<p>Attachments can be added by using the <code>attachments</code> method:</p>
+
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
+  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">welcome_email</span>(user)
+    <span style="color:#33B">@user</span> = user
+    <span style="color:#33B">@url</span>  = user_url(<span style="color:#33B">@user</span>)
+    attachments[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">terms.pdf</span><span style="color:#710">'</span></span>] = <span style="color:#036;font-weight:bold">File</span>.read(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/path/terms.pdf</span><span style="color:#710">'</span></span>)
+    mail(<span style="color:#606">to</span>: <span style="color:#33B">@user</span>.email,
+         <span style="color:#606">subject</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Please see the Terms and Conditions attached</span><span style="color:#710">'</span></span>)
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span>
+</pre></div>
+</div>
+</div>
+
+<p>The above will send a multipart email with an attachment, properly nested with
+the top level being <code>multipart/mixed</code> and the first part being a
+<code>multipart/alternative</code> containing the plain text and HTML email messages.</p>
+
 <h3 id="sending-emails-with-dynamic-delivery-options">Sending Emails with Dynamic Delivery Options</h3>
 
 <p>If you wish to override the default delivery options (e.g. SMTP credentials)
@@ -990,7 +540,7 @@ while delivering emails, you can do this using <code>delivery_method_options</co
 mailer action.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">welcome_email</span>(user, company)
     <span style="color:#33B">@user</span> = user
     <span style="color:#33B">@url</span>  = user_url(<span style="color:#33B">@user</span>)
@@ -1010,11 +560,11 @@ mailer action.</p>
 
 <p>There may be cases in which you want to skip the template rendering step and
 supply the email body as a string. You can achieve this using the <code>:body</code>
-option. In such cases don’t forget to add the <code>:content_type</code> option. Rails
+option.  In such cases don’t forget to add the <code>:content_type</code> option. Rails
 will default to <code>text/plain</code> otherwise.</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">welcome_email</span>(user, email_body)
     mail(<span style="color:#606">to</span>: user.email,
          <span style="color:#606">body</span>: email_body,
@@ -1050,9 +600,9 @@ mailer, and pass the email object to the mailer <code>receive</code> instance
 method. Here’s an example:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">receive</span>(email)
-    page = <span style="color:#036;font-weight:bold">Page</span>.find_by(<span style="color:#606">address</span>: email.to.first)
+    page = <span style="color:#036;font-weight:bold">Page</span>.find_by_address(email.to.first)
     page.emails.create(
       <span style="color:#606">subject</span>: email.subject,
       <span style="color:#606">body</span>: email.body
@@ -1093,7 +643,7 @@ using instance variables set in your mailer action.</p>
 </ul>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ApplicationMailer</span>
+  <div class="code"><pre><span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">UserMailer</span> &lt; <span style="color:#036;font-weight:bold">ActionMailer</span>::<span style="color:#036;font-weight:bold">Base</span>
   after_action <span style="color:#A60">:set_delivery_options</span>,
                <span style="color:#A60">:prevent_delivery_to_guests</span>,
                <span style="color:#A60">:set_business_headers</span>
@@ -1111,25 +661,25 @@ using instance variables set in your mailer action.</p>
 
   private
 
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">set_delivery_options</span>
-      <span style="color:#777"># You have access to the mail instance,</span>
-      <span style="color:#777"># @business and @user instance variables here</span>
-      <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@business</span> &amp;&amp; <span style="color:#33B">@business</span>.has_smtp_settings?
-        mail.delivery_method.settings.merge!(<span style="color:#33B">@business</span>.smtp_settings)
-      <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">set_delivery_options</span>
+    <span style="color:#777"># You have access to the mail instance,</span>
+    <span style="color:#777"># @business and @user instance variables here</span>
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@business</span> &amp;&amp; <span style="color:#33B">@business</span>.has_smtp_settings?
+      mail.delivery_method.settings.merge!(<span style="color:#33B">@business</span>.smtp_settings)
     <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
 
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">prevent_delivery_to_guests</span>
-      <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@user</span> &amp;&amp; <span style="color:#33B">@user</span>.guest?
-        mail.perform_deliveries = <span style="color:#069">false</span>
-      <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">prevent_delivery_to_guests</span>
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@user</span> &amp;&amp; <span style="color:#33B">@user</span>.guest?
+      mail.perform_deliveries = <span style="color:#069">false</span>
     <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
 
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">set_business_headers</span>
-      <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@business</span>
-        headers[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">X-SMTPAPI-CATEGORY</span><span style="color:#710">&quot;</span></span>] = <span style="color:#33B">@business</span>.code
-      <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">set_business_headers</span>
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#33B">@business</span>
+      headers[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">X-SMTPAPI-CATEGORY</span><span style="color:#710">&quot;</span></span>] = <span style="color:#33B">@business</span>.code
     <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
 <span style="color:#080;font-weight:bold">end</span>
 </pre></div>
 </div>
@@ -1163,7 +713,7 @@ files (environment.rb, production.rb, etc…)</p>
     </tr>
     <tr>
       <td><code>smtp_settings</code></td>
-      <td>Allows detailed configuration for <code>:smtp</code> delivery method:&lt;ul&gt;&lt;li&gt;<code>:address</code> - Allows you to use a remote mail server. Just change it from its default <code>"localhost"</code> setting.&lt;/li&gt;&lt;li&gt;<code>:port</code> - On the off chance that your mail server doesn’t run on port 25, you can change it.&lt;/li&gt;&lt;li&gt;<code>:domain</code> - If you need to specify a HELO domain, you can do it here.&lt;/li&gt;&lt;li&gt;<code>:user_name</code> - If your mail server requires authentication, set the username in this setting.&lt;/li&gt;&lt;li&gt;<code>:password</code> - If your mail server requires authentication, set the password in this setting.&lt;/li&gt;&lt;li&gt;<code>:authentication</code> - If your mail server requires authentication, you need to specify the authentication type here. This is a symbol and one of <code>:plain</code>, <code>:login</code>, <code>:cram_md5</code>.&lt;/li&gt;&lt;li&gt;<code>:enable_starttls_auto</code> - Set this to <code>false</code> if there is a problem with your server certificate that you cannot resolve.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Allows detailed configuration for <code>:smtp</code> delivery method:&lt;ul&gt;&lt;li&gt;<code>:address</code> - Allows you to use a remote mail server. Just change it from its default “localhost” setting.&lt;/li&gt;&lt;li&gt;<code>:port</code>  - On the off chance that your mail server doesn’t run on port 25, you can change it.&lt;/li&gt;&lt;li&gt;<code>:domain</code> - If you need to specify a HELO domain, you can do it here.&lt;/li&gt;&lt;li&gt;<code>:user_name</code> - If your mail server requires authentication, set the username in this setting.&lt;/li&gt;&lt;li&gt;<code>:password</code> - If your mail server requires authentication, set the password in this setting.&lt;/li&gt;&lt;li&gt;<code>:authentication</code> - If your mail server requires authentication, you need to specify the authentication type here. This is a symbol and one of <code>:plain</code>, <code>:login</code>, <code>:cram_md5</code>.&lt;/li&gt;&lt;li&gt;<code>:enable_starttls_auto</code> - Set this to <code>false</code> if there is a problem with your server certificate that you cannot resolve.&lt;/li&gt;&lt;/ul&gt;</td>
     </tr>
     <tr>
       <td><code>sendmail_settings</code></td>
@@ -1175,7 +725,7 @@ files (environment.rb, production.rb, etc…)</p>
     </tr>
     <tr>
       <td><code>delivery_method</code></td>
-      <td>Defines a delivery method. Possible values are:&lt;ul&gt;&lt;li&gt;<code>:smtp</code> (default), can be configured by using <code>config.action_mailer.smtp_settings</code>.&lt;/li&gt;&lt;li&gt;<code>:sendmail</code>, can be configured by using <code>config.action_mailer.sendmail_settings</code>.&lt;/li&gt;&lt;li&gt;<code>:file</code>: save emails to files; can be configured by using <code>config.action_mailer.file_settings</code>.&lt;/li&gt;&lt;li&gt;<code>:test</code>: save emails to <code>ActionMailer::Base.deliveries</code> array.&lt;/li&gt;&lt;/ul&gt;See <a href="http://api.rubyonrails.org/classes/ActionMailer/Base.html">API docs</a> for more info.</td>
+      <td>Defines a delivery method. Possible values are <code>:smtp</code> (default), <code>:sendmail</code>, <code>:file</code> and <code>:test</code>.</td>
     </tr>
     <tr>
       <td><code>perform_deliveries</code></td>
@@ -1193,7 +743,7 @@ files (environment.rb, production.rb, etc…)</p>
 </table>
 
 <p>For a complete writeup of possible configurations see the
-<a href="configuring.html#configuring-action-mailer">Configuring Action Mailer</a> in
+<a href="configuring.html#configuring-action-mailer">Action Mailer section</a> in
 our Configuring Rails Applications guide.</p>
 
 <h3 id="example-action-mailer-configuration">Example Action Mailer Configuration</h3>
@@ -1210,15 +760,15 @@ our Configuring Rails Applications guide.</p>
 <span style="color:#777"># }</span>
 config.action_mailer.perform_deliveries = <span style="color:#069">true</span>
 config.action_mailer.raise_delivery_errors = <span style="color:#069">true</span>
-config.action_mailer.default_options = {<span style="color:#606">from</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">no-reply@example.com</span><span style="color:#710">'</span></span>}
+config.action_mailer.default_options = {<span style="color:#606">from</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">no-replay@example.com</span><span style="color:#710">'</span></span>}
 </pre></div>
 </div>
 </div>
 
 <h3 id="action-mailer-configuration-for-gmail">Action Mailer Configuration for Gmail</h3>
 
-<p>As Action Mailer now uses the <a href="https://github.com/mikel/mail">Mail gem</a>, this
-becomes as simple as adding to your <code>config/environments/$RAILS_ENV.rb</code> file:</p>
+<p>As Action Mailer now uses the Mail gem, this becomes as simple as adding to your
+<code>config/environments/$RAILS_ENV.rb</code> file:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>config.action_mailer.delivery_method = <span style="color:#A60">:smtp</span>
@@ -1240,7 +790,6 @@ config.action_mailer.smtp_settings = {
 <a href="testing.html#testing-your-mailers">testing guide</a>.</p>
 
 <h2 id="intercepting-emails">Intercepting Emails</h2>
-
 <p>There are situations where you need to edit an email before it’s
 delivered. Fortunately Action Mailer provides hooks to intercept every
 email. You can register an interceptor to make modifications to mail messages
@@ -1268,9 +817,9 @@ Mailer framework. You can do this in an initializer file
 
 <p>NOTE: The example above uses a custom environment called “staging” for a
 production like server but for testing purposes. You can read
-<a href="configuring.html#creating-rails-environments">Creating Rails environments</a>
+<a href="./configuring.html#creating-rails-environments">Creating Rails environments</a>
 for more information about custom Rails environments.</p>
 
-  </div>
-</body>
+    </div>
+  </body>
 </html>
