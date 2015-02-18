@@ -3,6 +3,8 @@ require 'rack/lobster'
 require 'rack/builder'
 require 'rack/commonlogger'
 require 'rack/showexceptions'
+require 'rack-proxy'
+require 'rbconfig'
 
 app = Rack::Builder.new do
   use Rack::Reloader
@@ -30,7 +32,7 @@ app = Rack::Builder.new do
   end
 
   map '/env' do  
-    run lambda {|env| [200,{}, ["<h1>#{env.each {|k, v| "#{k}  #{v}</br>"}}</h1> "]]}
+    run lambda {|env| [200,{}, ["<h3>#{env.each {|k, v| "#{k}  #{v}</br>"}}</h3> "]]}
   end
 
   class Heartbeat
@@ -106,6 +108,28 @@ app = Rack::Builder.new do
   map '/lost' do
     run AAsite
   end
+
+  map '/config' do
+    run lambda {|env| [200,{}, ["<h3>#{RbConfig::CONFIG.each {|kvp| p kvp}}</h3> "]]}
+  end
+
+  class Foo < Rack::Proxy
+
+  def rewrite_env(env)
+    env["HTTP_HOST"] = "example.com"
+
+    env
+  end
+
+  def rewrite_response(triplet)
+    status, headers, body = triplet
+
+    headers["X-Foo"] = "Bar"
+
+    triplet
+  end
+
+end
 
 end.to_app
 
