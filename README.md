@@ -1,4 +1,4 @@
 Rack-projects
 =============
 
-Just Rack. No Sinatra or Rails
+Just Rack with a little Sinatra but no Rails.
