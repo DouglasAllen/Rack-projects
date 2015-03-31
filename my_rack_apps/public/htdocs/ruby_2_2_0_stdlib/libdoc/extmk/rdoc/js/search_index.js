@@ -1,1 +1,0 @@
-var search_data = {"index":{"searchIndex":["dir","file","fileutils","object","rbconfig"],"longSearchIndex":["dir","file","fileutils","object","rbconfig"],"info":[["Dir","","Dir.html","",""],["File","","File.html","",""],["FileUtils","","FileUtils.html","",""],["Object","","Object.html","",""],["RbConfig","","RbConfig.html","",""]]}}
